@@ -1,6 +1,6 @@
-# IntelliJ
+# intelliJ
 .idea
 *.iml
 
-# Misc
+# misc
 .DS_Store
