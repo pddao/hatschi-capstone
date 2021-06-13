@@ -1,10 +1,15 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import DictionaryOverviewPage from "./pages/DictionaryOverviewPage";
 
-function App() {
+export default function App() {
+
   return (
-    <div className="App">
-      Hallo
-    </div>
+    <Router>
+        <Switch>
+            <Route path={"/"}>
+                <DictionaryOverviewPage/>
+            </Route>
+        </Switch>
+    </Router>
   );
 }
-
-export default App;
