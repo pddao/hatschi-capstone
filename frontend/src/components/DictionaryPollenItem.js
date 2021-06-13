@@ -23,6 +23,7 @@ const Wrapper = styled.div`
   //grid-template-rows: auto 1fr auto;
  
   img {
+    margin: 0;
     width: 100%;
   }
 `
