@@ -1,10 +1,11 @@
 import styled from 'styled-components/macro'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { BackButton } from "./BackButton";
 
 export default function Header(){
     return(
         <HeaderStyle>
-            <Link to="/">Zurück-Button</Link>
+            <BackButton/>
             <h2>Flexibler Seitentitel</h2>
             <Link to="/">Link zum Profil</Link>
         </HeaderStyle>
