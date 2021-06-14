@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import Header from "./Header";
+import {Link} from "react-router-dom";
 
 export default function DictionaryPollenItem(){
     return(
@@ -11,6 +12,7 @@ export default function DictionaryPollenItem(){
                 <p> Blütezeit</p>
                 <p>Beschreibung</p>
                 <p>Footer mit Navigtation</p>
+                <Link to="/">Home</Link>
             </section>
         </Wrapper>
     )

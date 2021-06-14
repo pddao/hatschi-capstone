@@ -1,11 +1,12 @@
 import styled from 'styled-components/macro'
+import {Link} from "react-router-dom";
 
 export default function Header(){
     return(
         <HeaderStyle>
-            <p>Zurück-Button</p>
+            <Link to="/">Zurück-Button</Link>
             <h2>Flexibler Seitentitel</h2>
-            <p>Link zum Profil</p>
+            <Link to="/">Link zum Profil</Link>
         </HeaderStyle>
     )
 }

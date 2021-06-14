@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro'
-import DictionaryPollenItem from "../components/DictionaryPollenItem";
 import Header from "../components/Header";
 import {Link} from "react-router-dom";
 
