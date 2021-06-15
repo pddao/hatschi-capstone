@@ -9,7 +9,7 @@ export default function DictionaryOverviewPage(){
             <Header/>
             <div>
                 <h1>Dictionary of the most common pollen</h1>
-                <Link to="/item">Ambrosia</Link>
+                <Link to="/dictionary/item">Ambrosia</Link>
             </div>
         </Wrapper>
     )

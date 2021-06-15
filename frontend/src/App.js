@@ -11,10 +11,10 @@ export default function App() {
             <Route path={"/"} exact>
                 <HomePage/>
             </Route>
-            <Route path={"/dictionary"}>
+            <Route path={"/dictionary"} exact>
                 <DictionaryOverviewPage/>
             </Route>
-            <Route path={"/item"}>
+            <Route path={"/dictionary/item"}>
                 <DictionaryPollenItem/>
             </Route>
         </Switch>
