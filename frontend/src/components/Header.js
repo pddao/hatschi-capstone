@@ -6,7 +6,7 @@ export default function Header(){
     return(
         <HeaderStyle>
             <BackButton/>
-            <h2>Flexibler Seitentitel</h2>
+            <h2>Hatschi</h2>
             <Link to="/">Link zum Profil</Link>
         </HeaderStyle>
     )

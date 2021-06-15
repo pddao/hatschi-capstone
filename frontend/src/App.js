@@ -8,15 +8,9 @@ export default function App() {
   return (
     <Router>
         <Switch>
-            <Route path={"/"} exact>
-                <HomePage/>
-            </Route>
-            <Route path={"/dictionary"} exact>
-                <DictionaryOverviewPage/>
-            </Route>
-            <Route path={"/dictionary/item"}>
-                <DictionaryPollenItem/>
-            </Route>
+            <Route path={"/"} exact component={HomePage}></Route>
+            <Route exact path={"/dictionary"} component={DictionaryOverviewPage}></Route>
+            <Route path={"/dictionary/item"} component={DictionaryPollenItem}></Route>
         </Switch>
     </Router>
   );
