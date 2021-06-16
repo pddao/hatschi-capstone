@@ -1,10 +1,17 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import HomePage from "./pages/HomePage";
+import DictionaryOverviewPage from "./pages/DictionaryOverviewPage";
+import DictionaryPollenItem from "./components/DictionaryPollenItem";
 
-function App() {
+export default function App() {
+
   return (
-    <div className="App">
-      Hallo
-    </div>
+    <Router>
+        <Switch>
+            <Route path={"/"} exact component={HomePage}></Route>
+            <Route exact path={"/dictionary"} component={DictionaryOverviewPage}></Route>
+            <Route path={"/dictionary/item"} component={DictionaryPollenItem}></Route>
+        </Switch>
+    </Router>
   );
 }
-
-export default App;
