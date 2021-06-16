@@ -1,17 +1,18 @@
 import {useEffect, useState} from "react";
-import loadAllPollenItems from "../components/service/apiservice";
+import * as apiservice from "../service/apiservice"
 
-export default function usePollenItems(){
+export default function usePollenItems() {
     const [pollenItems, setPollenItems] = useState([]);
 
     useEffect(() => {
-        loadAllPollenItems()
+        loadData()
     }, [])
 
-    const loadAllPollenItems = () => {
+    const loadData = () => {
         apiservice.loadAllPollenItems().then((data) => setPollenItems(data))
     }
+
     return (
-        {loadAllPollenItems}
+        {pollenItems}
     )
 }

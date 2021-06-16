@@ -16,7 +16,7 @@ public class PollenItemRepository {
             new PollenItem("Birke", "birke schießmichtot", "Mai", "Juni"))
     );
 
-    public List<PollenItem> listAllPollenItems() {
+    public List<PollenItem> findAll() {
         return Collections.unmodifiableList(listOfAllPollenItem);
     }
 }

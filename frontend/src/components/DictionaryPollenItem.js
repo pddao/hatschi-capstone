@@ -2,13 +2,13 @@ import styled from 'styled-components/macro'
 import Header from "./Header";
 import {Link} from "react-router-dom";
 
-export default function DictionaryPollenItem(){
+export default function DictionaryPollenItem({pollenItem}){
     return(
         <Wrapper>
             <Header/>
             <img src="https://www.landwirtschaftskammer.de/fotos/zoom/a/ambrosiaartemisiifolia.jpg" alt="Ambrosia"/>
             <section>
-                <p>Lateinischer Name</p>
+                <p> {pollenItem.latinName} </p>
                 <p> Blütezeit</p>
                 <p>Beschreibung</p>
                 <p>Footer mit Navigtation</p>

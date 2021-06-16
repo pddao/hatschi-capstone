@@ -18,7 +18,7 @@ public class PollenItemService {
     }
 
     public List<PollenItem> listAllPollenItems(){
-        return pollenItemRepository.listAllPollenItems();
+        return pollenItemRepository.findAll();
     }
 
 
