@@ -9,7 +9,7 @@ export default function DictionaryPollenItem( { pollenItem } ){
             <section>
                 <p> Lateinischer Name: {pollenItem.latinName} </p>
                 <p> Blütezeit von: {pollenItem.beginSeason} bis {pollenItem.endSeason}</p>
-                <p> Vorkommen: {pollenItem.description} </p>
+                <p> Vorkommen: {pollenItem.distribution} </p>
             </section>
         </Wrapper>
     )
