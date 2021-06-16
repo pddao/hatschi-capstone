@@ -9,7 +9,7 @@ export default function usePollenItems() {
     }, [])
 
     const loadData = () => {
-        apiservice.loadAllPollenItems().then((data) => setPollenItems(data))
+        apiservice.loadAllPollenItems().then((data) => setPollenItems(data)).catch((err) => console.log(err.message));
     }
 
     return (

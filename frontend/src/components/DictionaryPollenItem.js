@@ -1,18 +1,15 @@
 import styled from 'styled-components/macro'
-import Header from "./Header";
-import {Link} from "react-router-dom";
 
-export default function DictionaryPollenItem({pollenItem}){
+export default function DictionaryPollenItem( { pollenItem } ){
+
     return(
         <Wrapper>
-            <Header/>
+            <h2>{pollenItem.englishName}</h2>
             <img src="https://www.landwirtschaftskammer.de/fotos/zoom/a/ambrosiaartemisiifolia.jpg" alt="Ambrosia"/>
             <section>
-                <p> {pollenItem.latinName} </p>
-                <p> Blütezeit</p>
-                <p>Beschreibung</p>
-                <p>Footer mit Navigtation</p>
-                <Link to="/">Home</Link>
+                <p> Lateinischer Name: {pollenItem.latinName} </p>
+                <p> Blütezeit von: {pollenItem.beginSeason} bis {pollenItem.endSeason}</p>
+                <p> Vorkommen: {pollenItem.description} </p>
             </section>
         </Wrapper>
     )
@@ -22,10 +19,9 @@ const Wrapper = styled.div`
   margin: 0;
   width: 100%;
   display: grid;
-  //grid-template-rows: auto 1fr auto;
  
   img {
     margin: 0;
-    width: 100%;
+    width: 50%;
   }
 `

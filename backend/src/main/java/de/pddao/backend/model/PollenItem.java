@@ -1,15 +1,18 @@
 package de.pddao.backend.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class PollenItem {
-    private String name;
+    private String englishName;
     private String latinName;
     private String beginSeason;
     private String endSeason;
+    private String distribution;
 }

@@ -12,11 +12,10 @@ export default function DictionaryOverviewPage(){
     return(
         <Wrapper>
             <Header/>
+            <h1>Dictionary of the most common pollen</h1>
             <div>
-                <h1>Dictionary of the most common pollen</h1>
-                <Link to="/dictionary/item">Ambrosia</Link>
                 {pollenItems.map((pollenItem) => (
-                    <DictionaryPollenItem key={pollenItem.name} pollenItem={pollenItem}/>
+                    <DictionaryPollenItem key={pollenItem.englishName} pollenItem={pollenItem}/>
                 ))}
             </div>
         </Wrapper>
