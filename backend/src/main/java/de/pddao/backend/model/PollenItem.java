@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class PollenItem {
     private String englishName;
     private String latinName;
-    private String beginSeason;
-    private String endSeason;
+    private BloomingMonth beginBloomingSeason;
+    private BloomingMonth endBloomingSeason;
     private String distribution;
 }
