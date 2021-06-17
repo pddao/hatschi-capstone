@@ -5,10 +5,10 @@ export default function usePollenItems() {
     const [pollenItems, setPollenItems] = useState([]);
 
     useEffect(() => {
-        loadData()
+        loadPollenData()
     }, [])
 
-    const loadData = () => {
+    const loadPollenData = () => {
         apiservice.loadAllPollenItems().then((data) => setPollenItems(data)).catch((err) => console.log(err.message));
     }
 
