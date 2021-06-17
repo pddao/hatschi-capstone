@@ -1,5 +1,6 @@
 package de.pddao.backend.service;
 
+import de.pddao.backend.model.BloomingMonth;
 import de.pddao.backend.model.PollenItem;
 import de.pddao.backend.repository.PollenItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,7 @@ public class PollenItemService {
     }
 
     public List<PollenItem> listAllPollenItems(){
+
         return pollenItemRepository.findAll();
     }
-
-
-
-
 }

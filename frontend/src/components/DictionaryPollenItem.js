@@ -9,12 +9,15 @@ export default function DictionaryPollenItem({ pollenItem }) {
         alt="Ambrosia"
       />
       <section>
-        <p> Lateinischer Name: {pollenItem.latinName} </p>
+        <p> Latin name: {pollenItem.latinName} </p>
         <p>
           {" "}
-          Blütezeit von: {pollenItem.beginSeason} bis {pollenItem.endSeason}
+          Blooming season from: {
+            pollenItem.beginBloomingSeason.nameOfMonth
+          }{" "}
+          till: {pollenItem.endBloomingSeason.nameOfMonth}{" "}
         </p>
-        <p> Vorkommen: {pollenItem.distribution} </p>
+        <p> Distribution: {pollenItem.distribution} </p>
       </section>
     </Wrapper>
   );
