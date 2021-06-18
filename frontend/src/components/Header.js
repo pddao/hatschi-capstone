@@ -15,7 +15,7 @@ export default function Header() {
 const HeaderStyle = styled.header`
   margin: 0;
   width: 100%;
-  background: #95d5b2;
+  background: #678a74;
   font-family: Charter;
   display: grid;
   grid-template-columns: 80px 1fr 80px;

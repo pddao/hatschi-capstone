@@ -26,10 +26,9 @@ export default function DictionaryPollenItem({ pollenItem }) {
 const Wrapper = styled.div`
   margin: 0;
   width: 100%;
-  display: grid;
 
   img {
-    margin: 0;
-    width: 50%;
+    margin: repat(4, 8px);
+    width: 100%;
   }
 `;

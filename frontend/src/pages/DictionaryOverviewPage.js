@@ -9,8 +9,10 @@ export default function DictionaryOverviewPage() {
   return (
     <Wrapper>
       <Header />
-      <h1>Dictionary of the most common pollen</h1>
-      <div>
+
+      <h2>Dictionary of the 8 most common pollen</h2>
+
+      <div className="pollenOverviewStyle">
         {pollenItems.map((pollenItem) => (
           <DictionaryPollenItem key={pollenItem.id} pollenItem={pollenItem} />
         ))}
@@ -19,4 +21,14 @@ export default function DictionaryOverviewPage() {
   );
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  h2 {
+    text-align: center;
+  }
+
+  .pollenOverviewStyle {
+    margin: 4px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+`;
