@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      database: hatschi-db
+server:
+  error:
+    include-message: always
