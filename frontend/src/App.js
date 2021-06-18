@@ -14,7 +14,7 @@ export default function App() {
           component={DictionaryOverviewPage}
         ></Route>
         <Route
-          path={"/dictionary/:pollenItem.id/details"}
+          path={"/dictionary/:id/details"}
           component={DictionaryPollenItemDetails}
         ></Route>
       </Switch>

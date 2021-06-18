@@ -1,28 +1,28 @@
 import styled from "styled-components/macro";
-// import { useParams } from "react-router-dom";
-import usePollenItems from "../hooks/usePollenItems";
+import { useParams } from "react-router-dom";
+import usePollenDetails from "../hooks/usePollenDetails";
 
 export default function DictionaryPollenItemDetails() {
-  const { pollenItem } = usePollenItems();
-  // const { id } = useParams();
+  const { id } = useParams();
+  const { pollenDetails } = usePollenDetails(id);
 
   return (
     <Wrapper>
-      <h2>{pollenItem.id}</h2>
+      <h2>{pollenDetails.englishName}</h2>
       <img
         src="https://www.landwirtschaftskammer.de/fotos/zoom/a/ambrosiaartemisiifolia.jpg"
         alt="Ambrosia"
       />
       <section>
-        <p> Latin name: {pollenItem.latinName} </p>
+        <p> Latin name: {pollenDetails.latinName} </p>
         <p>
           {" "}
           Blooming season from: {
-            pollenItem.beginBloomingSeason.nameOfMonth
+            pollenDetails.beginBloomingSeason.nameOfMonth
           }{" "}
-          till: {pollenItem.endBloomingSeason.nameOfMonth}{" "}
+          till: {pollenDetails.endBloomingSeason.nameOfMonth}{" "}
         </p>
-        <p> Distribution: {pollenItem.distribution} </p>
+        <p> Distribution: {pollenDetails.distribution} </p>
       </section>
     </Wrapper>
   );

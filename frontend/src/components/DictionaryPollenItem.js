@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 export default function DictionaryPollenItem({ pollenItem }) {
   const history = useHistory();
   const handleClick = () => {
-    history.push("/dictionary/${pollenItem.id}/details");
+    history.push(`/dictionary/${pollenItem.id}/details`);
   };
 
   return (

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PollenItemService {
@@ -21,5 +22,9 @@ public class PollenItemService {
     public List<PollenItem> listAllPollenItems(){
 
         return pollenItemRepository.findAll();
+    }
+
+    public Optional<PollenItem> getPollenItemById(String id) {
+        return pollenItemRepository.findById(id);
     }
 }

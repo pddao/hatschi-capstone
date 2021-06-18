@@ -23,5 +23,11 @@ public enum BloomingMonth {
         this.nameOfMonth = nameOfMonth;
     }
 
+
+//    @JsonCreator
+//    public static CounselingSetting findValue(@JsonProperty("displayName") String displayName) {
+//        return Arrays.stream(CounselingSetting.values()).filter(setting -> setting.displayName.equals(displayName)).findFirst().get();
+//    }
+
 }
 
