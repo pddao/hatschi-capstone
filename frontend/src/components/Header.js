@@ -16,8 +16,12 @@ const HeaderStyle = styled.header`
   margin: 0;
   width: 100%;
   background: #678a74;
-  font-family: Charter;
+  font-family: "Patrick Hand", cursive;
   display: grid;
   grid-template-columns: 80px 1fr 80px;
   justify-items: center;
+
+  h2 {
+    color: white;
+  }
 `;

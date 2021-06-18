@@ -1,29 +1,25 @@
 import styled from "styled-components/macro";
+import { useHistory } from "react-router-dom";
+import DictionaryPollenItemDetails from "./DictionaryPollenItemDetails";
 
 export default function DictionaryPollenItem({ pollenItem }) {
+  const history = useHistory();
+  const handleClick = () => {
+    history.push("/dictionary/${pollenItem.englishName}");
+  };
+
   return (
-    <Wrapper>
+    <Wrapper onClick={handleClick} component={DictionaryPollenItemDetails}>
       <h2>{pollenItem.englishName}</h2>
       <img
         src="https://www.landwirtschaftskammer.de/fotos/zoom/a/ambrosiaartemisiifolia.jpg"
         alt="Ambrosia"
       />
-      <section>
-        <p> Latin name: {pollenItem.latinName} </p>
-        <p>
-          {" "}
-          Blooming season from: {
-            pollenItem.beginBloomingSeason.nameOfMonth
-          }{" "}
-          till: {pollenItem.endBloomingSeason.nameOfMonth}{" "}
-        </p>
-        <p> Distribution: {pollenItem.distribution} </p>
-      </section>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.button`
   margin: 0;
   width: 100%;
 

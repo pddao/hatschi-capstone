@@ -27,7 +27,8 @@ const Wrapper = styled.div`
   }
 
   .pollenOverviewStyle {
-    margin: 4px;
+    margin: 8px;
+    gap: 0.5em;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
