@@ -7,6 +7,7 @@ export default function HomePage() {
     <Wrapper>
       <Header />
       <h1>Homepage</h1>
+      <p>Hallo! Hier kommt deine Pollenvorhersage für "Stadt" am "Datum"</p>
       <Link to="/dictionary">Dictionary</Link>
     </Wrapper>
   );
