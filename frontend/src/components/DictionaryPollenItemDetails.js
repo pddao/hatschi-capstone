@@ -17,10 +17,8 @@ export default function DictionaryPollenItemDetails() {
         <p> Latin name: {pollenDetails.latinName} </p>
         <p>
           {" "}
-          Blooming season from: {
-            pollenDetails.beginBloomingSeason.nameOfMonth
-          }{" "}
-          till: {pollenDetails.endBloomingSeason.nameOfMonth}{" "}
+          Blooming season from: {pollenDetails.beginBloomingSeason} till:{" "}
+          {pollenDetails.endBloomingSeason}{" "}
         </p>
         <p> Distribution: {pollenDetails.distribution} </p>
       </section>
@@ -33,7 +31,7 @@ const Wrapper = styled.div`
   width: 100%;
 
   img {
-    margin: repat(4, 8px);
-    width: 100%;
+    margin: 0;
+    width: 50%;
   }
 `;

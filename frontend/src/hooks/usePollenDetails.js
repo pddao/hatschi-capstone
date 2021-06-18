@@ -1,8 +1,8 @@
 import * as apiservice from "../service/apiservice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function usePollenDetails(id) {
-  const [pollenDetails, setPollenDetails] = usePollenDetails();
+  const [pollenDetails, setPollenDetails] = useState([]);
 
   useEffect(() => {
     loadPollenDetails();
