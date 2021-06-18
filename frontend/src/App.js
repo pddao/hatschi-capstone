@@ -9,8 +9,8 @@ export default function App() {
       <Switch>
         <Route path={"/"} exact component={HomePage}></Route>
         <Route
-          exact
           path={"/dictionary"}
+          exact
           component={DictionaryOverviewPage}
         ></Route>
         <Route
