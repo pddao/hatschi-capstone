@@ -1,9 +1,14 @@
 import styled from "styled-components/macro";
+// import { useParams } from "react-router-dom";
+import usePollenItems from "../hooks/usePollenItems";
 
-export default function DictionaryPollenItemDetails({ pollenItem }) {
+export default function DictionaryPollenItemDetails() {
+  const { pollenItem } = usePollenItems();
+  // const { id } = useParams();
+
   return (
     <Wrapper>
-      <h2>{pollenItem.englishName}</h2>
+      <h2>{pollenItem.id}</h2>
       <img
         src="https://www.landwirtschaftskammer.de/fotos/zoom/a/ambrosiaartemisiifolia.jpg"
         alt="Ambrosia"

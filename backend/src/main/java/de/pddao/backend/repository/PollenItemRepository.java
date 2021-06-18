@@ -11,4 +11,8 @@ public interface PollenItemRepository extends PagingAndSortingRepository <Pollen
 
     List<PollenItem> findAll();
 
+    getPollenItemById() {
+
+    }
+
 }

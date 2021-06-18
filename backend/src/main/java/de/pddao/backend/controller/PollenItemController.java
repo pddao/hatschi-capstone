@@ -25,4 +25,7 @@ public class PollenItemController {
         return pollenItemService.listAllPollenItems();
     }
 
+    @GetMapping("/{id}")
+
+
 }

@@ -6,13 +6,15 @@ export function BackButton() {
 
   return (
     <Wrapper onClick={() => history.goBack()}>
-      <img src={"/back-arrow.png"} alt="Back arrow" />
+      <img src={"/new-back-arrow.png"} alt="Back arrow" />
     </Wrapper>
   );
 }
 
 const Wrapper = styled.button`
   background: #678a74;
+  border: 0;
+
   img {
     width: 25%;
   }

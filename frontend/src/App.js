@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import DictionaryOverviewPage from "./pages/DictionaryOverviewPage";
-import DictionaryPollenItem from "./components/DictionaryPollenItem";
+import DictionaryPollenItemDetails from "./components/DictionaryPollenItemDetails";
 
 export default function App() {
   return (
@@ -14,8 +14,8 @@ export default function App() {
           component={DictionaryOverviewPage}
         ></Route>
         <Route
-          path={"/dictionary/item"}
-          component={DictionaryPollenItem}
+          path={"/dictionary/:pollenItem.id/details"}
+          component={DictionaryPollenItemDetails}
         ></Route>
       </Switch>
     </Router>
