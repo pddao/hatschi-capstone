@@ -7,7 +7,7 @@ export default function Header() {
     <HeaderStyle>
       <BackButton />
       <h2>hatschi</h2>
-      <Link to="/">Link to your profile</Link>
+      <Link to="/user">Link to your profile</Link>
     </HeaderStyle>
   );
 }

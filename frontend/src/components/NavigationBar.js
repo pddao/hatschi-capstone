@@ -6,7 +6,7 @@ export default function NavigationBar() {
     <NavigationBarStyle>
       <Link to="/">Home</Link>
       <Link to="/dictionary">Dictionary</Link>
-      <Link>Profile</Link>
+      <Link to="/user">Profile</Link>
     </NavigationBarStyle>
   );
 }

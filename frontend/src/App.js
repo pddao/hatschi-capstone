@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import DictionaryOverviewPage from "./pages/DictionaryOverviewPage";
 import DictionaryPollenItemDetails from "./components/DictionaryPollenItemDetails";
 import Page from "./components/Page";
+import UserPage from "./pages/UserPage";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
             path={"/dictionary/:id/details"}
             exact
           ></Route>
+          <Route component={UserPage} path={"/user"} exact></Route>
         </Switch>
       </Page>
     </Router>
