@@ -2,13 +2,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import DictionaryOverviewPage from "./pages/DictionaryOverviewPage";
 import DictionaryPollenItemDetails from "./components/DictionaryPollenItemDetails";
-import Page from "./components/Page";
+import Layout from "./components/Layout";
 import UserPage from "./pages/UserPage";
 
 export default function App() {
   return (
     <Router>
-      <Page>
+      <Layout>
         <Switch>
           <Route component={HomePage} path={"/"} exact></Route>
           <Route
@@ -23,7 +23,7 @@ export default function App() {
           ></Route>
           <Route component={UserPage} path={"/user"} exact></Route>
         </Switch>
-      </Page>
+      </Layout>
     </Router>
   );
 }

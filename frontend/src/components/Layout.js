@@ -1,10 +1,12 @@
 import styled from "styled-components/macro";
 import Header from "./Header";
+import NavigationBar from "./NavigationBar";
 
-export default function Page(props) {
+export default function Layout(props) {
   return (
     <PageStyle>
       <Header />
+      <NavigationBar />
       <div>{props.children}</div>
     </PageStyle>
   );

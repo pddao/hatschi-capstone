@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import { useParams } from "react-router-dom";
 import usePollenDetails from "../hooks/usePollenDetails";
-import Footer from "./NavigationBar";
+import NavigationBar from "./NavigationBar";
 
 export default function DictionaryPollenItemDetails() {
   const { id } = useParams();
@@ -14,16 +14,14 @@ export default function DictionaryPollenItemDetails() {
         src="https://www.landwirtschaftskammer.de/fotos/zoom/a/ambrosiaartemisiifolia.jpg"
         alt="Ambrosia"
       />
-      <section>
-        <p> Latin name: {pollenDetails.latinName} </p>
-        <p>
-          {" "}
+      <ul className="list-items">
+        <li>Latin name: {pollenDetails.latinName}</li>
+        <li>
           Blooming season from: {pollenDetails.beginBloomingSeason} till:{" "}
-          {pollenDetails.endBloomingSeason}{" "}
-        </p>
-        <p> Distribution: {pollenDetails.distribution} </p>
-      </section>
-      <Footer />
+          {pollenDetails.endBloomingSeason}
+        </li>
+        <li>Distribution: {pollenDetails.distribution}</li>
+      </ul>
     </Wrapper>
   );
 }
@@ -32,6 +30,7 @@ const Wrapper = styled.div`
   margin: 0;
   width: 100%;
   text-align: center;
+  font-size: medium;
 
   img {
     margin: 0;
