@@ -7,13 +7,15 @@ export default function Header() {
     <HeaderStyle>
       <BackButton />
       <h2>hatschi</h2>
-      <Link to="/">Link zum Profil</Link>
+      <Link to="/">Link to your profile</Link>
     </HeaderStyle>
   );
 }
 
 const HeaderStyle = styled.header`
-  margin: 0;
+  //position: fixed;
+  //top: 0;
+  //margin: 0;
   width: 100%;
   background: #678a74;
   font-family: "Patrick Hand", cursive;

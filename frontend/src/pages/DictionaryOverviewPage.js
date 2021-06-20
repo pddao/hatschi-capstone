@@ -1,15 +1,13 @@
 import styled from "styled-components/macro";
-import Header from "../components/Header";
 import DictionaryPollenItem from "../components/DictionaryPollenItem";
 import usePollenItems from "../hooks/usePollenItems";
+import NavigationBar from "../components/NavigationBar";
 
 export default function DictionaryOverviewPage() {
   const { pollenItems } = usePollenItems();
 
   return (
     <Wrapper>
-      <Header />
-
       <h2>Dictionary of the 8 most common pollen</h2>
 
       <div className="pollenOverviewStyle">
@@ -17,6 +15,7 @@ export default function DictionaryOverviewPage() {
           <DictionaryPollenItem key={pollenItem.id} pollenItem={pollenItem} />
         ))}
       </div>
+      <NavigationBar />
     </Wrapper>
   );
 }

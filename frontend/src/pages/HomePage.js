@@ -1,13 +1,16 @@
-import { Link } from "react-router-dom";
-import Header from "../components/Header";
+import styled from "styled-components/macro";
+import NavigationBar from "../components/NavigationBar";
 
 export default function HomePage() {
   return (
-    <>
-      <Header />
+    <Wrapper>
       <h1>Homepage</h1>
-      <p>Hallo! Hier kommt deine Pollenvorhersage für "Stadt" am "Datum"</p>
-      <Link to="/dictionary">Dictionary</Link>
-    </>
+      <p>Hey! Here comes your personal pollen forecast for Hamburg!</p>
+      <NavigationBar />
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  text-align: center;
+`;
