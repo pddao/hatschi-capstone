@@ -20,10 +20,11 @@ const HeaderStyle = styled.header`
   background: #678a74;
   font-family: "Patrick Hand", cursive;
   display: grid;
-  grid-template-columns: 80px 1fr 80px;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
 
   h2 {
     color: white;
+    font-family: "Source Serif Pro", serif;
   }
 `;

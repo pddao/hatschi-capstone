@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components/macro";
 
 export default function NavigationBar() {
   return (
     <NavigationBarStyle>
-      <Link to="/">Home</Link>
-      <Link to="/dictionary">Dictionary</Link>
-      <Link to="/user">Profile</Link>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/dictionary">Dictionary</NavLink>
+      <NavLink to="/user">Profile</NavLink>
     </NavigationBarStyle>
   );
 }
