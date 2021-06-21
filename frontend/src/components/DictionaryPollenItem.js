@@ -19,7 +19,7 @@ export default function DictionaryPollenItem({ pollenItem }) {
 }
 
 const Wrapper = styled.button`
-  background: darkgrey;
+  background: lightgrey;
   margin: 0;
   width: 100%;
   border-radius: 10px;

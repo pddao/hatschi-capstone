@@ -1,7 +1,6 @@
 import styled from "styled-components/macro";
 import { useParams } from "react-router-dom";
 import usePollenDetails from "../hooks/usePollenDetails";
-import NavigationBar from "./NavigationBar";
 
 export default function DictionaryPollenItemDetails() {
   const { id } = useParams();
@@ -9,19 +8,19 @@ export default function DictionaryPollenItemDetails() {
 
   return (
     <Wrapper>
-      <h2>{pollenDetails.englishName}Pollen details page</h2>
+      <h2>{pollenDetails.englishName}</h2>
       <img
         src="https://www.landwirtschaftskammer.de/fotos/zoom/a/ambrosiaartemisiifolia.jpg"
         alt="Ambrosia"
       />
-      <ul className="list-items">
+      <section className="list-items">
         <li>Latin name: {pollenDetails.latinName}</li>
         <li>
-          Blooming season from: {pollenDetails.beginBloomingSeason} till:{" "}
-          {pollenDetails.endBloomingSeason}
+          Blooming season from: {pollenDetails.beginBloomingSeason?.nameOfMonth}{" "}
+          till: {pollenDetails.endBloomingSeason?.nameOfMonth}
         </li>
         <li>Distribution: {pollenDetails.distribution}</li>
-      </ul>
+      </section>
     </Wrapper>
   );
 }

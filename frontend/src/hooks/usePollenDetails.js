@@ -10,7 +10,7 @@ export default function usePollenDetails(id) {
 
   const loadPollenDetails = () => {
     apiservice
-      .loadPollenDetails()
+      .loadPollenDetails(id)
       .then((data) => setPollenDetails(data))
       .catch((err) => console.log(err.message));
   };

@@ -16,6 +16,6 @@ const Wrapper = styled.button`
   border: 0;
 
   img {
-    width: 25%;
+    width: 20%;
   }
 `;

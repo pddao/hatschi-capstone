@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import DictionaryPollenItem from "../components/DictionaryPollenItem";
 import usePollenItems from "../hooks/usePollenItems";
-import NavigationBar from "../components/NavigationBar";
+import NavigationBar from "../navigation/NavigationBar";
 
 export default function DictionaryOverviewPage() {
   const { pollenItems } = usePollenItems();
