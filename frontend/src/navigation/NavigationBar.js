@@ -6,6 +6,7 @@ export default function NavigationBar() {
     <NavigationBarStyle>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/dictionary">Dictionary</NavLink>
+      <NavLink to="/pollencount">Pollen forecast</NavLink>
       <NavLink to="/user">Profile</NavLink>
     </NavigationBarStyle>
   );
@@ -18,6 +19,6 @@ const NavigationBarStyle = styled.footer`
   bottom: 0;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   color: white;
 `;
