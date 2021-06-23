@@ -1,9 +1,20 @@
 package de.pddao.backend.model.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class DwdApiContent {
-    private String region_id;
+    private int region_id;
     private String region_name;
-    private String partregion_id;
+    private int partregion_id;
     private String partregion_name;
-    private DwdApiPollen dwdApiPollen;
+    @JsonProperty("Pollen")
+    private DwdApiPollen pollen;
 }

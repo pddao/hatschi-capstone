@@ -1,5 +1,6 @@
 package de.pddao.backend.controller;
 
+import de.pddao.backend.model.api.DwdApiContent;
 import de.pddao.backend.model.api.DwdApiResponse;
 import de.pddao.backend.service.DwdApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/pollencount")
 public class PollenCountController {
-    DwdApiService dwdApiService;
+
+    private final DwdApiService dwdApiService;
 
     @Autowired
     public PollenCountController(DwdApiService dwdApiService) {
