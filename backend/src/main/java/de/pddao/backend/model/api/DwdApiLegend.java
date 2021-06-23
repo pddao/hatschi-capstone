@@ -25,7 +25,4 @@ public class DwdApiLegend {
     private String id5_desc;
     private String id6_desc;
     private String id7_desc;
-
-
-
 }

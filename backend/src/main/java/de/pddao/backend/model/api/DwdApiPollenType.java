@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class DwdPollenType {
+public class DwdApiPollenType {
     private String today;
     private String tomorrow;
     private String dayafter_to;

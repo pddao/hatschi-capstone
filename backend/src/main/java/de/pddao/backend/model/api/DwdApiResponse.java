@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.HashMap;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,5 +19,4 @@ public class DwdApiResponse {
     private String sender;
     private DwdApiLegend legend;
     private DwdApiContent[] content;
-
 }

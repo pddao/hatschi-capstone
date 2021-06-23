@@ -12,19 +12,19 @@ import lombok.NoArgsConstructor;
 @Builder
 public class DwdApiPollen {
     @JsonProperty("Birke")
-    private DwdPollenType birke;
+    private DwdApiPollenType birch;
     @JsonProperty("Roggen")
-    private DwdPollenType roggen;
+    private DwdApiPollenType rye;
     @JsonProperty("Erle")
-    private DwdPollenType erle;
+    private DwdApiPollenType earl;
     @JsonProperty("Esche")
-    private DwdPollenType esche;
+    private DwdApiPollenType ash;
     @JsonProperty("Hasel")
-    private DwdPollenType hasel;
+    private DwdApiPollenType hazel;
     @JsonProperty("Beifuss")
-    private DwdPollenType beifuss;
+    private DwdApiPollenType mugwort;
     @JsonProperty("Graeser")
-    private DwdPollenType graeser;
+    private DwdApiPollenType grasses;
     @JsonProperty("Ambrosia")
-    private DwdPollenType ambrosia;
+    private DwdApiPollenType ragweed;
 }

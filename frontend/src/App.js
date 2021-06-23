@@ -4,6 +4,7 @@ import DictionaryOverviewPage from "./pages/DictionaryOverviewPage";
 import DictionaryPollenItemDetails from "./components/DictionaryPollenItemDetails";
 import Layout from "./navigation/Layout";
 import UserPage from "./pages/UserPage";
+import PollenForecastPage from "./pages/PollenForecastPage";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
             exact
           />
           <Route component={UserPage} path={"/user"} exact />
+          <Route component={PollenForecastPage} path={"/pollencount"} exact />
         </Switch>
       </Layout>
     </Router>
