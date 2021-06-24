@@ -3,16 +3,26 @@ import styled from "styled-components/macro";
 
 export default function PollenForecastPage() {
   const { pollenCounts } = usePollenCount();
+  // const [city, setCity] = useState();
 
   return (
     <Wrapper>
       <h1>Pollen Forecast</h1>
       <p>
         Here comes your personal pollen forecast for{" "}
-        {pollenCounts[0]?.content[1]?.region_name}! Pleaser consider: updates
-        take place daily at 11 a.m.
+        {pollenCounts[0]?.content[1]?.region_name}! Pleaser consider: next
+        update takes place at {pollenCounts[0]?.next_update}.
       </p>
 
+      <section>
+        <label for="cities">Choose a city:</label>
+        <select name="cities" id="cities">
+          <option value="hamburg">Hamburg</option>
+          <option value="berlin">Berlin</option>
+          <option value="munich">Munich</option>
+        </select>
+      </section>
+      <p></p>
       <table className="tableStyle">
         <thead>
           <tr>
