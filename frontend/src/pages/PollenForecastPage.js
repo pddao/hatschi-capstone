@@ -13,8 +13,6 @@ export default function PollenForecastPage() {
         take place daily at 11 a.m.
       </p>
 
-      <form action=""></form>
-
       <table className="tableStyle">
         <thead>
           <tr>
