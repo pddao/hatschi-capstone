@@ -6,18 +6,24 @@ export default function Header() {
   return (
     <HeaderStyle>
       <BackButton />
-      <h2>Hatschi</h2>
-      <Link to="/">Link zum Profil</Link>
+      <h2>hatschi</h2>
+      <Link to="/user">Link to your profile</Link>
     </HeaderStyle>
   );
 }
 
 const HeaderStyle = styled.header`
-  margin: 0;
+  //position: fixed;
+  //top: 0;
+  //margin: 0;
   width: 100%;
-  background: #95d5b2;
-  font-family: Charter;
+  background: #678a74;
+  font-family: "Patrick Hand", cursive;
   display: grid;
   grid-template-columns: 80px 1fr 80px;
   justify-items: center;
+
+  h2 {
+    color: white;
+  }
 `;
