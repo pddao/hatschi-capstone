@@ -10,10 +10,11 @@ import java.util.Optional;
 
 @Service
 public class CityService {
+
     private final CityRepository cityRepository;
 
     @Autowired
-    public CityService (CityRepository cityRepository) {
+    public CityService(CityRepository cityRepository) {
         this.cityRepository = cityRepository;
     }
 

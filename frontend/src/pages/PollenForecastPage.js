@@ -1,9 +1,11 @@
 import usePollenCount from "../hooks/usePollenCount";
+import useCities from "../hooks/useCities";
 import styled from "styled-components/macro";
 
 export default function PollenForecastPage() {
   const { pollenCounts } = usePollenCount();
-  // const [city, setCity] = useState();
+  const { city } = useCities();
+  console.log(city);
 
   return (
     <Wrapper>
@@ -22,7 +24,7 @@ export default function PollenForecastPage() {
           <option value="munich">Munich</option>
         </select>
       </section>
-      <p></p>
+
       <table className="tableStyle">
         <thead>
           <tr>

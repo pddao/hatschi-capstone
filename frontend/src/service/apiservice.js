@@ -11,3 +11,11 @@ export function loadPollenDetails(id) {
 export function loadPollenCount() {
   return axios.get(`/api/pollencount/`).then((response) => response.data);
 }
+
+export function loadAllCities() {
+  return axios.get(`/api/city/`).then((response) => response.data);
+}
+
+export function loadCityByName(name) {
+  return axios.get(`/api/city/${name}`).then((response) => response.data);
+}

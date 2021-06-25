@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface CityRepository extends PagingAndSortingRepository {
+public interface CityRepository extends PagingAndSortingRepository<City, String> {
 
     List<City> findAll();
 
