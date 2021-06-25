@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/city")
+@RequestMapping("/api/cities")
 public class CityController {
 
     private final CityService cityService;

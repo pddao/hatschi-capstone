@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import * as apiservice from "../service/apiservice";
 
 export default function useCities() {
-  const [city, setCity] = useState();
+  const [cities, setCities] = useState();
 
   useEffect(() => {
     loadAllCities();
@@ -11,9 +11,9 @@ export default function useCities() {
   const loadAllCities = () => {
     apiservice
       .loadAllCities()
-      .then((data) => setCity(data))
+      .then((data) => setCities(data))
       .catch((error) => console.log(error.message));
   };
 
-  return { city };
+  return { cities };
 }

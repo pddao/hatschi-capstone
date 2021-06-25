@@ -18,6 +18,7 @@ export function BackButton() {
 const Wrapper = styled.button`
   background: #678a74;
   border: 0;
+  height: 60%;
 
   img {
     width: 20%;

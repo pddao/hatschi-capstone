@@ -13,9 +13,9 @@ export function loadPollenCount() {
 }
 
 export function loadAllCities() {
-  return axios.get(`/api/city/`).then((response) => response.data);
+  return axios.get(`/api/cities/`).then((response) => response.data);
 }
 
 export function loadCityByName(name) {
-  return axios.get(`/api/city/${name}`).then((response) => response.data);
+  return axios.get(`/api/cities/${name}`).then((response) => response.data);
 }

@@ -13,18 +13,16 @@ export default function Header() {
 }
 
 const HeaderStyle = styled.header`
-  //position: fixed;
-  //top: 0;
-  //margin: 0;
+  height: 80%;
   width: 100%;
   background: #678a74;
-  font-family: "Patrick Hand", cursive;
+  font-family: inherit;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
 
   h2 {
     color: white;
-    font-family: "Source Serif Pro", serif;
+    font-family: inherit;
   }
 `;

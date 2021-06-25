@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import DictionaryOverviewPage from "./pages/DictionaryOverviewPage";
 import DictionaryPollenItemDetails from "./components/DictionaryPollenItemDetails";
-import Layout from "./navigation/Layout";
+import Layout from "./style/Layout";
 import UserPage from "./pages/UserPage";
 import PollenForecastPage from "./pages/PollenForecastPage";
 
