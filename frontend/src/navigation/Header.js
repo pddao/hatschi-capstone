@@ -1,28 +1,34 @@
 import styled from "styled-components/macro";
-import { Link } from "react-router-dom";
+import LinkToProfile from "./LinkToProfile";
 import { BackButton } from "./BackButton";
 
 export default function Header() {
   return (
     <HeaderStyle>
       <BackButton />
-      <h2>hatschi</h2>
-      <Link to="/user">Link to your profile</Link>
+      <h1>
+        <a href="/">hatschi</a>
+      </h1>
+      <LinkToProfile />
     </HeaderStyle>
   );
 }
 
 const HeaderStyle = styled.header`
-  height: 80%;
+  height: 60%;
   width: 100%;
-  background: #678a74;
+  background: white;
   font-family: inherit;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
 
-  h2 {
-    color: white;
-    font-family: inherit;
+  h1 {
+    height: 60%;
+  }
+
+  a {
+    text-decoration: none;
+    color: #67b99a;
   }
 `;

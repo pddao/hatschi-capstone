@@ -20,7 +20,6 @@ export default function DictionaryPollenItem({ pollenItem }) {
 
 const Wrapper = styled.button`
   background: lightgrey;
-  font-family: "Patrick Hand", cursive;
   margin: 0;
   width: 100%;
   border-radius: 10px;

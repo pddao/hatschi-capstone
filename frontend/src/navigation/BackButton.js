@@ -1,5 +1,6 @@
 import { useHistory, useLocation } from "react-router-dom";
 import styled from "styled-components/macro";
+import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
 
 export function BackButton() {
   const history = useHistory();
@@ -9,7 +10,7 @@ export function BackButton() {
   return (
     !homepage && (
       <Wrapper onClick={() => history.goBack()}>
-        <img src={"/new-back-arrow.png"} alt="Back arrow" />
+        <ArrowBackIosOutlinedIcon>Back</ArrowBackIosOutlinedIcon>
       </Wrapper>
     )
   );
