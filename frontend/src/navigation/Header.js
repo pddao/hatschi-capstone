@@ -29,6 +29,6 @@ const HeaderStyle = styled.header`
 
   a {
     text-decoration: none;
-    color: #67b99a;
+    color: #8db596;
   }
 `;

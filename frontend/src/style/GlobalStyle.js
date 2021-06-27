@@ -13,8 +13,8 @@ export default createGlobalStyle`
     margin: 0;
     font-family: sans-serif;
     font-size: 110%;
-    background-color: var(--color-basis);
-    
+    background-color: #fff;
+    padding-bottom: 45px;
   }
   
   h1 {

@@ -21,6 +21,7 @@ export default function DictionaryOverviewPage() {
 }
 
 const Wrapper = styled.div`
+  height: 90%;
   h2 {
     text-align: center;
   }

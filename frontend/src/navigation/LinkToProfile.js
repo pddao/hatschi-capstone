@@ -13,7 +13,7 @@ export default function LinkToProfile() {
 
 const Wrapper = styled.button`
   color: white;
-  background: #67b99a;
+  background: #8db596;
   border: 0;
   height: 60%;
 `;

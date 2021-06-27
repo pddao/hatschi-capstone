@@ -9,20 +9,21 @@ export default function DictionaryPollenItemDetails() {
   return (
     <Wrapper>
       <h2>{pollenDetails.englishName}</h2>
-      <img
-        src="https://www.landwirtschaftskammer.de/fotos/zoom/a/ambrosiaartemisiifolia.jpg"
-        alt="Ambrosia"
-      />
-      <section className="list-items">
-        <ul>
-          <li>Latin name: {pollenDetails.latinName}</li>
-          <li>
-            Blooming season from:{" "}
-            {pollenDetails.beginBloomingSeason?.nameOfMonth} till:{" "}
-            {pollenDetails.endBloomingSeason?.nameOfMonth}
-          </li>
-          <li>Distribution: {pollenDetails.distribution}</li>
-        </ul>
+      <img src={pollenDetails.firstPicUrl} alt="" />
+      <img src={pollenDetails.secondPicUrl} alt="" />
+      <img src={pollenDetails.thirdPicUrl} alt="" />
+
+      <section className="description">
+        <b>Latin name:</b> <br />
+        {pollenDetails.latinName} <br />
+        <b>Blooming season: </b> <br />
+        {pollenDetails.beginBloomingSeason?.nameOfMonth}-
+        {pollenDetails.endBloomingSeason?.nameOfMonth}
+        <br />
+        <b>Distribution: </b>
+        <br />
+        {pollenDetails.description}
+        <br />
       </section>
     </Wrapper>
   );
@@ -31,11 +32,10 @@ export default function DictionaryPollenItemDetails() {
 const Wrapper = styled.div`
   margin: 0;
   width: 100%;
-  text-align: center;
   font-size: medium;
 
   img {
-    margin: 0;
-    width: 50%;
+    padding: 5px;
+    width: 100%;
   }
 `;

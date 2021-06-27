@@ -10,24 +10,24 @@ export default function DictionaryPollenItem({ pollenItem }) {
   return (
     <Wrapper onClick={handleClick}>
       <h2>{pollenItem.englishName}</h2>
-      <img
-        src="https://www.landwirtschaftskammer.de/fotos/zoom/a/ambrosiaartemisiifolia.jpg"
-        alt="Ambrosia"
-      />
+      <img src={pollenItem.firstPicUrl} alt="" />
     </Wrapper>
   );
 }
 
 const Wrapper = styled.button`
-  background: lightgrey;
+  background: #fff;
+  color: #8db596;
   margin: 0;
   width: 100%;
+  height: 100%;
   border-radius: 10px;
-  border: 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
+  border-color: #8db596;
+  border-width: thick;
 
   img {
     margin: repat(4, 8px);
     width: 100%;
+    padding: 5px;
   }
 `;

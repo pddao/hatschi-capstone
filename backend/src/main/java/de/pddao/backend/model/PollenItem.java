@@ -19,5 +19,8 @@ public class PollenItem {
     private String latinName;
     private BloomingMonth beginBloomingSeason;
     private BloomingMonth endBloomingSeason;
-    private String distribution;
+    private String description;
+    private String firstPicUrl;
+    private String secondPicUrl;
+    private String thirdPicUrl;
 }
