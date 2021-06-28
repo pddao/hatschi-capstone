@@ -3,7 +3,7 @@ import {
   BottomNavigationAction,
   makeStyles,
 } from "@material-ui/core";
-import { grey, red } from "@material-ui/core/colors";
+import { grey } from "@material-ui/core/colors";
 import { HomeRounded } from "@material-ui/icons";
 import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
 import MenuBookRoundedIcon from "@material-ui/icons/MenuBookRounded";
