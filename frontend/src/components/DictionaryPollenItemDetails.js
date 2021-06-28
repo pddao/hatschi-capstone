@@ -1,6 +1,6 @@
-import styled from "styled-components/macro";
-import { useParams } from "react-router-dom";
-import usePollenDetails from "../hooks/usePollenDetails";
+import styled from 'styled-components/macro';
+import { useParams } from 'react-router-dom';
+import usePollenDetails from '../hooks/usePollenDetails';
 
 export default function DictionaryPollenItemDetails() {
   const { id } = useParams();
@@ -9,10 +9,10 @@ export default function DictionaryPollenItemDetails() {
   return (
     <Wrapper>
       <h2>{pollenDetails.englishName}</h2>
+      // Slidershow
       <img src={pollenDetails.firstPicUrl} alt="" />
       <img src={pollenDetails.secondPicUrl} alt="" />
       <img src={pollenDetails.thirdPicUrl} alt="" />
-
       <section className="description">
         <b>Latin name:</b> <br />
         {pollenDetails.latinName} <br />

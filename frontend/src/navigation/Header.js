@@ -1,22 +1,16 @@
-import {
-  AppBar,
-  Toolbar,
-  makeStyles,
-  Typography,
-  Grid,
-} from "@material-ui/core";
-import { green } from "@material-ui/core/colors";
+import { AppBar, Toolbar, makeStyles } from '@material-ui/core';
+import { BackButton } from './BackButton';
+import LinkToProfile from './LinkToProfile';
+import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
 
 const useStyles = makeStyles({
-  appbar: {
-    top: 0,
-    left: 0,
-    width: "100%",
-    background: green,
-  },
-
   toolbar: {
-    background: green,
+    justifyContent: 'center',
+    color: '#fff',
+  },
+  a: {
+    textDecoration: 'none',
+    color: 'white',
   },
 });
 
@@ -24,19 +18,14 @@ export default function Header() {
   const classes = useStyles();
 
   return (
-    <AppBar className={classes.appbar} elevation={0}>
+    <AppBar elevation={0} position="static">
       <Toolbar className={classes.toolbar}>
-        <Grid container direction="column">
-          <Grid>
-            <p>Spalte 1</p>
-          </Grid>
-          <Grid>
-            <p>hatschi</p>
-          </Grid>
-          <Grid>
-            <p>Spalte 3</p>
-          </Grid>
-        </Grid>
+        <BackButton />
+        <a href="/" className={classes.a}>
+          hatschi
+        </a>
+        <PersonRoundedIcon />
+        <LinkToProfile />
       </Toolbar>
     </AppBar>
   );

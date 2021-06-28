@@ -1,17 +1,13 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-  //:root {
-  //  --color-basis: #D8D8D8;
-  //}
 
   *{
     box-sizing: border-box;
   }
   
   html, body {
-    margin: 0;
-    font-family: sans-serif;
+    margin: 5%;
     font-size: 110%;
     background-color: #fff;
     padding-bottom: 45px;
