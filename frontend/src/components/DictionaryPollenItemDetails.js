@@ -1,18 +1,38 @@
 import styled from 'styled-components/macro';
 import { useParams } from 'react-router-dom';
 import usePollenDetails from '../hooks/usePollenDetails';
+import Carousel from 'react-material-ui-carousel';
+import { makeStyles } from '@material-ui/core';
 
+const useStyles = makeStyles({
+  carousel: {
+    maxHeight: 600,
+  },
+});
 export default function DictionaryPollenItemDetails() {
   const { id } = useParams();
   const { pollenDetails } = usePollenDetails(id);
+  const classes = useStyles();
+
+  const handleClick = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <Wrapper>
       <h2>{pollenDetails.englishName}</h2>
-      // Slidershow
-      <img src={pollenDetails.firstPicUrl} alt="" />
-      <img src={pollenDetails.secondPicUrl} alt="" />
-      <img src={pollenDetails.thirdPicUrl} alt="" />
+      <Carousel className={classes.carousel} autoPlay={false} animation="slide">
+        <div>
+          <img src={pollenDetails.firstPicUrl} />
+        </div>
+        <div>
+          <img src={pollenDetails.secondPicUrl} />
+        </div>
+        <div>
+          <img src={pollenDetails.thirdPicUrl} />
+        </div>
+      </Carousel>
+
       <section className="description">
         <b>Latin name:</b> <br />
         {pollenDetails.latinName} <br />
