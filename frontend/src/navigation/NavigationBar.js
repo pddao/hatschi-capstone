@@ -1,30 +1,65 @@
-import styled from "styled-components/macro";
+import {
+  BottomNavigation,
+  BottomNavigationAction,
+  makeStyles,
+} from "@material-ui/core";
+import { grey, red } from "@material-ui/core/colors";
+import { HomeRounded } from "@material-ui/icons";
+import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
+import MenuBookRoundedIcon from "@material-ui/icons/MenuBookRounded";
+import LocalFloristRoundedIcon from "@material-ui/icons/LocalFloristRounded";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+
+const useStyles = makeStyles({
+  root: {
+    position: "fixed",
+    bottom: 0,
+    left: 0,
+    height: "55px",
+    width: "100%",
+    borderTop: "4px solid" + grey[100],
+    justifyContent: "space-around",
+  },
+});
 
 export default function NavigationBar() {
+  const classes = useStyles();
+  const [page, setPage] = useState("");
+  const history = useHistory();
+  const handleChange = (event, newPage) => {
+    history.push(newPage);
+    setPage(newPage);
+  };
+
   return (
-    <NavigationBarStyle>
-      <a href="/">Home</a>
-      <a href="/dictionary">Dictionary</a>
-      <a href="/pollencount">Pollen forecast</a>
-      <a href="/user">Profile</a>
-    </NavigationBarStyle>
+    <BottomNavigation
+      value={page}
+      onChange={handleChange}
+      showLabels
+      className={classes.root}
+    >
+      <BottomNavigationAction
+        value={"/"}
+        label="Home"
+        icon={<HomeRounded />}
+        className={classes.selected}
+      />
+      <BottomNavigationAction
+        value={"/pollencount"}
+        label="Forecast"
+        icon={<LocalFloristRoundedIcon />}
+      />
+      <BottomNavigationAction
+        value={"/dictionary"}
+        label="Dictionary"
+        icon={<MenuBookRoundedIcon />}
+      />
+      <BottomNavigationAction
+        value={"/user"}
+        label="Profile"
+        icon={<PersonRoundedIcon />}
+      />
+    </BottomNavigation>
   );
 }
-
-const NavigationBarStyle = styled.footer`
-  background-color: #fff;
-  height: 40px;
-  position: fixed;
-  margin-top: 40px;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  color: #000;
-  margin .home-icon {
-    background: url("https://img.icons8.com/material-rounded/50/000000/home.png");
-  }
-`;
-
-//#8db596;

@@ -30,9 +30,13 @@ export default function DictionaryPollenItemDetails() {
 }
 
 const Wrapper = styled.div`
-  margin: 0;
   width: 100%;
   font-size: medium;
+
+  description {
+    margin: 5px;
+    padding: 5px;
+  }
 
   img {
     padding: 5px;
