@@ -9,7 +9,7 @@ export default function DictionaryOverviewPage() {
   return (
     <Wrapper>
       <h2>Dictionary of the 8 most common pollen</h2>
-
+      <p>Hallo</p>
       <div className="pollenOverviewStyle">
         {pollenItems.map((pollenItem) => (
           <DictionaryPollenItem key={pollenItem.id} pollenItem={pollenItem} />
@@ -22,6 +22,7 @@ export default function DictionaryOverviewPage() {
 
 const Wrapper = styled.div`
   height: 90%;
+
   h2 {
     text-align: center;
     color: #e2bcb7;

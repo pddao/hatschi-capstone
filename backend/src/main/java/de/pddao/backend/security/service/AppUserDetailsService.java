@@ -21,11 +21,12 @@ public class AppUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        return appUserRepository.findById(username).map(appUser -> User
-                .withUsername(username)
-                .password(appUser.getPassword())
-                .authorities("user")
-                .build())
+        return appUserRepository.findById(username)
+                .map(appUser -> User
+                        .withUsername(username)
+                        .password(appUser.getPassword())
+                        .authorities("user")
+                        .build())
                 .orElseThrow(() -> new UsernameNotFoundException("Username " + username + "does not exist!"));
     }
 }
