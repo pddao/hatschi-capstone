@@ -1,8 +1,8 @@
 package de.pddao.backend.controller;
 
-import de.pddao.backend.model.api.DwdApiContent;
 import de.pddao.backend.model.api.DwdApiResponse;
 import de.pddao.backend.service.DwdApiService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
