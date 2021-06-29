@@ -5,61 +5,51 @@ import Carousel from 'react-material-ui-carousel';
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
-  carousel: {
-    maxHeight: 600,
+  img: {
+    width: 370,
+    height: 370,
+    padding: '5px',
   },
 });
+
 export default function DictionaryPollenItemDetails() {
   const { id } = useParams();
   const { pollenDetails } = usePollenDetails(id);
   const classes = useStyles();
 
-  const handleClick = (event) => {
-    event.preventDefault();
-  };
-
   return (
-    <Wrapper>
+    <div>
       <h2>{pollenDetails.englishName}</h2>
       <Carousel className={classes.carousel} autoPlay={false} animation="slide">
         <div>
-          <img src={pollenDetails.firstPicUrl} />
+          <img src={pollenDetails.firstPicUrl} className={classes.img} />
         </div>
         <div>
-          <img src={pollenDetails.secondPicUrl} />
+          <img src={pollenDetails.secondPicUrl} className={classes.img} />
         </div>
         <div>
-          <img src={pollenDetails.thirdPicUrl} />
+          <img src={pollenDetails.thirdPicUrl} className={classes.img} />
         </div>
       </Carousel>
 
-      <section className="description">
-        <b>Latin name:</b> <br />
-        {pollenDetails.latinName} <br />
-        <b>Blooming season: </b> <br />
-        {pollenDetails.beginBloomingSeason?.nameOfMonth}-
-        {pollenDetails.endBloomingSeason?.nameOfMonth}
-        <br />
-        <b>Distribution: </b>
-        <br />
-        {pollenDetails.description}
-        <br />
+      <section className={classes.root}>
+        <p>
+          <b>Latin name:</b> <br />
+          {pollenDetails.latinName} <br />
+        </p>
+        <p>
+          <b>Blooming season: </b> <br />
+          {pollenDetails.beginBloomingSeason?.nameOfMonth}-
+          {pollenDetails.endBloomingSeason?.nameOfMonth}
+          <br />
+        </p>
+        <p>
+          <b>Distribution: </b>
+          <br />
+          {pollenDetails.description}
+          <br />
+        </p>
       </section>
-    </Wrapper>
+    </div>
   );
 }
-
-const Wrapper = styled.div`
-  width: 100%;
-  font-size: medium;
-
-  description {
-    margin: 5px;
-    padding: 5px;
-  }
-
-  img {
-    padding: 5px;
-    width: 100%;
-  }
-`;

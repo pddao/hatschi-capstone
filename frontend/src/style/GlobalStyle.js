@@ -7,10 +7,9 @@ export default createGlobalStyle`
   }
   
   html, body {
-    margin: 5%;
     font-size: 110%;
     background-color: #fff;
-    padding-bottom: 45px;
+    margin-bottom: 60px;
   }
   
   h1 {
