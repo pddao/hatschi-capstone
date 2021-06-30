@@ -1,19 +1,24 @@
-import { useEffect, useState } from "react";
-import * as apiservice from "../service/apiservice";
+import { useContext, useEffect, useState } from 'react';
+import AuthContext from '../context/AuthContext';
+import axios from 'axios';
 
 export default function useCities() {
   const [cities, setCities] = useState();
+  const { token } = useContext(AuthContext);
 
   useEffect(() => {
-    loadAllCities();
-  }, []);
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
-  const loadAllCities = () => {
-    apiservice
-      .loadAllCities()
-      .then((data) => setCities(data))
-      .catch((error) => console.log(error.message));
-  };
+    axios
+      .get(`/api/cities/`, config)
+      .then((response) => response.data)
+      .then(setCities)
+      .catch((error) => console.error(error.message));
+  }, []);
 
   return { cities };
 }

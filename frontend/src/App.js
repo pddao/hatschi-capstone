@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import DictionaryOverviewPage from './pages/DictionaryOverviewPage';
 import DictionaryPollenItemDetails from './components/DictionaryPollenItemDetails';
@@ -7,8 +7,7 @@ import UserPage from './pages/UserPage';
 import PollenForecastPage from './pages/PollenForecastPage';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import LoginPage from './pages/LoginPage';
-import { useState } from 'react';
-import axios from 'axios';
+import AuthProvider from './context/AuthProvider';
 
 const theme = createMuiTheme({
   palette: {
@@ -25,23 +24,13 @@ const theme = createMuiTheme({
 });
 
 export default function App() {
-  const [token, setToken] = useState();
-  const login = (credentials) => {
-    axios
-      .post('/auth/login', credentials)
-      .then((response) => response.data)
-      .then(setToken);
-  };
-
-  console.log(token);
-
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
+    <AuthProvider>
+      <ThemeProvider theme={theme}>
         <Layout>
           <Switch>
             <Route path={'/'} exact>
-              <LoginPage login={login} />
+              <LoginPage />
             </Route>
             <Route path={'/home'} exact>
               <HomePage />
@@ -60,7 +49,7 @@ export default function App() {
             </Route>
           </Switch>
         </Layout>
-      </Router>
-    </ThemeProvider>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
