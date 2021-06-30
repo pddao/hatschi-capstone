@@ -11,7 +11,7 @@ export default function usePollenCount() {
   const loadPollenCount = () => {
     apiservice
       .loadPollenCount()
-      .then((data) => setPollenCounts(data))
+      .then(setPollenCounts)
       .catch((error) => console.log(error.message));
   };
 
