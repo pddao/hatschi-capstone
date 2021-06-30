@@ -1,6 +1,6 @@
-import usePollenCount from "../hooks/usePollenCount";
-import styled from "styled-components/macro";
-import CitySearchComponent from "../components/CitySearchComponent";
+import usePollenCount from '../hooks/usePollenCount';
+import styled from 'styled-components/macro';
+import CitySearchComponent from '../components/CitySearchComponent';
 
 export default function PollenForecastPage() {
   const { pollenCounts } = usePollenCount();
@@ -9,12 +9,17 @@ export default function PollenForecastPage() {
     <Wrapper>
       <h1>Pollen Forecast</h1>
       <p>
-        Here comes your personal pollen forecast for{" "}
+        Here comes your personal pollen forecast for{' '}
         {pollenCounts[0]?.content[1]?.region_name}! Pleaser consider: next
         update takes place at {pollenCounts[0]?.next_update}.
       </p>
 
       <CitySearchComponent />
+      {pollenCounts[0]?.content[1]?.Pollen.Birke.today}
+      Pollen.Birke(()
+      Object.keys(myObject).map(function(key, index) {
+      myObject[key] *= 2;
+    });
 
       <section>
         <table className="tableStyle">

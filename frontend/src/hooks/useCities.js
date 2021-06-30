@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import * as apiservice from "../service/apiservice";
+import { useEffect, useState } from 'react';
+import * as apiservice from '../service/apiservice';
 
 export default function useCities() {
   const [cities, setCities] = useState();
@@ -11,7 +11,7 @@ export default function useCities() {
   const loadAllCities = () => {
     apiservice
       .loadAllCities()
-      .then((data) => setCities(data))
+      .then(setCities)
       .catch((error) => console.log(error.message));
   };
 
