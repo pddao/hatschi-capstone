@@ -23,7 +23,6 @@ public class DwdApiService {
         ResponseEntity<DwdApiResponse> response = restTemplate.getForEntity(dwdApi, DwdApiResponse.class);
 
         if (response.getBody() != null) {
-            System.out.println(response.getBody());
             return Arrays.asList(response.getBody());
         }
         return List.of();
