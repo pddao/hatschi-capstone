@@ -16,8 +16,8 @@ export default function usePollenDetails(id) {
       .get(`/api/dictionary/${id}`, config)
       .then((response) => response.data)
       .then(setPollenDetails)
-      .catch((err) => console.error(err.message));
-  }, [id]);
+      .catch((error) => console.error(error.message));
+  }, [id, token]);
 
   return { pollenDetails };
 }

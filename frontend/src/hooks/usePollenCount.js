@@ -3,7 +3,7 @@ import AuthContext from '../context/AuthContext';
 import axios from 'axios';
 
 export default function usePollenCount() {
-  const [pollenCounts, setPollenCounts] = useState([]);
+  const [pollenCount, setPollenCount] = useState([]);
   const { token } = useContext(AuthContext);
 
   useEffect(() => {
@@ -15,9 +15,9 @@ export default function usePollenCount() {
     axios
       .get(`/api/pollencount/`, config)
       .then((response) => response.data)
-      .then(setPollenCounts)
+      .then(setPollenCount)
       .catch((error) => console.error(error.message));
-  }, []);
+  }, [token]);
 
-  return { pollenCounts };
+  return { pollenCount };
 }

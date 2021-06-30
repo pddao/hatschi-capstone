@@ -16,8 +16,8 @@ export default function usePollenItems() {
       .get(`/api/dictionary/`, config)
       .then((response) => response.data)
       .then(setPollenItems)
-      .catch((err) => console.error(err.message));
-  }, []);
+      .catch((error) => console.error(error.message));
+  }, [token]);
 
   return { pollenItems };
 }

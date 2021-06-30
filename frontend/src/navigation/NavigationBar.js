@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   BottomNavigation,
   BottomNavigationAction,
@@ -8,8 +10,6 @@ import HomeRounded from '@material-ui/icons/HomeRounded';
 import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
 import MenuBookRoundedIcon from '@material-ui/icons/MenuBookRounded';
 import LocalFloristRoundedIcon from '@material-ui/icons/LocalFloristRounded';
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -31,6 +31,7 @@ export default function NavigationBar() {
   const classes = useStyles();
   const [page, setPage] = useState('');
   const history = useHistory();
+
   const handleChange = (event, newPage) => {
     history.push(newPage);
     setPage(newPage);
@@ -43,7 +44,11 @@ export default function NavigationBar() {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction value={'/'} label="Home" icon={<HomeRounded />} />
+      <BottomNavigationAction
+        value={'/home'}
+        label="Home"
+        icon={<HomeRounded />}
+      />
       <BottomNavigationAction
         value={'/pollencount'}
         label="Forecast"

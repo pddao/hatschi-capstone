@@ -12,13 +12,12 @@ export default function useCities() {
         Authorization: `Bearer ${token}`,
       },
     };
-
     axios
       .get(`/api/cities/`, config)
       .then((response) => response.data)
       .then(setCities)
       .catch((error) => console.error(error.message));
-  }, []);
+  }, [token]);
 
   return { cities };
 }

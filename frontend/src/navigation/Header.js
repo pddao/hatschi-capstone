@@ -1,39 +1,44 @@
-import { AppBar, Toolbar, makeStyles } from '@material-ui/core';
 import { BackButton } from './BackButton';
-import LinkToProfile from './LinkToProfile';
+import { AppBar, Toolbar, makeStyles, IconButton } from '@material-ui/core';
 import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
-import { Link, useHistory } from 'react-router-dom';
-import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   toolbar: {
     justifyContent: 'center',
     color: '#fff',
   },
-  a: {
+  link: {
     textDecoration: 'none',
+    color: 'white',
+  },
+  icon: {
     color: 'white',
   },
 });
 
 export default function Header() {
   const classes = useStyles();
-  const [page, setPage] = useState('');
   const history = useHistory();
-  const handleChange = (event, newPage) => {
-    history.push(newPage);
-    setPage(newPage);
+
+  const handleOpenProfile = () => {
+    history.push('/user');
+  };
+
+  const handleOpenHome = () => {
+    history.push('/home');
   };
 
   return (
     <AppBar elevation={0} position="static">
-      <Toolbar className={classes.toolbar} value={page} onChange={handleChange}>
+      <Toolbar className={classes.toolbar}>
         <BackButton />
-        <LinkToProfile />
-        <a href="/" className={classes.a}>
-          hatschi
-        </a>
-        <PersonRoundedIcon value={'/user'} />
+        <IconButton onClick={handleOpenHome}>
+          <h2>hatschi</h2>
+        </IconButton>
+        <IconButton onClick={handleOpenProfile}>
+          <PersonRoundedIcon className={classes.icon} />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );

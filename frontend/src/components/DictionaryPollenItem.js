@@ -7,10 +7,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
-  root: {
+  card: {
     maxWidth: 345,
   },
-  media: {
+  img: {
     height: 160,
   },
 });
@@ -18,15 +18,16 @@ const useStyles = makeStyles({
 export default function DictionaryPollenItem({ pollenItem }) {
   const classes = useStyles();
   const history = useHistory();
+
   const handleClick = () => {
     history.push(`/dictionary/${pollenItem.id}/details`);
   };
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
-          className={classes.media}
+          className={classes.img}
           image={pollenItem.firstPicUrl}
           onClick={handleClick}
         />
