@@ -8,6 +8,7 @@ import PollenForecastPage from './pages/PollenForecastPage';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import LoginPage from './pages/LoginPage';
 import AuthProvider from './context/AuthProvider';
+import PrivateRoute from './routing/PrivateRoute';
 
 const theme = createMuiTheme({
   palette: {
@@ -32,21 +33,21 @@ export default function App() {
             <Route path={'/'} exact>
               <LoginPage />
             </Route>
-            <Route path={'/home'} exact>
+            <PrivateRoute path={'/home'} exact>
               <HomePage />
-            </Route>
-            <Route path={'/dictionary'} exact>
+            </PrivateRoute>
+            <PrivateRoute path={'/dictionary'} exact>
               <DictionaryOverviewPage />
-            </Route>
-            <Route path={'/dictionary/:id/details'} exact>
+            </PrivateRoute>
+            <PrivateRoute path={'/dictionary/:id/details'} exact>
               <DictionaryPollenItemDetails />
-            </Route>
-            <Route path={'/user'} exact>
+            </PrivateRoute>
+            <PrivateRoute path={'/user'} exact>
               <UserPage />
-            </Route>
-            <Route path={'/pollencount'} exact>
+            </PrivateRoute>
+            <PrivateRoute path={'/pollencount'} exact>
               <PollenForecastPage />
-            </Route>
+            </PrivateRoute>
           </Switch>
         </Layout>
       </ThemeProvider>
