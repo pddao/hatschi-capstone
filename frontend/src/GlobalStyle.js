@@ -6,6 +6,6 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     background: white;
-    font-family: "Patrick Hand", cursive;
+    font-family: Times New Roman;
   }
 `;

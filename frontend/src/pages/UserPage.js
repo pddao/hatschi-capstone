@@ -7,7 +7,7 @@ export default function UserPage() {
       <p>This is your user page! </p>
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
-        alt="Placeholder profile picture"
+        alt="Placeholder"
       />
       <p>Here you can edit your profile and add allergies. </p>
     </UserPageStyle>

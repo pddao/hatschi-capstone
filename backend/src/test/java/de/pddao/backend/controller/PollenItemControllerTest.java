@@ -33,7 +33,7 @@ class PollenItemControllerTest {
     @Test
     @DisplayName("method listAllPollenItems() should return all pollenItems in repository")
     void listAllPollenItemsTest() {
-        
+
         //WHEN
         ResponseEntity<PollenItem[]> response = testRestTemplate.getForEntity("http://localhost:" + port + "/api/dictionary", PollenItem[].class);
 

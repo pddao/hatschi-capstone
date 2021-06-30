@@ -7,3 +7,7 @@ export function loadAllPollenItems() {
 export function loadPollenDetails(id) {
   return axios.get(`/api/dictionary/${id}`).then((response) => response.data);
 }
+
+export function loadPollenCount() {
+  return axios.get(`/api/pollencount/`).then((response) => response.data);
+}

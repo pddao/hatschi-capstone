@@ -14,12 +14,15 @@ export default function DictionaryPollenItemDetails() {
         alt="Ambrosia"
       />
       <section className="list-items">
-        <li>Latin name: {pollenDetails.latinName}</li>
-        <li>
-          Blooming season from: {pollenDetails.beginBloomingSeason?.nameOfMonth}{" "}
-          till: {pollenDetails.endBloomingSeason?.nameOfMonth}
-        </li>
-        <li>Distribution: {pollenDetails.distribution}</li>
+        <ul>
+          <li>Latin name: {pollenDetails.latinName}</li>
+          <li>
+            Blooming season from:{" "}
+            {pollenDetails.beginBloomingSeason?.nameOfMonth} till:{" "}
+            {pollenDetails.endBloomingSeason?.nameOfMonth}
+          </li>
+          <li>Distribution: {pollenDetails.distribution}</li>
+        </ul>
       </section>
     </Wrapper>
   );
