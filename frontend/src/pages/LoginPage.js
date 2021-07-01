@@ -1,10 +1,5 @@
 import { useContext, useState } from 'react';
 import AuthContext from '../context/AuthContext';
-import { makeStyles } from '@material-ui/core';
-
-const useStyles = makeStyles({
-  root: {},
-});
 
 const initialState = {
   username: '',
@@ -14,7 +9,6 @@ const initialState = {
 export default function LoginPage() {
   const [credentials, setCredentials] = useState(initialState);
   const { login } = useContext(AuthContext);
-  const classes = useStyles();
 
   const handleChange = (event) => {
     setCredentials({
@@ -30,7 +24,7 @@ export default function LoginPage() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className={classes.root}>
+      <div>
         <label>
           Username:
           <input

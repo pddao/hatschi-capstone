@@ -25,6 +25,4 @@ export default createGlobalStyle`
   p {
     margin: 5%;
   }
-  
-  
 `;

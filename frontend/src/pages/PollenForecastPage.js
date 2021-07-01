@@ -1,5 +1,5 @@
-import usePollenCount from '../hooks/usePollenCount';
 import styled from 'styled-components/macro';
+import usePollenCount from '../hooks/usePollenCount';
 import CitySearchComponent from '../components/CitySearchComponent';
 
 export default function PollenForecastPage() {
