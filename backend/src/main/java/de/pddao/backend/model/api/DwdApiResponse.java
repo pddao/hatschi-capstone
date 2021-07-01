@@ -1,18 +1,14 @@
 package de.pddao.backend.model.api;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document(collection = "pollen-count") // zweites Repo nötig?
+@Document(collection = "pollen-count")
 public class DwdApiResponse {
-
     private String last_update;
     private String next_update;
     private String name;
