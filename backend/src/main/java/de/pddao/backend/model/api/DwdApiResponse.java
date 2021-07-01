@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document(collection = "pollen-count") // zweites Repo nötig?
+@Document(collection = "pollen-count")
 public class DwdApiResponse {
 
     private String last_update;
