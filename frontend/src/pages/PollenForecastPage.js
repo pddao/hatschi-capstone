@@ -15,11 +15,6 @@ export default function PollenForecastPage() {
       </p>
 
       <CitySearchComponent />
-      {pollenCounts[0]?.content[1]?.Pollen.Birke.today}
-      Pollen.Birke(()
-      Object.keys(myObject).map(function(key, index) {
-      myObject[key] *= 2;
-    });
 
       <section>
         <table className="tableStyle">
