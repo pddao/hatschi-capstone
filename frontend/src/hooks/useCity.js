@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../context/AuthContext';
 import axios from 'axios';
 
-export default function usePollenDetails(id) {
-  const [pollenDetails, setPollenDetails] = useState([]);
+export default function useCity(name) {
+  const [city, setCity] = useState();
   const { token } = useContext(AuthContext);
 
   useEffect(() => {
@@ -13,11 +13,11 @@ export default function usePollenDetails(id) {
       },
     };
     axios
-      .get(`/api/dictionary/${id}`, config)
+      .get(`/api/cities/${name}`, config)
       .then((response) => response.data)
-      .then(setPollenDetails)
+      .then(setCity)
       .catch((error) => console.error(error.message));
-  }, [id, token]);
+  }, [name, token]);
 
-  return { pollenDetails };
+  return { city };
 }

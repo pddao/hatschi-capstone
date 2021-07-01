@@ -1,8 +1,7 @@
-import styled from 'styled-components/macro';
 import { useParams } from 'react-router-dom';
 import usePollenDetails from '../hooks/usePollenDetails';
-import Carousel from 'react-material-ui-carousel';
 import { makeStyles } from '@material-ui/core';
+import Carousel from 'react-material-ui-carousel';
 
 const useStyles = makeStyles({
   img: {
@@ -10,44 +9,56 @@ const useStyles = makeStyles({
     height: 370,
     padding: '5px',
   },
+
+  description: {},
 });
 
 export default function DictionaryPollenItemDetails() {
+  const classes = useStyles();
   const { id } = useParams();
   const { pollenDetails } = usePollenDetails(id);
-  const classes = useStyles();
 
   return (
     <div>
       <h2>{pollenDetails.englishName}</h2>
-      <Carousel className={classes.carousel} autoPlay={false} animation="slide">
+
+      <Carousel autoPlay={false} animation="slide">
         <div>
-          <img src={pollenDetails.firstPicUrl} className={classes.img} />
+          <img
+            src={pollenDetails.firstPicUrl}
+            className={classes.img}
+            alt="first picture in carousel"
+          />
         </div>
         <div>
-          <img src={pollenDetails.secondPicUrl} className={classes.img} />
+          <img
+            src={pollenDetails.secondPicUrl}
+            className={classes.img}
+            alt="second picture in carousel"
+          />
         </div>
         <div>
-          <img src={pollenDetails.thirdPicUrl} className={classes.img} />
+          <img
+            src={pollenDetails.thirdPicUrl}
+            className={classes.img}
+            alt="third picture in carousel"
+          />
         </div>
       </Carousel>
 
-      <section className={classes.root}>
+      <section className={classes.description}>
         <p>
           <b>Latin name:</b> <br />
-          {pollenDetails.latinName} <br />
+          {pollenDetails.latinName}
         </p>
         <p>
           <b>Blooming season: </b> <br />
           {pollenDetails.beginBloomingSeason?.nameOfMonth}-
           {pollenDetails.endBloomingSeason?.nameOfMonth}
-          <br />
         </p>
         <p>
-          <b>Distribution: </b>
-          <br />
+          <b>Distribution: </b> <br />
           {pollenDetails.description}
-          <br />
         </p>
       </section>
     </div>
