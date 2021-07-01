@@ -16,7 +16,7 @@ export default function PollenForecastPage() {
 
       <CitySearchComponent />
 
-      <section>
+      <section id="output">
         <table className="tableStyle">
           <thead>
             <tr>
@@ -28,43 +28,43 @@ export default function PollenForecastPage() {
           <tbody>
             <tr>
               <td>Birch</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Birke.today}</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Birke.tomorrow}</td>
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Birke.today}</td>*/}
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Birke.tomorrow}</td>*/}
             </tr>
             <tr>
               <td>Earl</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Erle.today}</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Erle.tomorrow}</td>
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Erle.today}</td>*/}
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Erle.tomorrow}</td>*/}
             </tr>
             <tr>
               <td>Ragweed</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Ambrosia.today}</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Ambrosia.tomorrow}</td>
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Ambrosia.today}</td>*/}
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Ambrosia.tomorrow}</td>*/}
             </tr>
             <tr>
               <td>Grasses</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Graeser.today}</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Graeser.tomorrow}</td>
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Graeser.today}</td>*/}
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Graeser.tomorrow}</td>*/}
             </tr>
             <tr>
               <td>Mugwort</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Beifuss.today}</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Beifuss.tomorrow}</td>
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Beifuss.today}</td>*/}
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Beifuss.tomorrow}</td>*/}
             </tr>
             <tr>
               <td>Hazel</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Hasel.today}</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Hasel.tomorrow}</td>
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Hasel.today}</td>*/}
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Hasel.tomorrow}</td>*/}
             </tr>
             <tr>
               <td>Rhye</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Roggen.today}</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Roggen.tomorrow}</td>
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Roggen.today}</td>*/}
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Roggen.tomorrow}</td>*/}
             </tr>
             <tr>
               <td>Ash</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Esche.today}</td>
-              <td>{pollenCount[0]?.content[1]?.Pollen.Esche.tomorrow}</td>
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Esche.today}</td>*/}
+              {/*<td>{pollenCount[0]?.content[1]?.Pollen.Esche.tomorrow}</td>*/}
             </tr>
           </tbody>
         </table>
