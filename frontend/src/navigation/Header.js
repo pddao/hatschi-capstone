@@ -4,7 +4,7 @@ import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
-  toolbar: {
+  root: {
     justifyContent: 'center',
     color: '#fff',
   },
@@ -15,26 +15,29 @@ const useStyles = makeStyles({
   icon: {
     color: 'white',
   },
+  title: {
+    color: 'white',
+  },
 });
 
 export default function Header() {
   const classes = useStyles();
   const history = useHistory();
 
-  const handleOpenProfile = () => {
-    history.push('/user');
-  };
-
   const handleOpenHome = () => {
     history.push('/home');
   };
 
+  const handleOpenProfile = () => {
+    history.push('/user');
+  };
+
   return (
     <AppBar elevation={0} position="static">
-      <Toolbar className={classes.toolbar}>
-        <BackButton />
+      <Toolbar className={classes.root}>
+        <BackButton className={classes.icon} />
         <IconButton onClick={handleOpenHome}>
-          <h2>hatschi</h2>
+          <h2 className={classes.title}>hatschi</h2>
         </IconButton>
         <IconButton onClick={handleOpenProfile}>
           <PersonRoundedIcon className={classes.icon} />
