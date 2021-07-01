@@ -1,9 +1,6 @@
 package de.pddao.backend.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -19,5 +16,8 @@ public class PollenItem {
     private String latinName;
     private BloomingMonth beginBloomingSeason;
     private BloomingMonth endBloomingSeason;
-    private String distribution;
+    private String description;
+    private String firstPicUrl;
+    private String secondPicUrl;
+    private String thirdPicUrl;
 }

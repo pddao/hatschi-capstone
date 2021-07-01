@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/dictionary")
+@RequestMapping("/api/dictionary")
 public class PollenItemController {
 
     private final PollenItemService pollenItemService;
@@ -38,6 +38,4 @@ public class PollenItemController {
         }
         return optionalPollenItem.get();
     }
-
-
 }

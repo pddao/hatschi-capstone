@@ -1,30 +1,32 @@
-import styled from "styled-components/macro";
-import { Link } from "react-router-dom";
-import { BackButton } from "./BackButton";
+import { AppBar, Toolbar, makeStyles } from '@material-ui/core';
+import { BackButton } from './BackButton';
+import LinkToProfile from './LinkToProfile';
+import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
+
+const useStyles = makeStyles({
+  toolbar: {
+    justifyContent: 'center',
+    color: '#fff',
+  },
+  a: {
+    textDecoration: 'none',
+    color: 'white',
+  },
+});
 
 export default function Header() {
+  const classes = useStyles();
+
   return (
-    <HeaderStyle>
-      <BackButton />
-      <h2>hatschi</h2>
-      <Link to="/user">Link to your profile</Link>
-    </HeaderStyle>
+    <AppBar elevation={0} position="static">
+      <Toolbar className={classes.toolbar}>
+        <BackButton />
+        <a href="/" className={classes.a}>
+          hatschi
+        </a>
+        <PersonRoundedIcon />
+        <LinkToProfile />
+      </Toolbar>
+    </AppBar>
   );
 }
-
-const HeaderStyle = styled.header`
-  //position: fixed;
-  //top: 0;
-  //margin: 0;
-  width: 100%;
-  background: #678a74;
-  font-family: "Patrick Hand", cursive;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
-
-  h2 {
-    color: white;
-    font-family: "Source Serif Pro", serif;
-  }
-`;

@@ -1,34 +1,39 @@
-import styled from "styled-components/macro";
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 160,
+  },
+});
 
 export default function DictionaryPollenItem({ pollenItem }) {
+  const classes = useStyles();
   const history = useHistory();
   const handleClick = () => {
     history.push(`/dictionary/${pollenItem.id}/details`);
   };
 
   return (
-    <Wrapper onClick={handleClick}>
-      <h2>{pollenItem.englishName}</h2>
-      <img
-        src="https://www.landwirtschaftskammer.de/fotos/zoom/a/ambrosiaartemisiifolia.jpg"
-        alt="Ambrosia"
-      />
-    </Wrapper>
+    <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={pollenItem.firstPicUrl}
+          onClick={handleClick}
+        />
+        <CardContent>
+          <Typography color="primary">{pollenItem.englishName}</Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   );
 }
-
-const Wrapper = styled.button`
-  background: lightgrey;
-  font-family: "Patrick Hand", cursive;
-  margin: 0;
-  width: 100%;
-  border-radius: 10px;
-  border: 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
-
-  img {
-    margin: repat(4, 8px);
-    width: 100%;
-  }
-`;

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import * as apiservice from "../service/apiservice";
+import { useEffect, useState } from 'react';
+import * as apiservice from '../service/apiservice';
 
 export default function usePollenCount() {
   const [pollenCounts, setPollenCounts] = useState([]);
