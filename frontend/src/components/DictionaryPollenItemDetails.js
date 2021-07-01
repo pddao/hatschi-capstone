@@ -24,17 +24,25 @@ export default function DictionaryPollenItemDetails() {
 
       <Carousel autoPlay={false} animation="slide">
         <div>
-          <img src={pollenDetails.firstPicUrl} className={classes.img} alt="" />
+          <img
+            src={pollenDetails.firstPicUrl}
+            className={classes.img}
+            alt="first picture in carousel"
+          />
         </div>
         <div>
           <img
             src={pollenDetails.secondPicUrl}
             className={classes.img}
-            alt=""
+            alt="second picture in carousel"
           />
         </div>
         <div>
-          <img src={pollenDetails.thirdPicUrl} className={classes.img} alt="" />
+          <img
+            src={pollenDetails.thirdPicUrl}
+            className={classes.img}
+            alt="third picture in carousel"
+          />
         </div>
       </Carousel>
 
