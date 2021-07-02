@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro';
 import DictionaryPollenItem from '../components/DictionaryPollenItem';
 import usePollenItems from '../hooks/usePollenItems';
-import NavigationBar from '../navigation/NavigationBar';
 
 export default function DictionaryOverviewPage() {
   const { pollenItems } = usePollenItems();
@@ -15,7 +14,6 @@ export default function DictionaryOverviewPage() {
           <DictionaryPollenItem key={pollenItem.id} pollenItem={pollenItem} />
         ))}
       </div>
-      <NavigationBar />
     </Wrapper>
   );
 }

@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     justifyContent: 'space-around',
 
     '& .MuiBottomNavigationAction-root.Mui-selected': {
-      color: '#8db596',
+      color: 'primary',
     },
   },
 });

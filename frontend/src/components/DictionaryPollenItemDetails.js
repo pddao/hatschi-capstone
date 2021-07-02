@@ -11,9 +11,7 @@ const useStyles = makeStyles({
   },
 
   img: {
-    width: 370,
-    height: 370,
-    padding: '5px',
+    width: '330px',
   },
 
   '& .CarouselItem': {
