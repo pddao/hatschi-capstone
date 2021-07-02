@@ -16,4 +16,5 @@ public class City {
     private String region_name;
     private int partregion_id;
     private String partregion_name;
+    private int response_position;
 }

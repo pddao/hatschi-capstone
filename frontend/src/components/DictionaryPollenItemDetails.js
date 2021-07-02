@@ -4,13 +4,25 @@ import { makeStyles } from '@material-ui/core';
 import Carousel from 'react-material-ui-carousel';
 
 const useStyles = makeStyles({
+  root: {
+    width: 450,
+    height: 450,
+    justifyContent: 'space-around',
+  },
+
   img: {
     width: 370,
     height: 370,
     padding: '5px',
   },
 
-  description: {},
+  '& .CarouselItem': {
+    justifyContent: 'space-around',
+  },
+
+  '& .makeStyles-description-31': {
+    justifyContent: 'center',
+  },
 });
 
 export default function DictionaryPollenItemDetails() {
@@ -22,7 +34,7 @@ export default function DictionaryPollenItemDetails() {
     <div>
       <h2>{pollenDetails.englishName}</h2>
 
-      <Carousel autoPlay={false} animation="slide">
+      <Carousel autoPlay={false} animation="slide" className={classes.root}>
         <div>
           <img src={pollenDetails.firstPicUrl} className={classes.img} alt="" />
         </div>
