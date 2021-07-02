@@ -34,7 +34,7 @@ export default function DictionaryPollenItem({ pollenItem }) {
           onClick={handleClick}
         />
         <CardContent>
-          <Typography color="primary">{pollenItem.englishName}</Typography>
+          <Typography>{pollenItem.englishName}</Typography>
         </CardContent>
       </CardActionArea>
     </Card>
