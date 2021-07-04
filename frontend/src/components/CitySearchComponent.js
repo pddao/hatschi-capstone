@@ -45,7 +45,7 @@ export default function CitySearchComponent() {
               </td>
             </tr>
             <tr>
-              <td>Earl</td>
+              <td>Alder</td>
               <td>{pollenCount[0]?.content[location]?.Pollen.Erle.today}</td>
               <td>{pollenCount[0]?.content[location]?.Pollen.Erle.tomorrow}</td>
             </tr>

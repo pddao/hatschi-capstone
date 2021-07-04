@@ -16,7 +16,7 @@ public class DwdApiPollen {
     @JsonProperty("Roggen")
     private DwdApiPollenType rye;
     @JsonProperty("Erle")
-    private DwdApiPollenType earl;
+    private DwdApiPollenType alder;
     @JsonProperty("Esche")
     private DwdApiPollenType ash;
     @JsonProperty("Hasel")

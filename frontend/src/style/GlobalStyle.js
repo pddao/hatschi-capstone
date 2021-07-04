@@ -9,7 +9,8 @@ export default createGlobalStyle`
   html, body {
     font-size: 110%;
     margin-bottom: 60px;
-    font-family: "Assistant";
+    font-family: "Assistant", serif;
+    hyphens: auto;
   }
   
   h1 {
@@ -20,12 +21,18 @@ export default createGlobalStyle`
     color: gray;
   }
   
-  h2, h3, label, table {
+  h2, label, table {
     margin: 5%;
   }
   
+  h3 {
+    margin: 0;
+    padding: 5px 15px;
+    color: #8db596;
+  }
+  
   p {
-    margin: 5%;
+    margin: 5px 15px;
     text-align: justify;
   }
-`;
+  `;

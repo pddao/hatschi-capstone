@@ -3,7 +3,7 @@ import { ThemeProvider } from '@material-ui/core';
 import { theme } from './theme/HatschiTheme';
 import HomePage from './pages/HomePage';
 import DictionaryOverviewPage from './pages/DictionaryOverviewPage';
-import DictionaryPollenItemDetails from './components/DictionaryPollenItemDetails';
+import DictionaryDetailsPage from './pages/DictionaryDetailsPage';
 import Layout from './style/Layout';
 import UserPage from './pages/UserPage';
 import PollenForecastPage from './pages/PollenForecastPage';
@@ -27,7 +27,7 @@ export default function App() {
               <DictionaryOverviewPage />
             </PrivateRoute>
             <PrivateRoute path={'/dictionary/:id/details'} exact>
-              <DictionaryPollenItemDetails />
+              <DictionaryDetailsPage />
             </PrivateRoute>
             <PrivateRoute path={'/user'} exact>
               <UserPage />
