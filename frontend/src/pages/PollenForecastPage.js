@@ -2,7 +2,6 @@ import styled from 'styled-components/macro';
 import CitySearchComponent from '../components/CitySearchComponent';
 
 export default function PollenForecastPage() {
-
   return (
     <Wrapper>
       <h1>Pollen Forecast</h1>

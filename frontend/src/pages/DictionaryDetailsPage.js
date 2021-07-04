@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import usePollenDetails from '../hooks/usePollenDetails';
-import { makeStyles } from '@material-ui/core';
+import { Fab, makeStyles, Tooltip } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 import Carousel from 'react-material-ui-carousel';
 
 const useStyles = makeStyles({
@@ -17,8 +18,11 @@ const useStyles = makeStyles({
   englishName: {
     textTransform: 'capitalize',
   },
-  '& .CarouselItem': {
-    justifyContent: 'center',
+  fab: {
+    position: 'fixed',
+    top: 85,
+    right: 30,
+    color: 'white',
   },
 });
 
@@ -27,9 +31,22 @@ export default function DictionaryDetailsPage() {
   const { id } = useParams();
   const { pollenDetails } = usePollenDetails(id);
 
+  const handleClick = () => {};
+
   return (
     <div>
       <h1 className={classes.englishName}>{pollenDetails.id}</h1>
+
+      <Tooltip title="Add to allergies list" aria-label="add to allergies list">
+        <Fab
+          size="small"
+          color="primary"
+          className={classes.fab}
+          onClick={handleClick}
+        >
+          <AddIcon />
+        </Fab>
+      </Tooltip>
 
       <Carousel autoPlay={false} animation="slide" className={classes.carousel}>
         <div>
