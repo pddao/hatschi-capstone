@@ -15,10 +15,10 @@ const useStyles = makeStyles({
     textTransform: 'capitalize',
   },
   cardContent: {
-    padding: '6px 10px',
+    padding: '5px 10px',
   },
   cardActions: {
-    padding: '4px 4px',
+    padding: '6px 4px',
   },
 });
 

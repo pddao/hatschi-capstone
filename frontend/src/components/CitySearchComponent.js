@@ -14,7 +14,7 @@ export default function CitySearchComponent() {
 
   return (
     <div>
-      <h3>Städtesuche</h3>
+      <h3>City search</h3>
 
       <section>
         <label htmlFor="cities">Choose a city:</label>
@@ -26,6 +26,12 @@ export default function CitySearchComponent() {
           ))}
         </select>
       </section>
+
+      <p>
+        Here comes your personal pollen forecast for the region{' '}
+        {pollenCount[0]?.content[location]?.region_name}! Pleaser consider: next
+        update takes place at {pollenCount[0]?.next_update}.
+      </p>
 
       <section>
         <table className="tableStyle">

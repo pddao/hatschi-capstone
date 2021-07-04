@@ -20,4 +20,5 @@ public class PollenItem {
     private String firstPicUrl;
     private String secondPicUrl;
     private String thirdPicUrl;
+    private String germanName;
 }

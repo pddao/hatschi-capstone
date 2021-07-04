@@ -17,6 +17,9 @@ const useStyles = makeStyles({
   englishName: {
     textTransform: 'capitalize',
   },
+  '& .CarouselItem': {
+    justifyContent: 'center',
+  },
 });
 
 export default function DictionaryDetailsPage() {
@@ -55,6 +58,8 @@ export default function DictionaryDetailsPage() {
       <section className={classes.details}>
         <h3>English name:</h3>
         <p className={classes.englishName}>{pollenDetails.id}</p>
+        <h3>German name:</h3>
+        <p>{pollenDetails.germanName}</p>
         <h3>Latin name:</h3>
         <p>{pollenDetails.latinName}</p>
         <h3>Blooming season: </h3>
