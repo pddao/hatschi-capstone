@@ -7,11 +7,20 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  withStyles,
 } from '@material-ui/core';
+
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.white,
+  },
+}))(TableCell);
 
 const useStyles = makeStyles({
   table: {
     fontSize: 'small',
+    width: 355,
   },
 });
 
@@ -24,12 +33,12 @@ export default function PollenForecastPage() {
 
       <CitySearchComponent />
 
-      <TableContainer size="small">
+      <TableContainer className={classes.table}>
         <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Description</TableCell>
+              <StyledTableCell>ID</StyledTableCell>
+              <StyledTableCell>Description</StyledTableCell>
             </TableRow>
           </TableHead>
 

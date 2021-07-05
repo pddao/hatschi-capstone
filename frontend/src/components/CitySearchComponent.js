@@ -9,11 +9,26 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  TextField,
+  withStyles,
 } from '@material-ui/core';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.white,
+  },
+}))(TableCell);
 
 const useStyles = makeStyles({
   table: {
     width: 355,
+  },
+  autocomplete: {
+    display: 'flex',
+    width: 325,
+    margin: '0 auto',
   },
 });
 
@@ -41,6 +56,16 @@ export default function CitySearchComponent() {
             </option>
           ))}
         </select>
+
+        <Autocomplete
+          options={cities?.map((city) => city.name)}
+          className={classes.autocomplete}
+          onChange={(event) => handleChange(event)}
+          // value={city.response_position}
+          renderInput={(params) => (
+            <TextField {...params} placeholder="Choose a city" />
+          )}
+        />
       </section>
 
       <p>
@@ -54,9 +79,9 @@ export default function CitySearchComponent() {
           <Table size="small">
             <TableHead>
               <TableRow>
-                <TableCell>Pollen type</TableCell>
-                <TableCell>Today</TableCell>
-                <TableCell>Tomorrow</TableCell>
+                <StyledTableCell>Pollen type</StyledTableCell>
+                <StyledTableCell>Today</StyledTableCell>
+                <StyledTableCell>Tomorrow</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>

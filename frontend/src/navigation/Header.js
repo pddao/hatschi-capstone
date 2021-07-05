@@ -26,9 +26,12 @@ const useStyles = makeStyles({
     fontSize: 'larger',
   },
   title: {
+    display: 'flex',
+    justifyItems: 'center',
     fontFamily: 'Sacramento',
     color: 'white',
     padding: 0,
+    alignContent: 'center',
   },
 });
 export default function Header() {
@@ -53,8 +56,9 @@ export default function Header() {
           direction="row"
           justify="space-between"
           alignItems="center"
-          display="grid"
+          display="flex"
           gridTemplateRow="repeat(3, 1fr)"
+          paddingTop="30px"
         >
           <Grid>
             <BackButton className={classes.icon} />

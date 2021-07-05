@@ -8,6 +8,7 @@ const useStyles = makeStyles({
   carousel: {
     width: 370,
     height: 420,
+    margin: '0 auto',
   },
   img: {
     width: 370,
