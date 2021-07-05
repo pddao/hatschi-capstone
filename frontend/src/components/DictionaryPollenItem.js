@@ -8,10 +8,12 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   card: {
+    maxHeight: 345,
     maxWidth: 345,
   },
   img: {
-    height: 160,
+    height: 280,
+    width: 345,
   },
 });
 
@@ -32,7 +34,7 @@ export default function DictionaryPollenItem({ pollenItem }) {
           onClick={handleClick}
         />
         <CardContent>
-          <Typography color="primary">{pollenItem.englishName}</Typography>
+          <Typography>{pollenItem.englishName}</Typography>
         </CardContent>
       </CardActionArea>
     </Card>

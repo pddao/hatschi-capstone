@@ -8,14 +8,16 @@ export default createGlobalStyle`
   
   html, body {
     font-size: 110%;
-    background-color: #fff;
     margin-bottom: 60px;
+    font-family: "Assistant";
   }
   
   h1 {
     text-align: center;
     margin: 0;
-    padding: 10px 15px; 
+    padding: 10px; 
+    font-weight: bolder;
+    color: gray;
   }
   
   h2, h3, label, table {
@@ -24,5 +26,6 @@ export default createGlobalStyle`
   
   p {
     margin: 5%;
+    text-align: justify;
   }
 `;

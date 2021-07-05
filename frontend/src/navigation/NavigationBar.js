@@ -18,11 +18,12 @@ const useStyles = makeStyles({
     left: 0,
     height: '55px',
     width: '100%',
-    borderTop: '4px solid' + grey[100],
+    borderTop: '3px solid' + grey[300],
     justifyContent: 'space-around',
+    borderRadius: '30px',
 
     '& .MuiBottomNavigationAction-root.Mui-selected': {
-      color: '#8db596',
+      color: 'primary',
     },
   },
 });
