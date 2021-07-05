@@ -60,7 +60,7 @@ export default function CitySearchComponent() {
         <Autocomplete
           options={cities?.map((city) => city.name)}
           className={classes.autocomplete}
-          onChange={(event) => handleChange(event)}
+          onChange={(event, value) => handleChange(event, value)}
           // value={city.response_position}
           renderInput={(params) => (
             <TextField {...params} placeholder="Choose a city" />
