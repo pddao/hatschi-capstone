@@ -4,9 +4,8 @@ import { Button, makeStyles, TextField } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
-    width: 300,
+    width: 400,
     display: 'grid',
-    justifyItems: 'flex-end',
   },
 });
 
@@ -33,15 +32,23 @@ export default function LoginPage() {
   };
 
   return (
-    <form className={classes.form} onSubmit={handleSubmit}>
-      <div className={classes.root}>
+    <form
+      className={classes.form}
+      onSubmit={handleSubmit}
+      style={{
+        display: 'grid',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <div>
         <TextField
           variant="filled"
           margin="normal"
           required
           fullWidth
           id="username"
-          label="Username"
+          placeholder="Username*"
           name="username"
           autoComplete="username"
           autoFocus
@@ -51,29 +58,31 @@ export default function LoginPage() {
           helperText="Please enter your username"
         />
       </div>
-      <div className={classes.root}>
+      <div>
         <TextField
           variant="filled"
           margin="normal"
           required
           fullWidth
           id="password"
-          label="Password"
+          placeholder="Password*"
           name="password"
           autoComplete="password"
           autoFocus
           labelText="Password"
-          type="text"
+          type="password"
           onChange={handleChange}
           value={credentials.password}
           helperText="Please enter your password"
         />
         <Button
-          className={classes.root}
           type="submit"
           fullWidth
           variant="contained"
           color="primary"
+          style={{
+            marginTop: '30px',
+          }}
         >
           Login
         </Button>
