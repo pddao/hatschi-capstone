@@ -53,7 +53,6 @@ export default function Header() {
           direction="row"
           justify="space-between"
           alignItems="center"
-          display="grid"
           gridTemplateRow="repeat(3, 1fr)"
         >
           <Grid>

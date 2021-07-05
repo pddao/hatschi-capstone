@@ -8,7 +8,6 @@ export default function CitySearchComponent() {
   const [location, setLocation] = useState('');
 
   const handleChange = (event) => {
-    event.preventDefault();
     setLocation(event.target.value);
   };
 
