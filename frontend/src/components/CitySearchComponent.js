@@ -74,6 +74,11 @@ export default function CitySearchComponent() {
         update takes place at {pollenCount[0]?.next_update}.
       </p>
 
+      <select>
+        <option>Show all</option>
+        <option>Your allergies</option>
+      </select>
+
       <section>
         <TableContainer className={classes.table}>
           <Table size="small">
