@@ -16,7 +16,7 @@ export default createGlobalStyle`
   h1 {
     text-align: center;
     margin: 0;
-    padding: 10px; 
+    padding: 20px; 
     font-weight: bolder;
     color: gray;
   }

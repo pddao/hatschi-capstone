@@ -53,21 +53,21 @@ export default function DictionaryDetailsPage() {
           <img
             src={pollenDetails.firstPicUrl}
             className={classes.img}
-            alt="first picture in carousel"
+            alt="first in carousel"
           />
         </div>
         <div>
           <img
             src={pollenDetails.secondPicUrl}
             className={classes.img}
-            alt="second picture in carousel"
+            alt="second in carousel"
           />
         </div>
         <div>
           <img
             src={pollenDetails.thirdPicUrl}
             className={classes.img}
-            alt="third picture in carousel"
+            alt="third in carousel"
           />
         </div>
       </Carousel>
