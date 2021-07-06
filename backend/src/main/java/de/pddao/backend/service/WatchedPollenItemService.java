@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class WatchedPollenItemService {
@@ -18,12 +19,15 @@ public class WatchedPollenItemService {
         this.pollenItemRepository = pollenItemRepository;
     }
 
-    public List<PollenItem> listWatchedPollenItems(String username) {
-        return pollenItemRepository.findByWatchedBy(username);
+    public List<PollenItem> listWatchedPollenItems(Optional<String> watchedBy) {
+        if(watchedBy.isEmpty()) {
+            return pollenItemRepository.findAll();
+        }
+        return pollenItemRepository.findByWatchedBy(watchedBy.get());
     }
 
-    public PollenItem updateAllergiesList(String pollenItemId, String username) {
-        PollenItem pollenItemToUpdate = pollenItemRepository.findById(pollenItemId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No watched pollen items available"));
+    public PollenItem updatePollenItem(String pollenItemId, String username) {
+        PollenItem pollenItemToUpdate = pollenItemRepository.findById(pollenItemId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pollen item not found"));
 
         if(pollenItemToUpdate.getWatchedBy().contains(username)){
             pollenItemToUpdate.getWatchedBy().remove(username);
@@ -33,5 +37,3 @@ public class WatchedPollenItemService {
         return pollenItemRepository.save(pollenItemToUpdate);
     }
 }
-
-//.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No watched pollen items available");

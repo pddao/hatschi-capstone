@@ -38,9 +38,12 @@ export default function CitySearchComponent() {
   const [location, setLocation] = useState('');
   const classes = useStyles();
 
-  const handleChange = (event) => {
+  const handleChange = (event, value) => {
     event.preventDefault();
-    setLocation(event.target.value);
+    const response_position = cities.find(
+      (city) => city.name === value
+    ).response_position;
+    setLocation(response_position);
   };
 
   return (
@@ -48,20 +51,10 @@ export default function CitySearchComponent() {
       <h3>City search</h3>
 
       <section>
-        <label htmlFor="cities">Choose a city:</label>
-        <select name="cities" id="cities" onChange={handleChange}>
-          {cities?.map((city) => (
-            <option key={city.id} value={city.response_position}>
-              {city.name}
-            </option>
-          ))}
-        </select>
-
         <Autocomplete
           options={cities?.map((city) => city.name)}
           className={classes.autocomplete}
           onChange={(event, value) => handleChange(event, value)}
-          // value={city.response_position}
           renderInput={(params) => (
             <TextField {...params} placeholder="Choose a city" />
           )}

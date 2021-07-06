@@ -68,7 +68,6 @@ export default function LoginPage() {
           placeholder="Password*"
           name="password"
           autoComplete="password"
-          autoFocus
           labelText="Password"
           type="password"
           onChange={handleChange}
