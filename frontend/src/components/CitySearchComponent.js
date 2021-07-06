@@ -2,7 +2,10 @@ import useCities from '../hooks/useCities';
 import { useState } from 'react';
 import usePollenCount from '../hooks/usePollenCount';
 import {
+  InputLabel,
   makeStyles,
+  MenuItem,
+  Select,
   Table,
   TableBody,
   TableCell,
@@ -12,6 +15,7 @@ import {
   TextField,
   withStyles,
 } from '@material-ui/core';
+import FilterListRoundedIcon from '@material-ui/icons/FilterListRounded';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 const StyledTableCell = withStyles((theme) => ({
@@ -26,6 +30,11 @@ const useStyles = makeStyles({
     width: 355,
   },
   autocomplete: {
+    display: 'flex',
+    width: 325,
+    margin: '0 auto',
+  },
+  filter: {
     display: 'flex',
     width: 325,
     margin: '0 auto',
@@ -67,10 +76,14 @@ export default function CitySearchComponent() {
         update takes place at {pollenCount[0]?.next_update}.
       </p>
 
-      <select>
-        <option>Show all</option>
-        <option>Your allergies</option>
-      </select>
+      <InputLabel>
+        <FilterListRoundedIcon color="primary" fontSize="small" />
+        Filter for:
+      </InputLabel>
+      <Select className={classes.filter}>
+        <MenuItem>All pollen</MenuItem>
+        <MenuItem>Your allergies</MenuItem>
+      </Select>
 
       <section>
         <TableContainer className={classes.table}>
