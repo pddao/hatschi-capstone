@@ -21,9 +21,12 @@ const useStyles = makeStyles({
   },
   fab: {
     position: 'fixed',
-    top: 85,
-    right: 30,
+    bottom: 70,
+    right: 20,
     color: 'white',
+  },
+  description: {
+    paddingBottom: '40px',
   },
 });
 
@@ -32,7 +35,7 @@ export default function DictionaryDetailsPage() {
   const { id } = useParams();
   const { pollenDetails } = usePollenDetails(id);
 
-  const handleClick = () => {};
+  // const { addPollenToAllergiesList } = usePollemItems();
 
   return (
     <div>
@@ -40,10 +43,10 @@ export default function DictionaryDetailsPage() {
 
       <Tooltip title="Add to allergies list" aria-label="add to allergies list">
         <Fab
-          size="small"
+          size="normal"
           color="primary"
           className={classes.fab}
-          onClick={handleClick}
+          // addPollenToAllergiesList={addPollenToAllergiesList}
         >
           <AddIcon />
         </Fab>
@@ -86,7 +89,7 @@ export default function DictionaryDetailsPage() {
           {pollenDetails.endBloomingSeason?.nameOfMonth}
         </p>
         <h3>Description: </h3>
-        <p> {pollenDetails.description}</p>
+        <p className={classes.description}> {pollenDetails.description}</p>
       </section>
     </div>
   );

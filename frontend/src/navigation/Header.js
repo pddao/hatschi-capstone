@@ -1,11 +1,5 @@
 import { BackButton } from './BackButton';
-import {
-  AppBar,
-  Toolbar,
-  makeStyles,
-  IconButton,
-  Grid,
-} from '@material-ui/core';
+import { AppBar, Toolbar, makeStyles, IconButton } from '@material-ui/core';
 import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
 import { useHistory, useLocation } from 'react-router-dom';
 
@@ -14,8 +8,9 @@ const useStyles = makeStyles({
     maxHeight: '70px',
   },
   toolbar: {
-    justifyContent: 'center',
     color: '#fff',
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   link: {
     textDecoration: 'none',
@@ -51,33 +46,17 @@ export default function Header() {
   return (
     <AppBar elevation={0} position="static" className={classes.root}>
       <Toolbar className={classes.toolbar}>
-        <Grid
-          container
-          direction="row"
-          justify="space-between"
-          alignItems="center"
-          display="flex"
-          gridTemplateRow="repeat(3, 1fr)"
-          paddingTop="30px"
-        >
-          <Grid>
-            <BackButton className={classes.icon} />
-          </Grid>
-          <Grid>
-            <IconButton onClick={handleOpenHome}>
-              <h1 className={classes.title}>hatschi</h1>
-            </IconButton>
-          </Grid>
-          <Grid>
-            {!loginpage ? (
-              <IconButton onClick={handleOpenProfile}>
-                <PersonRoundedIcon className={classes.icon} />
-              </IconButton>
-            ) : (
-              <div></div>
-            )}
-          </Grid>
-        </Grid>
+        <BackButton className={classes.icon} />
+        <IconButton onClick={handleOpenHome}>
+          <h1 className={classes.title}>hatschi</h1>
+        </IconButton>
+        {!loginpage ? (
+          <IconButton onClick={handleOpenProfile}>
+            <PersonRoundedIcon className={classes.icon} />
+          </IconButton>
+        ) : (
+          <div></div>
+        )}
       </Toolbar>
     </AppBar>
   );
