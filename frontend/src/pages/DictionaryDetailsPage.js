@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import usePollenDetails from '../hooks/usePollenDetails';
+import useWatchedPollenItems from '../hooks/useWatchedPollenItems';
 import { Fab, makeStyles, Tooltip } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import Carousel from 'react-material-ui-carousel';
@@ -34,8 +35,7 @@ export default function DictionaryDetailsPage() {
   const classes = useStyles();
   const { id } = useParams();
   const { pollenDetails } = usePollenDetails(id);
-
-  // const { addPollenToAllergiesList } = usePollemItems();
+  const { updatePollenItemOnWatchlist } = useWatchedPollenItems();
 
   return (
     <div>
@@ -43,10 +43,10 @@ export default function DictionaryDetailsPage() {
 
       <Tooltip title="Add to allergies list" aria-label="add to allergies list">
         <Fab
-          size="normal"
+          size="medium"
           color="primary"
           className={classes.fab}
-          // addPollenToAllergiesList={addPollenToAllergiesList}
+          onClick={updatePollenItemOnWatchlist}
         >
           <AddIcon />
         </Fab>

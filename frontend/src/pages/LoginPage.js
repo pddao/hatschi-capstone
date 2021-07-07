@@ -55,7 +55,7 @@ export default function LoginPage() {
           type="text"
           onChange={handleChange}
           value={credentials.username}
-          helperText="Please enter your username"
+          helpertext="Please enter your username"
         />
       </div>
       <div>
@@ -68,7 +68,6 @@ export default function LoginPage() {
           placeholder="Password*"
           name="password"
           autoComplete="password"
-          labelText="Password"
           type="password"
           onChange={handleChange}
           value={credentials.password}

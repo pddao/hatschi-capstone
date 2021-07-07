@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,21 +20,18 @@ public class WatchedPollenItemService {
         this.pollenItemRepository = pollenItemRepository;
     }
 
-    public List<PollenItem> listWatchedPollenItems(Optional<String> watchedBy) {
-        if(watchedBy.isEmpty()) {
-            return pollenItemRepository.findAll();
-        }
-        return pollenItemRepository.findByWatchedBy(watchedBy.get());
+    public List<PollenItem> listWatchedPollenItems(String username) {
+        return pollenItemRepository.findByWatchedBy(username);
     }
 
     public PollenItem updatePollenItem(String pollenItemId, String username) {
-        PollenItem pollenItemToUpdate = pollenItemRepository.findById(pollenItemId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pollen item not found"));
+        PollenItem pollenItemToWatch = pollenItemRepository.findById(pollenItemId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pollen item not found"));
 
-        if(pollenItemToUpdate.getWatchedBy().contains(username)){
-            pollenItemToUpdate.getWatchedBy().remove(username);
+        if(pollenItemToWatch.getWatchedBy().contains(username)){
+            pollenItemToWatch.getWatchedBy().remove(username);
         } else {
-            pollenItemToUpdate.getWatchedBy().add(username);
+            pollenItemToWatch.getWatchedBy().add(username);
         }
-        return pollenItemRepository.save(pollenItemToUpdate);
+        return pollenItemRepository.save(pollenItemToWatch);
     }
 }

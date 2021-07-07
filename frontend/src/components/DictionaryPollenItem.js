@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import { Button, CardActions, makeStyles } from '@material-ui/core';
+import { CardActions, makeStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -18,7 +18,8 @@ const useStyles = makeStyles({
     padding: '5px 10px',
   },
   cardActions: {
-    padding: '6px 4px',
+    padding: '8px 8px',
+    fontWeight: 'bold',
   },
 });
 
@@ -48,10 +49,11 @@ export default function DictionaryPollenItem({ pollenItem }) {
         </CardContent>
       </CardActionArea>
       <CardActionArea>
-        <CardActions className={classes.cardActions}>
-          <Button size="small" color="primary" onClick={pushToDetailspage}>
-            Learn more
-          </Button>
+        <CardActions
+          className={classes.cardActions}
+          onClick={pushToDetailspage}
+        >
+          <Typography color="primary">Learn more</Typography>
         </CardActions>
       </CardActionArea>
     </Card>

@@ -5,7 +5,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PollenItemDto {
+public class WatchedPollenItemDto {
     private String id;
-    private String username;
+//    private String username;
 }
