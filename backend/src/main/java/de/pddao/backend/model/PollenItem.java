@@ -13,7 +13,6 @@ import java.util.List;
 @Document(collection = "pollen-items")
 public class PollenItem {
     @Id
-    private String id;
     private String englishName;
     private String latinName;
     private BloomingMonth beginBloomingSeason;

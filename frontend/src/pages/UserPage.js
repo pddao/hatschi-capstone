@@ -20,10 +20,10 @@ const useStyles = makeStyles({
 });
 
 export default function UserPage() {
-  // const { watchedPollenItems } = useWatchedPollenItems();
+  const { watchedPollenItems } = useWatchedPollenItems();
   const classes = useStyles();
 
-  // console.log(watchedPollenItems);
+  console.log(watchedPollenItems);
 
   return (
     <UserPageStyle>

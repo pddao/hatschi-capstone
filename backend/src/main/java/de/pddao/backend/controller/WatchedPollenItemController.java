@@ -22,23 +22,12 @@ public class WatchedPollenItemController {
     }
 
     @GetMapping
-    public List<PollenItem> listPollenItemsOnWatchlist (Principal principal) {
+    public List<PollenItem> listPollenItemsOnWatchlist(Principal principal) {
         return watchedPollenItemService.listWatchedPollenItems(principal.getName());
     }
 
-//    @PutMapping
-//    public PollenItem updatePollenItemOnWatchlist (@RequestBody WatchedPollenItemDto pollenItemToWatch, Principal principal) {
-//        String username = principal.getName();
-//        if(pollenItemToWatch.getUsername().equals(username)) {
-//            return watchedPollenItemService.updatePollenItem(pollenItemToWatch.getId(), pollenItemToWatch.getUsername());
-//        } else {
-//            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
-//        }
-//    }
-
     @PutMapping
-    public PollenItem updatePollenItemOnWatchlist (@RequestBody WatchedPollenItemDto pollenItemToWatch, Principal principal) {
+    public PollenItem updatePollenItemOnWatchlist(Principal principal, @RequestBody WatchedPollenItemDto pollenItemToWatch) {
         return watchedPollenItemService.updatePollenItem(principal.getName(), pollenItemToWatch.getId());
-
     }
 }

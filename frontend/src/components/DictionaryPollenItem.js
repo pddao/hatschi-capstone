@@ -28,7 +28,7 @@ export default function DictionaryPollenItem({ pollenItem }) {
   const history = useHistory();
 
   const pushToDetailspage = () => {
-    history.push(`/dictionary/${pollenItem.id}/details`);
+    history.push(`/dictionary/${pollenItem.englishName}/details`);
   };
 
   return (
@@ -44,7 +44,7 @@ export default function DictionaryPollenItem({ pollenItem }) {
           onClick={pushToDetailspage}
         >
           <Typography className={classes.englishName}>
-            {pollenItem.id}
+            {pollenItem.englishName}
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -37,18 +37,17 @@ export default function DictionaryDetailsPage() {
   const { pollenDetails } = usePollenDetails(id);
   const { updatePollenItemOnWatchlist } = useWatchedPollenItems();
 
+  const handleClick = () => {
+    updatePollenItemOnWatchlist(id);
+  };
+
   return (
     <div>
-      <h1 className={classes.englishName}>{pollenDetails.id}</h1>
+      <h1 className={classes.englishName}>{pollenDetails.englishName}</h1>
 
       <Tooltip title="Add to allergies list" aria-label="add to allergies list">
-        <Fab
-          size="medium"
-          color="primary"
-          className={classes.fab}
-          onClick={updatePollenItemOnWatchlist}
-        >
-          <AddIcon />
+        <Fab size="medium" color="primary" className={classes.fab}>
+          <AddIcon onClick={handleClick} />
         </Fab>
       </Tooltip>
 
@@ -78,7 +77,7 @@ export default function DictionaryDetailsPage() {
 
       <section className={classes.details}>
         <h3>English name:</h3>
-        <p className={classes.englishName}>{pollenDetails.id}</p>
+        <p className={classes.englishName}>{pollenDetails.englishName}</p>
         <h3>German name:</h3>
         <p>{pollenDetails.germanName}</p>
         <h3>Latin name:</h3>

@@ -7,5 +7,4 @@ import lombok.*;
 @AllArgsConstructor
 public class WatchedPollenItemDto {
     private String id;
-//    private String username;
 }

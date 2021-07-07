@@ -7,9 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.security.Principal;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class WatchedPollenItemService {
@@ -20,14 +18,17 @@ public class WatchedPollenItemService {
         this.pollenItemRepository = pollenItemRepository;
     }
 
-    public List<PollenItem> listWatchedPollenItems(String username) {
-        return pollenItemRepository.findByWatchedBy(username);
+    public List<PollenItem> listWatchedPollenItems(String watchedBy) {
+        if (watchedBy.isEmpty()) {
+            return pollenItemRepository.findAll();
+        }
+        return pollenItemRepository.findByWatchedBy(watchedBy);
     }
 
-    public PollenItem updatePollenItem(String pollenItemId, String username) {
+    public PollenItem updatePollenItem(String username, String pollenItemId) {
         PollenItem pollenItemToWatch = pollenItemRepository.findById(pollenItemId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pollen item not found"));
 
-        if(pollenItemToWatch.getWatchedBy().contains(username)){
+        if (pollenItemToWatch.getWatchedBy().contains(username)) {
             pollenItemToWatch.getWatchedBy().remove(username);
         } else {
             pollenItemToWatch.getWatchedBy().add(username);
