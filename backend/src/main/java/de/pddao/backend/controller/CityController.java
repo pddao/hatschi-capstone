@@ -31,11 +31,6 @@ public class CityController {
 
     @GetMapping("/{name}")
     public City getCityByName(@PathVariable String name) {
-        Optional<City> optionalCity = cityService.getCityByName(name);
-
-        if (optionalCity.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "city doesn't exist");
-        }
-        return optionalCity.get();
+        return cityService.getCityByName(name).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "city doesn't exist"));
     }
 }

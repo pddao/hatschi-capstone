@@ -37,7 +37,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 throw new ResponseStatusException(HttpStatus.FORBIDDEN, "invalid token");
             }
         }
-
         filterChain.doFilter(request, response);
     }
 
