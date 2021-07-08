@@ -20,10 +20,6 @@ export default function UserPage() {
 
   const classes = useStyles();
 
-  // const watchedByUser =
-  //   (watchedPollenItems.hasOwnProperty('hazel') &&
-  //   watchedPollenItems.hasOwnProperty(jwtDecoded.sub);
-
   console.log(jwtDecoded.sub);
   // console.log(watchedByUser);
   console.log(watchedPollenItems);
@@ -39,7 +35,7 @@ export default function UserPage() {
     rye: false,
   });
 
-  useEffect(() => {
+  const allPollenItemsWatchedByUser = () => {
     const ash = watchedPollenItems.find((item) => item.englishName === 'ash');
     const ashWatchedByUser = ash && ash.watchedBy.includes(jwtDecoded.sub);
     const birch = watchedPollenItems.find(
@@ -85,15 +81,24 @@ export default function UserPage() {
       rye: ryeWatchedByUser,
       hazel: hazelWatchedByUser,
     });
-  }, [watchedPollenItems]);
-
-  const addPollenItemToWatchlist = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-    if (event.target.checked) {
-      updatePollenItemOnWatchlist(event.target.name);
-    }
   };
 
+  useEffect(() => {
+    allPollenItemsWatchedByUser();
+  }, [watchedPollenItems]);
+
+  const handleChange = (event) => {
+    setState({
+      ...state,
+      [event.target.name]: event.target.checked,
+    });
+    updatePollenItemOnWatchlist({
+      id: event.target.name,
+      watched: event.target.checked,
+    });
+  };
+
+  console.log(state);
   return (
     <UserPageStyle>
       <h1>My allergies</h1>
@@ -102,30 +107,7 @@ export default function UserPage() {
         Please activate the pollen you are allergic to. Afterwards you can check
         the pollen forecast based on your preferences.{' '}
       </p>
-      {/*<h3>Profile information</h3>*/}
-      {/*<form action="">*/}
-      {/*  <label>*/}
-      {/*    <TextField helperText={'First name'} required={true} type={'text'} />*/}
-      {/*    <EditIcon fontSize="small" />*/}
-      {/*  </label>*/}
-      {/*  <label>*/}
-      {/*    <TextField helperText={'Last name'} required={true} type={'text'} />*/}
-      {/*    <EditIcon fontSize="small" />*/}
-      {/*  </label>*/}
-      {/*  <label>*/}
-      {/*    <TextField helperText={'Password'} required={true} type={'text'} />*/}
-      {/*    <EditIcon fontSize="small" />*/}
-      {/*  </label>*/}
-      {/*  <Button*/}
-      {/*    startIcon={<SaveIcon />}*/}
-      {/*    fullWidth*/}
-      {/*    variant="contained"*/}
-      {/*    color="primary"*/}
-      {/*    disableElevation*/}
-      {/*  >*/}
-      {/*    Save profile information*/}
-      {/*  </Button>*/}
-      {/*</form>*/}
+
       <form>
         <section>
           <FormGroup className={classes.formgroup} row>
@@ -134,7 +116,7 @@ export default function UserPage() {
                 <Switch
                   color="primary"
                   name="birch"
-                  onChange={addPollenItemToWatchlist}
+                  onChange={handleChange}
                   checked={state.birch}
                 />
               }
@@ -146,7 +128,7 @@ export default function UserPage() {
                 <Switch
                   color="primary"
                   name="hazel"
-                  onChange={addPollenItemToWatchlist}
+                  onChange={handleChange}
                   checked={state.hazel}
                 />
               }
@@ -158,7 +140,7 @@ export default function UserPage() {
                 <Switch
                   color="primary"
                   name="rye"
-                  onChange={addPollenItemToWatchlist}
+                  onChange={handleChange}
                   checked={state.rye}
                 />
               }
@@ -170,7 +152,7 @@ export default function UserPage() {
                 <Switch
                   color="primary"
                   name="ragweed"
-                  onChange={addPollenItemToWatchlist}
+                  onChange={handleChange}
                   checked={state.ragweed}
                 />
               }
@@ -182,7 +164,7 @@ export default function UserPage() {
                 <Switch
                   color="primary"
                   name="grasses"
-                  onChange={addPollenItemToWatchlist}
+                  onChange={handleChange}
                   checked={state.grasses}
                 />
               }
@@ -194,7 +176,7 @@ export default function UserPage() {
                 <Switch
                   color="primary"
                   name="alder"
-                  onChange={addPollenItemToWatchlist}
+                  onChange={handleChange}
                   checked={state.alder}
                 />
               }
@@ -206,7 +188,7 @@ export default function UserPage() {
                 <Switch
                   color="primary"
                   name="ash"
-                  onChange={addPollenItemToWatchlist}
+                  onChange={handleChange}
                   checked={state.ash}
                 />
               }
@@ -218,7 +200,7 @@ export default function UserPage() {
                 <Switch
                   color="primary"
                   name="mugwort"
-                  onChange={addPollenItemToWatchlist}
+                  onChange={handleChange}
                   checked={state.mugwort}
                 />
               }
@@ -227,15 +209,6 @@ export default function UserPage() {
             />
           </FormGroup>
         </section>
-        {/*<Button*/}
-        {/*  startIcon={<SaveIcon />}*/}
-        {/*  fullWidth*/}
-        {/*  variant="contained"*/}
-        {/*  color="primary"*/}
-        {/*  disableElevation*/}
-        {/*>*/}
-        {/*  Save allergies*/}
-        {/*</Button>*/}
       </form>
     </UserPageStyle>
   );

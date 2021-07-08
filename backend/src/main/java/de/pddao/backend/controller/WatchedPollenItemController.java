@@ -28,6 +28,6 @@ public class WatchedPollenItemController {
 
     @PutMapping
     public PollenItem updatePollenItemOnWatchlist(Principal principal, @RequestBody WatchedPollenItemDto pollenItemToWatch) {
-        return watchedPollenItemService.updatePollenItem(principal.getName(), pollenItemToWatch.getId());
+        return watchedPollenItemService.updatePollenItem(principal.getName(), pollenItemToWatch.getId(), pollenItemToWatch.isWatched());
     }
 }

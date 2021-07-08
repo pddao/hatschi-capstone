@@ -20,11 +20,10 @@ export default function useWatchedPollenItems() {
   }, [token]);
 
   function updatePollenItemOnWatchlist(pollenItemToWatch) {
-    console.log(pollenItemToWatch);
     axios
       .put(
         `/api/pollenitems/watched`,
-        { id: pollenItemToWatch },
+        { id: pollenItemToWatch.id, watched: pollenItemToWatch.watched },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -32,8 +31,13 @@ export default function useWatchedPollenItems() {
         }
       )
       .then((response) => response.data)
-      .then(() =>
-        setWatchedPollenItems([...watchedPollenItems, pollenItemToWatch])
+      .then((data) =>
+        setWatchedPollenItems([
+          ...watchedPollenItems.filter(
+            (item) => item.englishName !== data.englishName
+          ),
+          data,
+        ])
       )
       .catch((error) => console.error(error.message));
   }
