@@ -1,15 +1,15 @@
 import { useContext, useState } from 'react';
 import AuthContext from '../context/AuthContext';
-import { Button, makeStyles, TextField } from '@material-ui/core';
+import { Button, Grid, makeStyles, TextField } from '@material-ui/core';
 
 const useStyles = makeStyles({
-  root: {
-    width: 400,
+  form: {
     display: 'grid',
-    backgroundColor: 'primary',
+    gridGap: '0.5rem',
+    justifyContent: 'center',
+    justifyItems: 'center',
   },
 });
-
 const initialState = {
   username: '',
   password: '',
@@ -33,16 +33,8 @@ export default function LoginPage() {
   };
 
   return (
-    <form
-      className={classes.form}
-      onSubmit={handleSubmit}
-      style={{
-        display: 'grid',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <div>
+    <form className={classes.root} onSubmit={handleSubmit}>
+      <Grid className={classes.form} style={{ paddingTop: '140px' }}>
         <TextField
           variant="filled"
           margin="normal"
@@ -52,14 +44,14 @@ export default function LoginPage() {
           placeholder="Username*"
           name="username"
           autoComplete="username"
-          autoFocus
           type="text"
           onChange={handleChange}
           value={credentials.username}
-          helpertext="Please enter your username"
+          helperText="Please enter your username"
+          style={{ width: '300px' }}
         />
-      </div>
-      <div>
+      </Grid>
+      <Grid className={classes.form}>
         <TextField
           variant="filled"
           margin="normal"
@@ -73,19 +65,20 @@ export default function LoginPage() {
           onChange={handleChange}
           value={credentials.password}
           helperText="Please enter your password"
+          style={{ width: '300px' }}
         />
+      </Grid>
+
+      <Grid className={classes.form} style={{ paddingTop: '30px' }}>
         <Button
           type="submit"
-          fullWidth
           variant="contained"
           color="primary"
-          style={{
-            marginTop: '30px',
-          }}
+          style={{ width: '300px' }}
         >
           Login
         </Button>
-      </div>
+      </Grid>
     </form>
   );
 }

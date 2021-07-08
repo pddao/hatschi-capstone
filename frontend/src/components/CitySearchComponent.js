@@ -26,18 +26,23 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell);
 
 const useStyles = makeStyles({
+  autocomplete: {
+    width: 'auto',
+    paddingRight: '15px',
+  },
+  filtersection: {
+    alignItems: 'right',
+  },
+  filter: {
+    width: 'auto',
+    margin: '0 auto',
+    textAlign: 'center',
+  },
   table: {
     width: 355,
   },
-  autocomplete: {
-    display: 'flex',
-    width: 325,
-    margin: '30px',
-  },
-  filter: {
-    display: 'flex',
-    width: 325,
-    margin: '0 auto',
+  description: {
+    margin: '0 10px',
   },
 });
 
@@ -84,19 +89,19 @@ export default function CitySearchComponent() {
         </p>
       </section>
 
-      <section>
-        <InputLabel id="label" style={{ textAlign: 'right', marginRight: 35 }}>
+      <section className={classes.filtersection}>
+        <InputLabel id="label" style={{ textAlign: 'right', marginRight: 5 }}>
           <FilterListRoundedIcon color="primary" fontSize="small" />
           Filter for:
+          <Select
+            value={value}
+            className={classes.filter}
+            onChange={handleFilter}
+          >
+            <MenuItem value={'All pollen'}>All pollen</MenuItem>
+            <MenuItem value={'My allergies'}>My allergies</MenuItem>
+          </Select>
         </InputLabel>
-        <Select
-          value={value}
-          className={classes.filter}
-          onChange={handleFilter}
-        >
-          <MenuItem value={'All pollen'}>All pollen</MenuItem>
-          <MenuItem value={'My allergies'}>My allergies</MenuItem>
-        </Select>
       </section>
 
       <section>

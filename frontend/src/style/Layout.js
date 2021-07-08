@@ -7,7 +7,6 @@ export default function Layout(props) {
     <PageStyle>
       <Header />
       <div>{props.children}</div>
-      <section></section>
       <NavigationBar />
     </PageStyle>
   );
@@ -19,9 +18,10 @@ const PageStyle = styled.div`
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: min-content 1fr 60px min-content;
+  grid-template-rows: min-content 1fr min-content;
 
   div {
     overflow-y: auto;
+    margin: 5px;
   }
 `;

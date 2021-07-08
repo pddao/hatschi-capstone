@@ -18,12 +18,13 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell);
 
 const useStyles = makeStyles({
-  table: {
-    fontSize: 'small',
-    width: 355,
-  },
-  citySearch: {
-    margin: '15px',
+  root: {
+    height: 'calc(100% - 55px)',
+
+    '& .MuiTableContainer-root': {
+      width: 350,
+      margin: '0 0 10px 0',
+    },
   },
 });
 
@@ -31,10 +32,9 @@ export default function PollenForecastPage() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.root}>
       <h1>Pollen Forecast</h1>
-
-      <CitySearchComponent className={classes.citySearch} />
+      <CitySearchComponent />
 
       <TableContainer className={classes.table}>
         <Table size="small">

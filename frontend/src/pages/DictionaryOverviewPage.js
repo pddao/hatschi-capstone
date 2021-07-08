@@ -5,14 +5,13 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
-    height: '100%',
+    height: 'calc(100% - 55px)',
   },
   cards: {
     gap: '0.5em',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     justifyItems: 'center',
-    marginTop: '20px',
   },
 });
 

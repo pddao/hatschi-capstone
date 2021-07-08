@@ -6,10 +6,10 @@ import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../context/AuthContext';
 
 const useStyles = makeStyles({
-  formgroup: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    margin: '10px',
+  formlabel: {
+    '& .MuiFormControlLabel-root': {
+      flexDirection: 'initial',
+    },
   },
 });
 
@@ -19,10 +19,6 @@ export default function UserPage() {
     useWatchedPollenItems();
 
   const classes = useStyles();
-
-  console.log(jwtDecoded.sub);
-  // console.log(watchedByUser);
-  console.log(watchedPollenItems);
 
   const [state, setState] = useState({
     birch: false,
@@ -110,7 +106,7 @@ export default function UserPage() {
 
       <form>
         <section>
-          <FormGroup className={classes.formgroup} row>
+          <FormGroup className={classes.formlabel}>
             <FormControlLabel
               control={
                 <Switch

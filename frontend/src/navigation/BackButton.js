@@ -8,7 +8,7 @@ export function BackButton() {
   const loginpage = location.pathname === '/';
 
   return homepage | loginpage ? (
-    <div></div>
+    <div>{''}</div>
   ) : (
     <div onClick={() => history.goBack()}>
       <ArrowBackIosOutlinedIcon />

@@ -6,11 +6,13 @@ import { useHistory, useLocation } from 'react-router-dom';
 const useStyles = makeStyles({
   root: {
     maxHeight: '70px',
+    display: 'flex',
   },
   toolbar: {
     color: '#fff',
     display: 'flex',
     justifyContent: 'space-between',
+    padding: 0,
   },
   link: {
     textDecoration: 'none',
@@ -21,12 +23,9 @@ const useStyles = makeStyles({
     fontSize: 'larger',
   },
   title: {
-    display: 'flex',
-    justifyItems: 'center',
     fontFamily: 'Sacramento',
     color: 'white',
-    padding: 0,
-    alignContent: 'center',
+    marginTop: 20,
   },
 });
 export default function Header() {

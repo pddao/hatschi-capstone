@@ -5,10 +5,8 @@ export const theme = createMuiTheme({
     primary: {
       main: '#8db596',
     },
-    secondary: {
-      main: '#F5C0C0',
-    },
   },
+
   typography: {
     fontFamily: 'Assistant',
   },
