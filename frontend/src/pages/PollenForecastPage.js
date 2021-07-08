@@ -22,6 +22,9 @@ const useStyles = makeStyles({
     fontSize: 'small',
     width: 355,
   },
+  citySearch: {
+    margin: '15px',
+  },
 });
 
 export default function PollenForecastPage() {
@@ -31,7 +34,7 @@ export default function PollenForecastPage() {
     <div>
       <h1>Pollen Forecast</h1>
 
-      <CitySearchComponent />
+      <CitySearchComponent className={classes.citySearch} />
 
       <TableContainer className={classes.table}>
         <Table size="small">

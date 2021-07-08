@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core';
 const useStyles = makeStyles({
   root: {
     height: '100%',
-    margin: '5px',
   },
   cards: {
     gap: '0.5em',
@@ -30,7 +29,10 @@ export default function DictionaryOverviewPage() {
       </p>
       <div className={classes.cards}>
         {pollenItems.map((pollenItem) => (
-          <DictionaryPollenItem key={pollenItem.id} pollenItem={pollenItem} />
+          <DictionaryPollenItem
+            key={pollenItem.englishName}
+            pollenItem={pollenItem}
+          />
         ))}
       </div>
     </div>

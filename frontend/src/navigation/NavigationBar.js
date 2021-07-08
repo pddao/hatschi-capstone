@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     width: '100%',
     borderTop: '3px solid' + grey[300],
     justifyContent: 'space-around',
-    borderRadius: '30px',
+    borderRadius: '30px 30px 0 0',
 
     '& .MuiBottomNavigationAction-root.Mui-selected': {
       color: 'primary',

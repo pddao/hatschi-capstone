@@ -6,6 +6,7 @@ const useStyles = makeStyles({
   root: {
     width: 400,
     display: 'grid',
+    backgroundColor: 'primary',
   },
 });
 
