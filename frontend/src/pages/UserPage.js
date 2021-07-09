@@ -98,7 +98,7 @@ export default function UserPage() {
   return (
     <UserPageStyle>
       <h1>My allergies</h1>
-      <p>Hey {jwtDecoded.sub}! </p>
+      <h3>Hi {jwtDecoded.sub}! </h3>
       <p>
         Please activate the pollen you are allergic to. Afterwards you can check
         the pollen forecast based on your preferences.{' '}
@@ -211,5 +211,9 @@ export default function UserPage() {
 }
 
 const UserPageStyle = styled.div`
-  text-align: center;
+  text-align: justify;
+
+  h3 {
+    margin-left: 10px;
+  }
 `;

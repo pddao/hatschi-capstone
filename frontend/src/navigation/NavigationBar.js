@@ -21,6 +21,8 @@ const useStyles = makeStyles({
     borderTop: '3px solid' + grey[300],
     justifyContent: 'space-around',
     borderRadius: '30px 30px 0 0',
+    marginLeft: 0,
+    paddingLeft: 0,
 
     '& .MuiBottomNavigationAction-root.Mui-selected': {
       color: 'primary',
