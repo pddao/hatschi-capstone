@@ -12,6 +12,7 @@ const useStyles = makeStyles({
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     justifyItems: 'center',
+    width: 'auto',
   },
 });
 

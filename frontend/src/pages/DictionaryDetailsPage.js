@@ -8,8 +8,6 @@ import Carousel from 'react-material-ui-carousel';
 const useStyles = makeStyles({
   root: {
     height: 'calc(100% - 55px)',
-    width: 'auto',
-    display: 'grid',
     margin: '5px',
   },
   englishName: {
@@ -17,17 +15,17 @@ const useStyles = makeStyles({
   },
   carousel: {
     display: 'grid',
-    width: 350,
+    width: 360,
     height: 380,
-    margin: '10px',
+    paddingRight: '10px',
 
     '& .Carousel-indicators-23': {
       margin: 0,
     },
   },
   img: {
-    width: 340,
-    height: 340,
+    width: 320,
+    height: 300,
     justifyItems: 'center',
   },
   fab: {
@@ -37,7 +35,7 @@ const useStyles = makeStyles({
     color: 'white',
   },
   description: {
-    paddingBottom: '30px',
+    paddingBottom: '70px',
   },
   h3: {
     margin: '5px auto 5px 10px',

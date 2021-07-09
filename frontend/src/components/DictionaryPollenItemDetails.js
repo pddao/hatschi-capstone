@@ -4,14 +4,8 @@ import { makeStyles } from '@material-ui/core';
 import Carousel from 'react-material-ui-carousel';
 
 const useStyles = makeStyles({
-  root: {
-    width: 450,
-    height: 450,
-    justifyContent: 'space-around',
-  },
-
   img: {
-    width: '330px',
+    width: '330',
   },
 
   '& .CarouselItem': {

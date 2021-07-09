@@ -10,6 +10,7 @@ export default createGlobalStyle`
     font-size: 110%;
     font-family: "Assistant", serif;
     hyphens: auto;
+    word-wrap: break-word;
   }
   
   h1 {
