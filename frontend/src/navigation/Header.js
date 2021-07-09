@@ -47,14 +47,16 @@ export default function Header() {
       <Toolbar className={classes.toolbar}>
         <BackButton className={classes.icon} />
         <IconButton onClick={handleOpenHome}>
-          <h1 className={classes.title}>hatschi</h1>
+          <h1 className={classes.title} style={{ position: 'sticky' }}>
+            hatschi
+          </h1>
         </IconButton>
         {!loginpage ? (
           <IconButton onClick={handleOpenProfile}>
             <PersonRoundedIcon className={classes.icon} />
           </IconButton>
         ) : (
-          <div></div>
+          <div style={{ color: '#8db596' }}>......</div>
         )}
       </Toolbar>
     </AppBar>

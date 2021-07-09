@@ -7,11 +7,15 @@ export function BackButton() {
   const homepage = location.pathname === '/home';
   const loginpage = location.pathname === '/';
 
-  return homepage | loginpage ? (
-    <div>{''}</div>
-  ) : (
-    <div onClick={() => history.goBack()}>
-      <ArrowBackIosOutlinedIcon />
+  return (
+    <div>
+      {!loginpage && !homepage ? (
+        <div onClick={() => history.goBack()}>
+          <ArrowBackIosOutlinedIcon />
+        </div>
+      ) : (
+        <div style={{ color: '#8db596' }}>.....</div>
+      )}
     </div>
   );
 }
