@@ -1,12 +1,20 @@
 import { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
 import styled from 'styled-components/macro';
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles({
+  root: {
+    height: 'calc(100% - 55px)',
+  },
+});
 
 export default function HomePage() {
+  const classes = useStyles();
   const { jwtDecoded } = useContext(AuthContext);
 
   return (
-    <Wrapper>
+    <Wrapper className={classes.root}>
       <h1>Homepage</h1>
       <section>
         <h3>Hi {jwtDecoded.sub}! </h3>
@@ -19,8 +27,13 @@ export default function HomePage() {
         <div>hatschi - the pollen app</div>
         <p>
           {' '}
-          is your daily companion and always keeps you up to date on when, where
-          and how strongly the most common pollens fly in Germany.
+          is your daily companion and the Forecast always keeps you up to date
+          on when, where and how strongly the 8 most common pollen fly in
+          Germany.
+        </p>
+        <p>
+          In the Dictionary you can read further information about the different
+          pollen types and enter your allergies in your Profile.
         </p>
       </section>
     </Wrapper>

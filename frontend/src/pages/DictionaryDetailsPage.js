@@ -35,7 +35,7 @@ const useStyles = makeStyles({
     color: 'white',
   },
   description: {
-    paddingBottom: '70px',
+    paddingBottom: '50px',
   },
   h3: {
     margin: '5px auto 5px 10px',
