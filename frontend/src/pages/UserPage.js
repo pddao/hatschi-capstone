@@ -94,7 +94,8 @@ export default function UserPage() {
     });
   };
 
-  console.log(state);
+  const classes = useStyles();
+
   return (
     <UserPageStyle>
       <h1>My allergies</h1>
