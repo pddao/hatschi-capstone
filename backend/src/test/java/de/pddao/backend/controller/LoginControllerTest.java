@@ -1,4 +1,4 @@
-package de.pddao.backend.security.controller;
+package de.pddao.backend.controller;
 
 import de.pddao.backend.security.model.AppUser;
 import de.pddao.backend.security.model.dto.LoginDataDto;
@@ -67,5 +67,4 @@ class LoginControllerTest {
         //Then
         assertThat(response.getStatusCode(), is(HttpStatus.FORBIDDEN));
     }
-
 }
