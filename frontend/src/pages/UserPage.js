@@ -9,7 +9,6 @@ import {
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import SaveIcon from '@material-ui/icons/Save';
 import EditIcon from '@material-ui/icons/Edit';
-import useWatchedPollenItems from '../hooks/useWatchedPollenItems';
 
 const useStyles = makeStyles({
   formgroup: {
@@ -20,10 +19,7 @@ const useStyles = makeStyles({
 });
 
 export default function UserPage() {
-  const { watchedPollenItems } = useWatchedPollenItems();
   const classes = useStyles();
-
-  console.log(watchedPollenItems);
 
   return (
     <UserPageStyle>
@@ -56,9 +52,6 @@ export default function UserPage() {
       <form>
         <section>
           <h3>Allergies</h3>
-          {/*{watchedPollenItems.map((item) => (*/}
-          {/*  <AllergyItem key={item.id} watched={watchedPollenItems.find()}*/}
-          {/*))}*/}
           <p>Your choice determines the pollen forecast.</p>
           <FormGroup className={classes.formgroup} row>
             <FormControlLabel
