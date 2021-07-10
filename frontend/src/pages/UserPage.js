@@ -17,7 +17,6 @@ export default function UserPage() {
   const { jwtDecoded } = useContext(AuthContext);
   const { updatePollenItemOnWatchlist, watchedPollenItems } =
     useWatchedPollenItems();
-
   const classes = useStyles();
 
   const [state, setState] = useState({
@@ -93,8 +92,6 @@ export default function UserPage() {
       watched: event.target.checked,
     });
   };
-
-  const classes = useStyles();
 
   return (
     <UserPageStyle>
