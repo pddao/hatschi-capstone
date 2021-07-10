@@ -1,35 +1,116 @@
 import styled from 'styled-components/macro';
+import {
+  Button,
+  FormGroup,
+  makeStyles,
+  Switch,
+  TextField,
+} from '@material-ui/core';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import SaveIcon from '@material-ui/icons/Save';
+import EditIcon from '@material-ui/icons/Edit';
+
+const useStyles = makeStyles({
+  formgroup: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '10px',
+  },
+});
 
 export default function UserPage() {
+  const classes = useStyles();
+
   return (
     <UserPageStyle>
       <h1>User page</h1>
-      <p>This is your user page! </p>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
-        alt="Placeholder"
-      />
-      <p>Here you can edit your profile and add allergies. </p>
-      <section>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-        ipsum dolor sit amet.
-      </section>
+      <p>Hey username! Here you can edit your profile and add allergies. </p>
+      <h3>Profile information</h3>
+      <form action="">
+        <label>
+          <TextField helperText={'First name'} required={true} type={'text'} />
+          <EditIcon fontSize="small" />
+        </label>
+        <label>
+          <TextField helperText={'Last name'} required={true} type={'text'} />
+          <EditIcon fontSize="small" />
+        </label>
+        <label>
+          <TextField helperText={'Password'} required={true} type={'text'} />
+          <EditIcon fontSize="small" />
+        </label>
+        <Button
+          startIcon={<SaveIcon />}
+          fullWidth
+          variant="contained"
+          color="primary"
+          disableElevation
+        >
+          Save profile information
+        </Button>
+      </form>
+      <form>
+        <section>
+          <h3>Allergies</h3>
+          <p>Your choice determines the pollen forecast.</p>
+          <FormGroup className={classes.formgroup} row>
+            <FormControlLabel
+              control={<Switch color="primary" />}
+              label="Birch"
+              labelPlacement="start"
+            />
+            <FormControlLabel
+              control={<Switch color="primary" />}
+              label="Hazel"
+              labelPlacement="start"
+            />
+            <FormControlLabel
+              control={<Switch color="primary" />}
+              label="Rye"
+              labelPlacement="start"
+            />
+            <FormControlLabel
+              control={<Switch color="primary" />}
+              label="Ambrosia"
+              labelPlacement="start"
+            />
+            <FormControlLabel
+              control={<Switch color="primary" />}
+              label="Grasses"
+              labelPlacement="start"
+            />
+            <FormControlLabel
+              control={<Switch color="primary" />}
+              label="Alder"
+              labelPlacement="start"
+            />
+            <FormControlLabel
+              control={<Switch color="primary" />}
+              label="Ash"
+              labelPlacement="start"
+            />
+            <FormControlLabel
+              control={<Switch color="primary" />}
+              label="Mugwort"
+              labelPlacement="start"
+            />
+          </FormGroup>
+        </section>
+        <Button
+          startIcon={<SaveIcon />}
+          fullWidth
+          variant="contained"
+          color="primary"
+          disableElevation
+        >
+          Save allergies
+        </Button>
+      </form>
     </UserPageStyle>
   );
 }
 
 const UserPageStyle = styled.div`
   text-align: center;
-
-  img {
-    justify-self: center;
-    width: 75%;
-  }
+  margin: 10px;
 `;

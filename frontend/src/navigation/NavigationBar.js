@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import {
   BottomNavigation,
   BottomNavigationAction,
@@ -32,6 +32,8 @@ export default function NavigationBar() {
   const classes = useStyles();
   const [page, setPage] = useState('');
   const history = useHistory();
+  const location = useLocation();
+  const loginpage = location.pathname === '/';
 
   const handleChange = (event, newPage) => {
     history.push(newPage);
@@ -39,32 +41,34 @@ export default function NavigationBar() {
   };
 
   return (
-    <BottomNavigation
-      value={page}
-      onChange={handleChange}
-      showLabels
-      className={classes.root}
-    >
-      <BottomNavigationAction
-        value={'/home'}
-        label="Home"
-        icon={<HomeRounded />}
-      />
-      <BottomNavigationAction
-        value={'/pollencount'}
-        label="Forecast"
-        icon={<LocalFloristRoundedIcon />}
-      />
-      <BottomNavigationAction
-        value={'/dictionary'}
-        label="Dictionary"
-        icon={<MenuBookRoundedIcon />}
-      />
-      <BottomNavigationAction
-        value={'/user'}
-        label="Profile"
-        icon={<PersonRoundedIcon />}
-      />
-    </BottomNavigation>
+    !loginpage && (
+      <BottomNavigation
+        value={page}
+        onChange={handleChange}
+        showLabels
+        className={classes.root}
+      >
+        <BottomNavigationAction
+          value={'/home'}
+          label="Home"
+          icon={<HomeRounded />}
+        />
+        <BottomNavigationAction
+          value={'/pollencount'}
+          label="Forecast"
+          icon={<LocalFloristRoundedIcon />}
+        />
+        <BottomNavigationAction
+          value={'/dictionary'}
+          label="Dictionary"
+          icon={<MenuBookRoundedIcon />}
+        />
+        <BottomNavigationAction
+          value={'/user'}
+          label="Profile"
+          icon={<PersonRoundedIcon />}
+        />
+      </BottomNavigation>
+    )
   );
 }

@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core';
+import { CardActions, makeStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -7,13 +7,19 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
-  card: {
-    maxHeight: 345,
-    maxWidth: 345,
-  },
   img: {
-    height: 280,
-    width: 345,
+    height: 195,
+    width: 180,
+  },
+  englishName: {
+    textTransform: 'capitalize',
+  },
+  cardContent: {
+    padding: '5px 10px',
+  },
+  cardActions: {
+    padding: '8px 8px',
+    fontWeight: 'bold',
   },
 });
 
@@ -21,8 +27,8 @@ export default function DictionaryPollenItem({ pollenItem }) {
   const classes = useStyles();
   const history = useHistory();
 
-  const handleClick = () => {
-    history.push(`/dictionary/${pollenItem.id}/details`);
+  const pushToDetailspage = () => {
+    history.push(`/dictionary/${pollenItem.englishName}/details`);
   };
 
   return (
@@ -31,11 +37,24 @@ export default function DictionaryPollenItem({ pollenItem }) {
         <CardMedia
           className={classes.img}
           image={pollenItem.firstPicUrl}
-          onClick={handleClick}
+          onClick={pushToDetailspage}
         />
-        <CardContent>
-          <Typography>{pollenItem.englishName}</Typography>
+        <CardContent
+          className={classes.cardContent}
+          onClick={pushToDetailspage}
+        >
+          <Typography className={classes.englishName}>
+            {pollenItem.englishName}
+          </Typography>
         </CardContent>
+      </CardActionArea>
+      <CardActionArea>
+        <CardActions
+          className={classes.cardActions}
+          onClick={pushToDetailspage}
+        >
+          <Typography color="primary">Learn more</Typography>
+        </CardActions>
       </CardActionArea>
     </Card>
   );

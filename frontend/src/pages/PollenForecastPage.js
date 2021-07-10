@@ -1,35 +1,79 @@
-import styled from 'styled-components/macro';
-import usePollenCount from '../hooks/usePollenCount';
 import CitySearchComponent from '../components/CitySearchComponent';
+import {
+  makeStyles,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  withStyles,
+} from '@material-ui/core';
+
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.white,
+  },
+}))(TableCell);
+
+const useStyles = makeStyles({
+  table: {
+    fontSize: 'small',
+    width: 355,
+  },
+});
 
 export default function PollenForecastPage() {
-  const { pollenCount } = usePollenCount();
+  const classes = useStyles();
 
   return (
-    <Wrapper>
+    <div>
       <h1>Pollen Forecast</h1>
-      <p>
-        Here comes your personal pollen forecast for{' '}
-        {pollenCount[0]?.content[1]?.region_name}! Pleaser consider: next update
-        takes place at {pollenCount[0]?.next_update}.
-      </p>
 
       <CitySearchComponent />
 
-      <section className="legend">
-        <p>Legend: </p>
-        <p>0 no pollen count </p>
-        <p>1 low pollen count</p>
-        <p>2 medium pollen count </p>
-        <p>3 high pollen count</p>
-      </section>
-    </Wrapper>
+      <TableContainer className={classes.table}>
+        <Table size="small">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>ID</StyledTableCell>
+              <StyledTableCell>Description</StyledTableCell>
+            </TableRow>
+          </TableHead>
+
+          <TableBody>
+            <TableRow>
+              <TableCell>0</TableCell>
+              <TableCell>no pollen count</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>0-1</TableCell>
+              <TableCell>no-low pollen count</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>1</TableCell>
+              <TableCell>low pollen count</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>1-2</TableCell>
+              <TableCell>low-medium pollen count</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>2</TableCell>
+              <TableCell>medium pollen count</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>2-3</TableCell>
+              <TableCell>medium-high pollen count</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>3</TableCell>
+              <TableCell>high pollen count</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
 }
-
-const Wrapper = styled.div`
-  .tableStyle td {
-    width: 100%;
-    text-align: center;
-  }
-`;
