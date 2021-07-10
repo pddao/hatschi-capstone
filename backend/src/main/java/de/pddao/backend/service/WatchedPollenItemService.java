@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class WatchedPollenItemService {
@@ -18,7 +19,7 @@ public class WatchedPollenItemService {
         this.pollenItemRepository = pollenItemRepository;
     }
 
-    public List<PollenItem> listWatchedPollenItems(String watchedBy) {
+    public List<PollenItem> listWatchedPollenItems(Optional<String> watchedBy) {
         if (watchedBy.isEmpty()) {
             return pollenItemRepository.findAll();
         }
