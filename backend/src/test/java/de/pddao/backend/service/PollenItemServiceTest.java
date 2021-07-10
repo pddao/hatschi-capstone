@@ -47,7 +47,8 @@ class PollenItemServiceTest {
                         .germanName("test_germanName2")
                         .watchedBy(List.of("test_user3", "test_user4"))
                         .build()
-        ));
+                )
+        );
 
         //When
         List<PollenItem> pollenItems = pollenItemService.listAllPollenItems();
@@ -78,7 +79,8 @@ class PollenItemServiceTest {
                         .germanName("test_germanName2")
                         .watchedBy(List.of("test_user3", "test_user4"))
                         .build()
-        ));
+                )
+        );
     }
 
     @Test
@@ -98,7 +100,8 @@ class PollenItemServiceTest {
                         .germanName("test_germanName")
                         .watchedBy(List.of("test_user1", "test_user2"))
                         .build()
-        ));
+                )
+        );
 
         //When
         Optional<PollenItem> optionalPollenItem = pollenItemService.getPollenItemById("test_id");
@@ -116,6 +119,8 @@ class PollenItemServiceTest {
                         .thirdPicUrl("test_urlThirdPic")
                         .germanName("test_germanName")
                         .watchedBy(List.of("test_user1", "test_user2"))
-                        .build())));
+                        .build()
+                )
+        ));
     }
 }
