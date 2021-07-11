@@ -1,28 +1,28 @@
-//package de.pddao.backend.service;
-//
-//import de.pddao.backend.model.PollenItem;
-//import de.pddao.backend.model.api.*;
-//import org.junit.jupiter.api.DisplayName;
-//import org.junit.jupiter.api.Test;
-//import org.springframework.http.ResponseEntity;
-//import org.springframework.web.client.RestTemplate;
-//
-//import java.util.List;
-//
-//import static org.hamcrest.MatcherAssert.assertThat;
-//import static org.hamcrest.Matchers.containsInAnyOrder;
-//import static org.hamcrest.Matchers.is;
-//import static org.mockito.Mockito.*;
-//
-//class DwdApiServiceTest {
-//
-//    private final RestTemplate mockedTemplate = mock(RestTemplate.class);
-//    private final DwdApiService dwdApiService = new DwdApiService(mockedTemplate);
-//
-//    @Test
-//    @DisplayName("method should get pollen count from dwd pollen api")
-//    public void testGetPollenCount() {
-//        //Given
+package de.pddao.backend.service;
+
+import de.pddao.backend.model.PollenItem;
+import de.pddao.backend.model.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.*;
+
+class DwdApiServiceTest {
+
+    private final RestTemplate mockedTemplate = mock(RestTemplate.class);
+    private final DwdApiService dwdApiService = new DwdApiService(mockedTemplate);
+
+    @Test
+    @DisplayName("method should get pollen count from dwd pollen api")
+    public void testGetPollenCount() {
+        //Given
 //        DwdApiResponse[] dwdApiResponse = {
 //                DwdApiResponse.builder()
 //                        .last_update("test_last_update")
@@ -142,18 +142,30 @@
 //
 //        when(mockedTemplate.getForEntity(
 //                "https://opendata.dwd.de/climate_environment/health/alerts/s31fg.json", DwdApiResponse[].class)).thenReturn(ResponseEntity.ok(dwdApiResponse));
-//
+
 //        //When
 //        List<DwdApiResponse> listOfResponse = dwdApiService.getPollenCount();
-//
+
 //        //Then
-//        assertThat(listOfResponse, containsInAnyOrder(dwdApiResponse));
+//        DwdApiResponse[] expectedResponse = {
+//                DwdApiResponse.builder().build()
+//        };
+//
+//        assertThat(listOfResponse, containsInAnyOrder(expectedResponse));
 //        verify(mockedTemplate).getForEntity(
 //                "https://opendata.dwd.de/climate_environment/health/alerts/s31fg.json", DwdApiResponse[].class);
 //
 //
 //    }
-//
-//    //weiterer Test!!!
-//
-//}
+    }
+
+    @Test
+    @DisplayName("method should get pollen count from dwd pollen api")
+    public void testGetPollenCount2() {
+        //Given
+
+        //When
+
+        //Then
+    }
+}

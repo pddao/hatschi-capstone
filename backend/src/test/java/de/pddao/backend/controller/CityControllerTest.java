@@ -46,7 +46,7 @@ class CityControllerTest {
 
     @Test
     @DisplayName("method should return all cities in repository")
-    void listAllCities() {
+    void testListAllCities() {
         //GIVEN
         cityRepository.save(City.builder()
                 .name("test_name")

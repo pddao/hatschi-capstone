@@ -7,11 +7,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
@@ -173,41 +175,94 @@ public class WatchedPollenItemServiceTest {
         ));
     }
 
-//    @Test
-//    @DisplayName("method should add username to pollen item when isPollenItemWatched is true and watchedBy does not contain username")
-//    public void testAddUsernameToWatchedByAtPollenItem() {
-//        //Given
-//        when(watchedPollenItemService.updatePollenItem("test_username", "test_id", true)).thenReturn();
-//
-//        //When
-//        PollenItem pollenItemToUpdate = watchedPollenItemService.updatePollenItem("test_username", "test_id", true);
-//
-//        //Then
-//        verify(pollenItemRepository).save(pollenItemToUpdate);
-//    }
-//
-//    @Test
-//    @DisplayName("method should remove username from pollen item when isPollenItemWatched is false")
-//    public void testRemoveUsernameFromWatchedByAtPollenItem() {
-//        //Given
-//        when(watchedPollenItemService.updatePollenItem("test_username", "test_id", false)).thenReturn();
-//
-//        //When
-//        PollenItem pollenItemToUpdate = watchedPollenItemService.updatePollenItem("test_username", "test_id", false);
-//
-//        //Then
-//        verify(pollenItemRepository).save(pollenItemToUpdate);
-//
-//    }
+    @Test
+    @DisplayName("method should add username to pollen item when isPollenItemWatched is true and watchedBy does not contain username")
+    public void testAddUsernameToWatchedByAtPollenItem() {
+        //Given
+        when(pollenItemRepository.findById("hazel")).thenReturn(Optional.of(PollenItem.builder()
+                .englishName("hazel")
+                .latinName("test_latinName")
+                .beginBloomingSeason(BloomingMonth.AUGUST)
+                .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                .description("test_description")
+                .firstPicUrl("test_urlFirstPic")
+                .secondPicUrl("test_urlSecondPic")
+                .thirdPicUrl("test_urlThirdPic")
+                .germanName("test_germanName")
+                .watchedBy(new ArrayList<>(List.of("Anna", "Susi", "Hans")))
+                .build()));
 
-//    @Test
-//    @DisplayName("method should throw exception when pollen item is not found")
-//    public void addPullToWatchlistShouldThrowWhenPullRequestNotfound() {
-//        // GIVEN
-//
-//        when(watchedPollenItemService.updatePollenItem("test_username", "test_id", false)).thenReturn(Optional.isEmpty());
-//
-//        // WHEN
-//        assertThrows(ResponseStatusException.class, () -> pollenItemRepository.findById("test_id"));
-//    }
+        PollenItem expected = PollenItem.builder()
+                .englishName("hazel")
+                .latinName("test_latinName")
+                .beginBloomingSeason(BloomingMonth.AUGUST)
+                .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                .description("test_description")
+                .firstPicUrl("test_urlFirstPic")
+                .secondPicUrl("test_urlSecondPic")
+                .thirdPicUrl("test_urlThirdPic")
+                .germanName("test_germanName")
+                .watchedBy(List.of("Anna", "Susi", "Hans", "Martin"))
+                .build();
+
+        when(pollenItemRepository.save(expected)).thenReturn(expected);
+
+        //When
+        PollenItem actual = watchedPollenItemService.updatePollenItem("Martin", "hazel", true);
+
+        //Then
+        assertThat(actual, is(expected));
+        verify(pollenItemRepository).save(expected);
+    }
+
+    @Test
+    @DisplayName("method should remove username from pollen item when isPollenItemWatched is false")
+    public void testRemoveUsernameFromWatchedByAtPollenItem() {
+        //Given
+        when(pollenItemRepository.findById("hazel")).thenReturn(Optional.of(PollenItem.builder()
+                .englishName("hazel")
+                .latinName("test_latinName")
+                .beginBloomingSeason(BloomingMonth.AUGUST)
+                .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                .description("test_description")
+                .firstPicUrl("test_urlFirstPic")
+                .secondPicUrl("test_urlSecondPic")
+                .thirdPicUrl("test_urlThirdPic")
+                .germanName("test_germanName")
+                .watchedBy(new ArrayList<>(List.of("Anna", "Susi", "Hans", "Martin")))
+                .build()));
+
+        PollenItem expected = PollenItem.builder()
+                .englishName("hazel")
+                .latinName("test_latinName")
+                .beginBloomingSeason(BloomingMonth.AUGUST)
+                .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                .description("test_description")
+                .firstPicUrl("test_urlFirstPic")
+                .secondPicUrl("test_urlSecondPic")
+                .thirdPicUrl("test_urlThirdPic")
+                .germanName("test_germanName")
+                .watchedBy(List.of("Anna", "Susi", "Hans"))
+                .build();
+
+        when(pollenItemRepository.save(expected)).thenReturn(expected);
+
+        //When
+        PollenItem actual = watchedPollenItemService.updatePollenItem("Martin", "hazel", false);
+
+        //Then
+        assertThat(actual, is(expected));
+        verify(pollenItemRepository).save(expected);
+    }
+
+
+    @Test
+    @DisplayName("method should throw exception when pollen item is not found")
+    public void testThrowExceptionWhenPollenItemIdIsNotFound() {
+        // GIVEN
+        when(pollenItemRepository.findById("olive")).thenReturn(Optional.empty());
+
+        // WHEN
+        assertThrows(ResponseStatusException.class, () -> watchedPollenItemService.updatePollenItem("Martin", "olive", false));
+    }
 }
