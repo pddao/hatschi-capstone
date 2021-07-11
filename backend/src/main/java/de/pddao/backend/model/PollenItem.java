@@ -9,7 +9,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Builder
 @Document(collection = "pollen-items")
 public class PollenItem {

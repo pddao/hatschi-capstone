@@ -173,32 +173,32 @@ public class WatchedPollenItemServiceTest {
         ));
     }
 
-    @Test
-    @DisplayName("method should add username to pollen item when isPollenItemWatched is true and watchedBy does not contain username")
-    public void testAddUsernameToWatchedByAtPollenItem() {
-        //Given
-        when(watchedPollenItemService.updatePollenItem("test_username", "test_id", true)).thenReturn();
-
-        //When
-        PollenItem pollenItemToUpdate = watchedPollenItemService.updatePollenItem("test_username", "test_id", true);
-
-        //Then
-        verify(pollenItemRepository).save(pollenItemToUpdate);
-    }
-
-    @Test
-    @DisplayName("method should remove username from pollen item when isPollenItemWatched is false")
-    public void testRemoveUsernameFromWatchedByAtPollenItem() {
-        //Given
-        when(watchedPollenItemService.updatePollenItem("test_username", "test_id", false)).thenReturn();
-
-        //When
-        PollenItem pollenItemToUpdate = watchedPollenItemService.updatePollenItem("test_username", "test_id", false);
-
-        //Then
-        verify(pollenItemRepository).save(pollenItemToUpdate);
-
-    }
+//    @Test
+//    @DisplayName("method should add username to pollen item when isPollenItemWatched is true and watchedBy does not contain username")
+//    public void testAddUsernameToWatchedByAtPollenItem() {
+//        //Given
+//        when(watchedPollenItemService.updatePollenItem("test_username", "test_id", true)).thenReturn();
+//
+//        //When
+//        PollenItem pollenItemToUpdate = watchedPollenItemService.updatePollenItem("test_username", "test_id", true);
+//
+//        //Then
+//        verify(pollenItemRepository).save(pollenItemToUpdate);
+//    }
+//
+//    @Test
+//    @DisplayName("method should remove username from pollen item when isPollenItemWatched is false")
+//    public void testRemoveUsernameFromWatchedByAtPollenItem() {
+//        //Given
+//        when(watchedPollenItemService.updatePollenItem("test_username", "test_id", false)).thenReturn();
+//
+//        //When
+//        PollenItem pollenItemToUpdate = watchedPollenItemService.updatePollenItem("test_username", "test_id", false);
+//
+//        //Then
+//        verify(pollenItemRepository).save(pollenItemToUpdate);
+//
+//    }
 
 //    @Test
 //    @DisplayName("method should throw exception when pollen item is not found")
