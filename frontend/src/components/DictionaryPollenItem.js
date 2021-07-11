@@ -7,19 +7,21 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
-  img: {
-    height: 195,
-    width: 180,
+  card: {
+    '& .MuiCardMedia-root': {
+      margin: 0,
+      height: 175,
+      width: 170,
+    },
   },
   englishName: {
     textTransform: 'capitalize',
   },
   cardContent: {
-    padding: '5px 10px',
+    padding: '5px 0 0 10px',
   },
   cardActions: {
-    padding: '8px 8px',
-    fontWeight: 'bold',
+    padding: '0 0 5px 10px',
   },
 });
 
@@ -47,8 +49,6 @@ export default function DictionaryPollenItem({ pollenItem }) {
             {pollenItem.englishName}
           </Typography>
         </CardContent>
-      </CardActionArea>
-      <CardActionArea>
         <CardActions
           className={classes.cardActions}
           onClick={pushToDetailspage}

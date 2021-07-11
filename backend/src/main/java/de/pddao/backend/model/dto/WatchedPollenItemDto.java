@@ -7,4 +7,5 @@ import lombok.*;
 @AllArgsConstructor
 public class WatchedPollenItemDto {
     private String id;
+    private boolean watched;
 }

@@ -26,18 +26,23 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell);
 
 const useStyles = makeStyles({
+  autocomplete: {
+    width: 'auto',
+    paddingRight: '15px',
+  },
+  filtersection: {
+    alignItems: 'right',
+  },
+  filter: {
+    width: 'auto',
+    margin: '0 auto',
+    textAlign: 'center',
+  },
   table: {
     width: 355,
   },
-  autocomplete: {
-    display: 'flex',
-    width: 325,
-    margin: '0 auto',
-  },
-  filter: {
-    display: 'flex',
-    width: 325,
-    margin: '0 auto',
+  description: {
+    margin: '0 10px',
   },
 });
 
@@ -45,14 +50,23 @@ export default function CitySearchComponent() {
   const { cities } = useCities();
   const { pollenCount } = usePollenCount();
   const [location, setLocation] = useState('');
+  const [value, setValue] = useState('All pollen');
+  // const [filter, setFilter] = useState([]);
   const classes = useStyles();
 
   const handleChange = (event, value) => {
     event.preventDefault();
     const response_position = cities.find(
       (city) => city.name === value
-    ).response_position;
+    )?.response_position;
     setLocation(response_position);
+  };
+
+  const handleFilter = (event) => {
+    setValue(event.target.value);
+    // allPollenItemsWatchedByUser();
+    // setFilter();
+    // watchedPollenItems.watchedBy.include(jwt_decode.sub);
   };
 
   return (
@@ -68,22 +82,27 @@ export default function CitySearchComponent() {
             <TextField {...params} placeholder="Choose a city" />
           )}
         />
+        <p className={classes.description}>
+          Here comes your personal pollen forecast for the region{' '}
+          {pollenCount[0]?.content[location]?.region_name}! Pleaser consider:
+          next update takes place at {pollenCount[0]?.next_update}.
+        </p>
       </section>
 
-      <p>
-        Here comes your personal pollen forecast for the region{' '}
-        {pollenCount[0]?.content[location]?.region_name}! Pleaser consider: next
-        update takes place at {pollenCount[0]?.next_update}.
-      </p>
-
-      <InputLabel>
-        <FilterListRoundedIcon color="primary" fontSize="small" />
-        Filter for:
-      </InputLabel>
-      <Select className={classes.filter}>
-        <MenuItem>All pollen</MenuItem>
-        <MenuItem>Your allergies</MenuItem>
-      </Select>
+      <section className={classes.filtersection}>
+        <InputLabel id="label" style={{ textAlign: 'right', marginRight: 5 }}>
+          <FilterListRoundedIcon color="primary" fontSize="small" />
+          Filter for:
+          <Select
+            value={value}
+            className={classes.filter}
+            onChange={handleFilter}
+          >
+            <MenuItem value={'All pollen'}>All pollen</MenuItem>
+            <MenuItem value={'My allergies'}>My allergies</MenuItem>
+          </Select>
+        </InputLabel>
+      </section>
 
       <section>
         <TableContainer className={classes.table}>

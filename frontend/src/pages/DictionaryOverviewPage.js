@@ -5,15 +5,14 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
-    height: '100%',
-    margin: '5px',
+    height: 'calc(100% - 55px)',
   },
   cards: {
     gap: '0.5em',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     justifyItems: 'center',
-    marginTop: '20px',
+    width: 'auto',
   },
 });
 
@@ -30,7 +29,10 @@ export default function DictionaryOverviewPage() {
       </p>
       <div className={classes.cards}>
         {pollenItems.map((pollenItem) => (
-          <DictionaryPollenItem key={pollenItem.id} pollenItem={pollenItem} />
+          <DictionaryPollenItem
+            key={pollenItem.englishName}
+            pollenItem={pollenItem}
+          />
         ))}
       </div>
     </div>

@@ -8,31 +8,29 @@ export default createGlobalStyle`
   
   html, body {
     font-size: 110%;
-    margin-bottom: 60px;
     font-family: "Assistant", serif;
     hyphens: auto;
+    word-wrap: break-word;
   }
   
   h1 {
     text-align: center;
-    margin: 0;
-    padding: 15px; 
+    margin: 0 auto 10px auto;
     font-weight: bolder;
     color: gray;
   }
-  
-  h2, label, table {
-    margin: 5%;
-  }
-  
-  h3 {
-    margin: 0;
-    padding: 5px 15px;
+
+  h2, h3 {
     color: #8db596;
+    margin: 5px auto 5px 15px;
   }
   
+  table {
+    margin: 5px;
+  }
+
   p {
-    margin: 5px 15px;
+    margin: 10px;
     text-align: justify;
   }
   `;

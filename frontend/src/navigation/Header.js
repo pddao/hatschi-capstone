@@ -6,11 +6,13 @@ import { useHistory, useLocation } from 'react-router-dom';
 const useStyles = makeStyles({
   root: {
     maxHeight: '70px',
+    display: 'flex',
   },
   toolbar: {
     color: '#fff',
     display: 'flex',
     justifyContent: 'space-between',
+    padding: 0,
   },
   link: {
     textDecoration: 'none',
@@ -21,12 +23,9 @@ const useStyles = makeStyles({
     fontSize: 'larger',
   },
   title: {
-    display: 'flex',
-    justifyItems: 'center',
     fontFamily: 'Sacramento',
     color: 'white',
-    padding: 0,
-    alignContent: 'center',
+    marginTop: 20,
   },
 });
 export default function Header() {
@@ -48,14 +47,16 @@ export default function Header() {
       <Toolbar className={classes.toolbar}>
         <BackButton className={classes.icon} />
         <IconButton onClick={handleOpenHome}>
-          <h1 className={classes.title}>hatschi</h1>
+          <h1 className={classes.title} style={{ position: 'sticky' }}>
+            hatschi
+          </h1>
         </IconButton>
         {!loginpage ? (
           <IconButton onClick={handleOpenProfile}>
             <PersonRoundedIcon className={classes.icon} />
           </IconButton>
         ) : (
-          <div></div>
+          <div style={{ color: '#8db596' }}>......</div>
         )}
       </Toolbar>
     </AppBar>

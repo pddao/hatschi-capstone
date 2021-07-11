@@ -25,13 +25,15 @@ public class WatchedPollenItemService {
         return pollenItemRepository.findByWatchedBy(watchedBy);
     }
 
-    public PollenItem updatePollenItem(String username, String pollenItemId) {
+    public PollenItem updatePollenItem(String username, String pollenItemId, boolean isPollenItemWatched) {
         PollenItem pollenItemToWatch = pollenItemRepository.findById(pollenItemId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pollen item not found"));
 
-        if (pollenItemToWatch.getWatchedBy().contains(username)) {
-            pollenItemToWatch.getWatchedBy().remove(username);
+        if (isPollenItemWatched) {
+            if (!pollenItemToWatch.getWatchedBy().contains(username)) {
+                pollenItemToWatch.getWatchedBy().add(username);
+            }
         } else {
-            pollenItemToWatch.getWatchedBy().add(username);
+            pollenItemToWatch.getWatchedBy().remove(username);
         }
         return pollenItemRepository.save(pollenItemToWatch);
     }
