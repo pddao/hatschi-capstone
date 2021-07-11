@@ -83,11 +83,13 @@ class WatchedPollenItemControllerTest {
                 .build());
 
         //When
-        HttpHeaders headers = getHttpHeaderWithAuthToken();
-        ResponseEntity<PollenItem[]> response = testRestTemplate.exchange("http://localhost:" + port + "/api/pollenitems/watched?watched",
-                HttpMethod.GET,
-                new HttpEntity<>(headers),
-                PollenItem[].class);
+//        HttpHeaders headers = getHttpHeaderWithAuthToken();
+//        ResponseEntity<PollenItem[]> response = testRestTemplate.exchange("http://localhost:" + port + "/api/pollenitems/watched",
+//                HttpMethod.GET,
+//                new HttpEntity<>(headers),
+//                PollenItem[].class);
+        ResponseEntity<PollenItem[]> response= testRestTemplate.getForEntity("http://localhost:"+ port +"/api/pollenitems/watched", PollenItem[].class);
+
 
         //Then
         assertThat(response.getStatusCode(), is(HttpStatus.OK));

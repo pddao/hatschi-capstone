@@ -10,18 +10,22 @@ import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.arrayContainingInAnyOrder;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.Mockito.verify;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@TestPropertySource(properties = "jwt.secret=test_secret")
 class PollenItemControllerTest {
 
     @LocalServerPort
@@ -32,6 +36,9 @@ class PollenItemControllerTest {
 
     @Autowired
     private PollenItemRepository pollenItemRepository;
+
+    @MockBean
+    private RestTemplate mockedTemplate;
 
     @BeforeEach
     public void clearDb() {
@@ -54,8 +61,7 @@ class PollenItemControllerTest {
                         .thirdPicUrl("test_urlThirdPic")
                         .germanName("test_germanName")
                         .watchedBy(List.of("test_user1", "test_user2"))
-                        .build()
-        );
+                        .build());
         pollenItemRepository.save(
                 PollenItem.builder()
                         .englishName("test_englishName2")
@@ -68,8 +74,7 @@ class PollenItemControllerTest {
                         .thirdPicUrl("test_urlThirdPic2")
                         .germanName("test_germanName2")
                         .watchedBy(List.of("test_user1"))
-                        .build()
-        );
+                        .build());
 
         //WHEN
         ResponseEntity<PollenItem[]> response = testRestTemplate.getForEntity("http://localhost:" + port + "/api/dictionary", PollenItem[].class);

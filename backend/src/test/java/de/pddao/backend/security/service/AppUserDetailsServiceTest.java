@@ -4,7 +4,6 @@ import de.pddao.backend.security.model.AppUser;
 import de.pddao.backend.security.repository.AppUserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
-import org.junit.jupiter.api.parallel.Execution;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
