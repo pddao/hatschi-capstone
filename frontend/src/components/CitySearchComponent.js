@@ -50,8 +50,6 @@ export default function CitySearchComponent() {
   const { cities } = useCities();
   const { pollenCount } = usePollenCount();
   const [location, setLocation] = useState('');
-  const [value, setValue] = useState('All pollen');
-  // const [filter, setFilter] = useState([]);
   const classes = useStyles();
 
   const handleChange = (event, value) => {
@@ -60,13 +58,6 @@ export default function CitySearchComponent() {
       (city) => city.name === value
     )?.response_position;
     setLocation(response_position);
-  };
-
-  const handleFilter = (event) => {
-    setValue(event.target.value);
-    // allPollenItemsWatchedByUser();
-    // setFilter();
-    // watchedPollenItems.watchedBy.include(jwt_decode.sub);
   };
 
   return (
