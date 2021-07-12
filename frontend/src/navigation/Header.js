@@ -56,7 +56,7 @@ export default function Header() {
             <PersonRoundedIcon className={classes.icon} />
           </IconButton>
         ) : (
-          <div style={{ color: '#8db596' }}>......</div>
+          <div style={{ width: '36px' }}></div>
         )}
       </Toolbar>
     </AppBar>
