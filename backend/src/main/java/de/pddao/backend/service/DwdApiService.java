@@ -11,7 +11,6 @@ import java.util.List;
 
 @Service
 public class DwdApiService {
-    private final String dwdApi = "https://opendata.dwd.de/climate_environment/health/alerts/s31fg.json";
     private final RestTemplate restTemplate;
 
     @Autowired
@@ -20,10 +19,11 @@ public class DwdApiService {
     }
 
     public List<DwdApiResponse> getPollenCount() {
+        String dwdApi = "https://opendata.dwd.de/climate_environment/health/alerts/s31fg.json";
         ResponseEntity<DwdApiResponse> response = restTemplate.getForEntity(dwdApi, DwdApiResponse.class);
 
         if (response.getBody() != null) {
-            return Arrays.asList(response.getBody());
+            return List.of(response.getBody());
         }
         return List.of();
     }
