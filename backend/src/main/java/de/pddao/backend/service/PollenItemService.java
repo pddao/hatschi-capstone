@@ -25,4 +25,8 @@ public class PollenItemService {
     public Optional<PollenItem> getPollenItemById(String id) {
         return pollenItemRepository.findById(id);
     }
+
+    public List<PollenItem> getAllPollenItemsWatchedBy(Optional<String> watchedBy) {
+        return pollenItemRepository.findByWatchedBy(watchedBy);
+    }
 }
