@@ -19,14 +19,14 @@ import static org.mockito.Mockito.*;
 
 public class WatchedPollenItemServiceTest {
 
-    private final PollenItemRepository pollenItemRepository = mock(PollenItemRepository.class);
-    private final WatchedPollenItemService watchedPollenItemService = new WatchedPollenItemService(pollenItemRepository);
+    private final PollenItemRepository mockPollenItemRepository = mock(PollenItemRepository.class);
+    private final WatchedPollenItemService watchedPollenItemService = new WatchedPollenItemService(mockPollenItemRepository);
 
     @Test
     @DisplayName("method should return pollen items watched by Susi")
     public void testListWatchedPollenItems() {
         //Given
-        when(pollenItemRepository.findByWatchedBy(Optional.of("Susi"))).thenReturn(List.of(
+        when(mockPollenItemRepository.findByWatchedBy(Optional.of("Susi"))).thenReturn(List.of(
                 PollenItem.builder()
                         .englishName("test_hazel")
                         .latinName("test_latinName")
@@ -57,20 +57,7 @@ public class WatchedPollenItemServiceTest {
         List<PollenItem> listOfWatchedPollenItems = watchedPollenItemService.listWatchedPollenItems(Optional.of("Susi"));
 
         //Then
-        verify(pollenItemRepository).findByWatchedBy(Optional.of("Susi"));
         assertThat(listOfWatchedPollenItems, containsInAnyOrder(
-                PollenItem.builder()
-                        .englishName("test_hazel")
-                        .latinName("test_latinName")
-                        .beginBloomingSeason(BloomingMonth.AUGUST)
-                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
-                        .description("test_description")
-                        .firstPicUrl("test_urlFirstPic")
-                        .secondPicUrl("test_urlSecondPic")
-                        .thirdPicUrl("test_urlThirdPic")
-                        .germanName("test_germanName")
-                        .watchedBy(List.of("Susi", "Frank"))
-                        .build(),
                 PollenItem.builder()
                         .englishName("test_ragweed")
                         .latinName("test_latinName")
@@ -82,15 +69,7 @@ public class WatchedPollenItemServiceTest {
                         .thirdPicUrl("test_urlThirdPic")
                         .germanName("test_germanName")
                         .watchedBy(List.of("Susi", "Anna"))
-                        .build()
-        ));
-    }
-
-    @Test
-    @DisplayName("method should return all pollen items when watchedBy is empty")
-    public void testListAllPollenItemsWhenWatchedByIsEmpty() {
-        //Given
-        when(pollenItemRepository.findAll()).thenReturn(List.of(
+                        .build(),
                 PollenItem.builder()
                         .englishName("test_hazel")
                         .latinName("test_latinName")
@@ -101,32 +80,52 @@ public class WatchedPollenItemServiceTest {
                         .secondPicUrl("test_urlSecondPic")
                         .thirdPicUrl("test_urlThirdPic")
                         .germanName("test_germanName")
-                        .watchedBy(List.of())
-                        .build(),
-                PollenItem.builder()
-                        .englishName("test_ragweed")
-                        .latinName("test_latinName")
-                        .beginBloomingSeason(BloomingMonth.AUGUST)
-                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
-                        .description("test_description")
-                        .firstPicUrl("test_urlFirstPic")
-                        .secondPicUrl("test_urlSecondPic")
-                        .thirdPicUrl("test_urlThirdPic")
-                        .germanName("test_germanName")
-                        .watchedBy(List.of())
-                        .build(),
-                PollenItem.builder()
-                        .englishName("test_grasses")
-                        .latinName("test_latinName")
-                        .beginBloomingSeason(BloomingMonth.AUGUST)
-                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
-                        .description("test_description")
-                        .firstPicUrl("test_urlFirstPic")
-                        .secondPicUrl("test_urlSecondPic")
-                        .thirdPicUrl("test_urlThirdPic")
-                        .germanName("test_germanName")
-                        .watchedBy(List.of())
+                        .watchedBy(List.of("Susi", "Frank"))
                         .build()
+        ));
+    }
+
+    @Test
+    @DisplayName("method should return all pollen items when watchedBy is empty")
+    public void testListAllPollenItemsWhenWatchedByIsEmpty() {
+        //Given
+        when(mockPollenItemRepository.findAll()).thenReturn(List.of(
+                        PollenItem.builder()
+                                .englishName("test_hazel")
+                                .latinName("test_latinName")
+                                .beginBloomingSeason(BloomingMonth.AUGUST)
+                                .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                                .description("test_description")
+                                .firstPicUrl("test_urlFirstPic")
+                                .secondPicUrl("test_urlSecondPic")
+                                .thirdPicUrl("test_urlThirdPic")
+                                .germanName("test_germanName")
+                                .watchedBy(List.of())
+                                .build(),
+                        PollenItem.builder()
+                                .englishName("test_ragweed")
+                                .latinName("test_latinName")
+                                .beginBloomingSeason(BloomingMonth.AUGUST)
+                                .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                                .description("test_description")
+                                .firstPicUrl("test_urlFirstPic")
+                                .secondPicUrl("test_urlSecondPic")
+                                .thirdPicUrl("test_urlThirdPic")
+                                .germanName("test_germanName")
+                                .watchedBy(List.of())
+                                .build(),
+                        PollenItem.builder()
+                                .englishName("test_grasses")
+                                .latinName("test_latinName")
+                                .beginBloomingSeason(BloomingMonth.AUGUST)
+                                .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                                .description("test_description")
+                                .firstPicUrl("test_urlFirstPic")
+                                .secondPicUrl("test_urlSecondPic")
+                                .thirdPicUrl("test_urlThirdPic")
+                                .germanName("test_germanName")
+                                .watchedBy(List.of())
+                                .build()
                 )
         );
 
@@ -134,7 +133,6 @@ public class WatchedPollenItemServiceTest {
         List<PollenItem> listAllPollenItems = watchedPollenItemService.listWatchedPollenItems(Optional.empty());
 
         //Then
-        verify(pollenItemRepository).findAll();
         assertThat(listAllPollenItems, containsInAnyOrder(
                 PollenItem.builder()
                         .englishName("test_hazel")
@@ -176,21 +174,22 @@ public class WatchedPollenItemServiceTest {
     }
 
     @Test
-    @DisplayName("method should add username to pollen item when isPollenItemWatched is true and watchedBy does not contain username")
+    @DisplayName("method should add username Martin to pollen item when isPollenItemWatched is true and watchedBy does not contain username yet")
     public void testAddUsernameToWatchedByAtPollenItem() {
         //Given
-        when(pollenItemRepository.findById("hazel")).thenReturn(Optional.of(PollenItem.builder()
-                .englishName("hazel")
-                .latinName("test_latinName")
-                .beginBloomingSeason(BloomingMonth.AUGUST)
-                .endBloomingSeason(BloomingMonth.SEPTEMBER)
-                .description("test_description")
-                .firstPicUrl("test_urlFirstPic")
-                .secondPicUrl("test_urlSecondPic")
-                .thirdPicUrl("test_urlThirdPic")
-                .germanName("test_germanName")
-                .watchedBy(new ArrayList<>(List.of("Anna", "Susi", "Hans")))
-                .build()));
+        when(mockPollenItemRepository.findById("hazel")).thenReturn(Optional.of(
+                PollenItem.builder()
+                        .englishName("hazel")
+                        .latinName("test_latinName")
+                        .beginBloomingSeason(BloomingMonth.AUGUST)
+                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                        .description("test_description")
+                        .firstPicUrl("test_urlFirstPic")
+                        .secondPicUrl("test_urlSecondPic")
+                        .thirdPicUrl("test_urlThirdPic")
+                        .germanName("test_germanName")
+                        .watchedBy(new ArrayList<>(List.of("Anna", "Susi", "Hans")))
+                        .build()));
 
         PollenItem expected = PollenItem.builder()
                 .englishName("hazel")
@@ -205,21 +204,21 @@ public class WatchedPollenItemServiceTest {
                 .watchedBy(List.of("Anna", "Susi", "Hans", "Martin"))
                 .build();
 
-        when(pollenItemRepository.save(expected)).thenReturn(expected);
+        when(mockPollenItemRepository.save(expected)).thenReturn(expected);
 
         //When
         PollenItem actual = watchedPollenItemService.updatePollenItem("Martin", "hazel", true);
 
         //Then
         assertThat(actual, is(expected));
-        verify(pollenItemRepository).save(expected);
+        verify(mockPollenItemRepository).save(expected);
     }
 
     @Test
     @DisplayName("method should remove username from pollen item when isPollenItemWatched is false")
     public void testRemoveUsernameFromWatchedByAtPollenItem() {
         //Given
-        when(pollenItemRepository.findById("hazel")).thenReturn(Optional.of(PollenItem.builder()
+        when(mockPollenItemRepository.findById("hazel")).thenReturn(Optional.of(PollenItem.builder()
                 .englishName("hazel")
                 .latinName("test_latinName")
                 .beginBloomingSeason(BloomingMonth.AUGUST)
@@ -245,14 +244,14 @@ public class WatchedPollenItemServiceTest {
                 .watchedBy(List.of("Anna", "Susi", "Hans"))
                 .build();
 
-        when(pollenItemRepository.save(expected)).thenReturn(expected);
+        when(mockPollenItemRepository.save(expected)).thenReturn(expected);
 
         //When
         PollenItem actual = watchedPollenItemService.updatePollenItem("Martin", "hazel", false);
 
         //Then
         assertThat(actual, is(expected));
-        verify(pollenItemRepository).save(expected);
+        verify(mockPollenItemRepository).save(expected);
     }
 
 
@@ -260,7 +259,7 @@ public class WatchedPollenItemServiceTest {
     @DisplayName("method should throw exception when pollen item is not found")
     public void testThrowExceptionWhenPollenItemIdIsNotFound() {
         // GIVEN
-        when(pollenItemRepository.findById("olive")).thenReturn(Optional.empty());
+        when(mockPollenItemRepository.findById("olive")).thenReturn(Optional.empty());
 
         // WHEN
         assertThrows(ResponseStatusException.class, () -> watchedPollenItemService.updatePollenItem("Martin", "olive", false));
