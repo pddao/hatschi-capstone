@@ -48,22 +48,24 @@ class CityControllerTest {
     @DisplayName("method should return all cities in repository")
     void testListAllCities() {
         //GIVEN
-        cityRepository.save(City.builder()
-                .name("test_name")
-                .region_id(2)
-                .region_name("test_region_name")
-                .partregion_id(22)
-                .partregion_name("test_partregion_name")
-                .response_position(6)
-                .build());
-        cityRepository.save(City.builder()
-                .name("test_name2")
-                .region_id(4)
-                .region_name("test_region_name2")
-                .partregion_id(41)
-                .partregion_name("test_partregion_name2")
-                .response_position(2)
-                .build());
+        cityRepository.save(
+                City.builder()
+                        .name("test_name")
+                        .region_id(2)
+                        .region_name("test_region_name")
+                        .partregion_id(22)
+                        .partregion_name("test_partregion_name")
+                        .response_position(6)
+                        .build());
+        cityRepository.save(
+                City.builder()
+                        .name("test_name2")
+                        .region_id(4)
+                        .region_name("test_region_name2")
+                        .partregion_id(41)
+                        .partregion_name("test_partregion_name2")
+                        .response_position(2)
+                        .build());
 
         //WHEN
         HttpHeaders headers = getHttpHeaderWithAuthToken();
@@ -77,43 +79,46 @@ class CityControllerTest {
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
         assertThat(response.getBody(), arrayContainingInAnyOrder(
                 City.builder()
-                        .name("test_name")
-                        .region_id(2)
-                        .region_name("test_region_name")
-                        .partregion_id(22)
-                        .partregion_name("test_partregion_name")
-                        .response_position(6)
-                        .build(),
-                City.builder()
                         .name("test_name2")
                         .region_id(4)
                         .region_name("test_region_name2")
                         .partregion_id(41)
                         .partregion_name("test_partregion_name2")
                         .response_position(2)
-                        .build()));
+                        .build(),
+                City.builder()
+                        .name("test_name")
+                        .region_id(2)
+                        .region_name("test_region_name")
+                        .partregion_id(22)
+                        .partregion_name("test_partregion_name")
+                        .response_position(6)
+                        .build()
+        ));
     }
 
     @Test
     @DisplayName("method should return city with name Hamburg")
     void testGetCityByName() {
         //GIVEN
-        cityRepository.save(City.builder()
-                .name("Hamburg")
-                .region_id(2)
-                .region_name("test_region_name")
-                .partregion_id(22)
-                .partregion_name("test_partregion_name")
-                .response_position(6)
-                .build());
-        cityRepository.save(City.builder()
-                .name("Kiel")
-                .region_id(4)
-                .region_name("test_region_name2")
-                .partregion_id(41)
-                .partregion_name("test_partregion_name2")
-                .response_position(2)
-                .build());
+        cityRepository.save(
+                City.builder()
+                        .name("Hamburg")
+                        .region_id(2)
+                        .region_name("test_region_name")
+                        .partregion_id(22)
+                        .partregion_name("test_partregion_name")
+                        .response_position(6)
+                        .build());
+        cityRepository.save(
+                City.builder()
+                        .name("Kiel")
+                        .region_id(4)
+                        .region_name("test_region_name2")
+                        .partregion_id(41)
+                        .partregion_name("test_partregion_name2")
+                        .response_position(2)
+                        .build());
 
         //WHEN
         HttpHeaders headers = getHttpHeaderWithAuthToken();
@@ -125,7 +130,8 @@ class CityControllerTest {
 
         //THEN
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
-        assertThat(response.getBody(), is(City.builder()
+        assertThat(response.getBody(), is(
+                City.builder()
                         .name("Hamburg")
                         .region_id(2)
                         .region_name("test_region_name")
