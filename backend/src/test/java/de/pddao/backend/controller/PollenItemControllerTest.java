@@ -90,18 +90,6 @@ class PollenItemControllerTest {
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
         assertThat(response.getBody(), arrayContainingInAnyOrder(
                 PollenItem.builder()
-                        .englishName("test_englishName")
-                        .latinName("test_latinName")
-                        .beginBloomingSeason(BloomingMonth.AUGUST)
-                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
-                        .description("test_description")
-                        .firstPicUrl("test_urlFirstPic")
-                        .secondPicUrl("test_urlSecondPic")
-                        .thirdPicUrl("test_urlThirdPic")
-                        .germanName("test_germanName")
-                        .watchedBy(List.of("test_user1", "test_user2"))
-                        .build(),
-                PollenItem.builder()
                         .englishName("test_englishName2")
                         .latinName("test_latinName2")
                         .beginBloomingSeason(BloomingMonth.AUGUST)
@@ -112,13 +100,25 @@ class PollenItemControllerTest {
                         .thirdPicUrl("test_urlThirdPic2")
                         .germanName("test_germanName2")
                         .watchedBy(List.of("test_user1"))
+                        .build(),
+                PollenItem.builder()
+                        .englishName("test_englishName")
+                        .latinName("test_latinName")
+                        .beginBloomingSeason(BloomingMonth.AUGUST)
+                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                        .description("test_description")
+                        .firstPicUrl("test_urlFirstPic")
+                        .secondPicUrl("test_urlSecondPic")
+                        .thirdPicUrl("test_urlThirdPic")
+                        .germanName("test_germanName")
+                        .watchedBy(List.of("test_user1", "test_user2"))
                         .build()
         ));
     }
 
     @Test
     @DisplayName("method should return pollen item by id Hazel")
-    void testListPollenItemById() {
+    void testGetPollenItemById() {
         //Given
         pollenItemRepository.save(
                 PollenItem.builder()
