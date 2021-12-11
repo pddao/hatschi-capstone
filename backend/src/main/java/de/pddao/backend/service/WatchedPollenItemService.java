@@ -21,7 +21,7 @@ public class WatchedPollenItemService {
 
     public List<PollenItem> listWatchedPollenItems(Optional<String> watchedBy) {
         if (watchedBy.isEmpty()) {
-            return List.of();
+            return pollenItemRepository.findAll();
         }
         return pollenItemRepository.findByWatchedBy(watchedBy);
     }

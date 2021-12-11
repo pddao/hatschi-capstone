@@ -86,16 +86,66 @@ public class WatchedPollenItemServiceTest {
     }
 
     @Test
-    @DisplayName("method should return empty list when watchedBy is empty")
+    @DisplayName("method should return all pollen items when watchedBy is empty")
     public void testListWatchedPollenItemsWhenWatchedByIsEmpty() {
         //Given
-        when(mockPollenItemRepository.findByWatchedBy(Optional.empty())).thenReturn(List.of());
+        when(mockPollenItemRepository.findAll()).thenReturn(List.of(
+                PollenItem.builder()
+                        .englishName("test_ragweed")
+                        .latinName("test_latinName")
+                        .beginBloomingSeason(BloomingMonth.AUGUST)
+                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                        .description("test_description")
+                        .firstPicUrl("test_urlFirstPic")
+                        .secondPicUrl("test_urlSecondPic")
+                        .thirdPicUrl("test_urlThirdPic")
+                        .germanName("test_germanName")
+                        .watchedBy(List.of())
+                        .build(),
+                PollenItem.builder()
+                        .englishName("test_hazel")
+                        .latinName("test_latinName")
+                        .beginBloomingSeason(BloomingMonth.AUGUST)
+                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                        .description("test_description")
+                        .firstPicUrl("test_urlFirstPic")
+                        .secondPicUrl("test_urlSecondPic")
+                        .thirdPicUrl("test_urlThirdPic")
+                        .germanName("test_germanName")
+                        .watchedBy(List.of())
+                        .build()
+        ));
 
         //When
         List<PollenItem> listAllPollenItems = watchedPollenItemService.listWatchedPollenItems(Optional.empty());
 
         //Then
-        assertThat(listAllPollenItems, is(List.of()));
+        assertThat(listAllPollenItems, containsInAnyOrder(
+                PollenItem.builder()
+                        .englishName("test_hazel")
+                        .latinName("test_latinName")
+                        .beginBloomingSeason(BloomingMonth.AUGUST)
+                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                        .description("test_description")
+                        .firstPicUrl("test_urlFirstPic")
+                        .secondPicUrl("test_urlSecondPic")
+                        .thirdPicUrl("test_urlThirdPic")
+                        .germanName("test_germanName")
+                        .watchedBy(List.of())
+                        .build(),
+                PollenItem.builder()
+                        .englishName("test_ragweed")
+                        .latinName("test_latinName")
+                        .beginBloomingSeason(BloomingMonth.AUGUST)
+                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                        .description("test_description")
+                        .firstPicUrl("test_urlFirstPic")
+                        .secondPicUrl("test_urlSecondPic")
+                        .thirdPicUrl("test_urlThirdPic")
+                        .germanName("test_germanName")
+                        .watchedBy(List.of())
+                        .build()
+        ));
     }
 
     @Test

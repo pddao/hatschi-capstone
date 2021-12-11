@@ -7,7 +7,7 @@ import de.pddao.backend.repository.PollenItemRepository;
 import de.pddao.backend.security.model.AppUser;
 import de.pddao.backend.security.model.dto.LoginDataDto;
 import de.pddao.backend.security.repository.AppUserRepository;
-import org.hamcrest.MatcherAssert;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -21,11 +21,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.TestPropertySource;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.arrayContainingInAnyOrder;
+import static org.hamcrest.Matchers.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(properties = "jwt.secret=test_secret")
@@ -52,31 +53,57 @@ class WatchedPollenItemControllerTest {
     }
 
     @Test
-    @DisplayName("method should return all watched pollen items")
+    @DisplayName("method should return all watched pollen items when watchedBy is empty")
     void testListAllWatchedPollenItems() {
         //Given
-        pollenItemRepository.save(PollenItem.builder()
-                .englishName("test_hazel")
-                .latinName("test_latinName")
-                .beginBloomingSeason(BloomingMonth.AUGUST)
-                .endBloomingSeason(BloomingMonth.SEPTEMBER)
-                .description("test_description")
-                .firstPicUrl("test_urlFirstPic")
-                .secondPicUrl("test_urlSecondPic")
-                .thirdPicUrl("test_urlThirdPic")
-                .germanName("test_germanName")
-                .build());
-        pollenItemRepository.save(PollenItem.builder()
-                .englishName("test_ragweed")
-                .latinName("test_latinName")
-                .beginBloomingSeason(BloomingMonth.AUGUST)
-                .endBloomingSeason(BloomingMonth.SEPTEMBER)
-                .description("test_description")
-                .firstPicUrl("test_urlFirstPic")
-                .secondPicUrl("test_urlSecondPic")
-                .thirdPicUrl("test_urlThirdPic")
-                .germanName("test_germanName")
-                .build());
+        pollenItemRepository.save(
+                PollenItem.builder()
+                        .englishName("test_hazel")
+                        .latinName("test_latinName")
+                        .beginBloomingSeason(BloomingMonth.AUGUST)
+                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                        .description("test_description")
+                        .firstPicUrl("test_urlFirstPic")
+                        .secondPicUrl("test_urlSecondPic")
+                        .thirdPicUrl("test_urlThirdPic")
+                        .germanName("test_germanName")
+                        .build());
+        pollenItemRepository.save(
+                PollenItem.builder()
+                        .englishName("test_ragweed")
+                        .latinName("test_latinName")
+                        .beginBloomingSeason(BloomingMonth.AUGUST)
+                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                        .description("test_description")
+                        .firstPicUrl("test_urlFirstPic")
+                        .secondPicUrl("test_urlSecondPic")
+                        .thirdPicUrl("test_urlThirdPic")
+                        .germanName("test_germanName")
+                        .build());
+        pollenItemRepository.save(
+                PollenItem.builder()
+                        .englishName("test_alder")
+                        .latinName("test_latinName")
+                        .beginBloomingSeason(BloomingMonth.AUGUST)
+                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                        .description("test_description")
+                        .firstPicUrl("test_urlFirstPic")
+                        .secondPicUrl("test_urlSecondPic")
+                        .thirdPicUrl("test_urlThirdPic")
+                        .germanName("test_germanName")
+                        .build());
+        pollenItemRepository.save(
+                PollenItem.builder()
+                        .englishName("test_ash")
+                        .latinName("test_latinName")
+                        .beginBloomingSeason(BloomingMonth.AUGUST)
+                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                        .description("test_description")
+                        .firstPicUrl("test_urlFirstPic")
+                        .secondPicUrl("test_urlSecondPic")
+                        .thirdPicUrl("test_urlThirdPic")
+                        .germanName("test_germanName")
+                        .build());
 
         //When
         HttpHeaders headers = getHttpHeaderWithAuthToken();
@@ -109,8 +136,29 @@ class WatchedPollenItemControllerTest {
                         .secondPicUrl("test_urlSecondPic")
                         .thirdPicUrl("test_urlThirdPic")
                         .germanName("test_germanName")
-                        .build()
-        ));
+                        .build(),
+                PollenItem.builder()
+                        .englishName("test_alder")
+                        .latinName("test_latinName")
+                        .beginBloomingSeason(BloomingMonth.AUGUST)
+                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                        .description("test_description")
+                        .firstPicUrl("test_urlFirstPic")
+                        .secondPicUrl("test_urlSecondPic")
+                        .thirdPicUrl("test_urlThirdPic")
+                        .germanName("test_germanName")
+                        .build(),
+                PollenItem.builder()
+                        .englishName("test_ash")
+                        .latinName("test_latinName")
+                        .beginBloomingSeason(BloomingMonth.AUGUST)
+                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                        .description("test_description")
+                        .firstPicUrl("test_urlFirstPic")
+                        .secondPicUrl("test_urlSecondPic")
+                        .thirdPicUrl("test_urlThirdPic")
+                        .germanName("test_germanName")
+                        .build()));
     }
 
     @Test
@@ -206,7 +254,7 @@ class WatchedPollenItemControllerTest {
                         .secondPicUrl("test_urlSecondPic")
                         .thirdPicUrl("test_urlThirdPic")
                         .germanName("test_germanName")
-                        .watchedBy(List.of("Alex", "test_user1", "test_user2"))
+                        .watchedBy(List.of("test_user1", "test_user2"))
                         .build());
         pollenItemRepository.save(
                 PollenItem.builder()
@@ -232,21 +280,22 @@ class WatchedPollenItemControllerTest {
                 PollenItem.class);
 
         // Then
-        PollenItem expectedPollenItem = PollenItem.builder()
-                .englishName("hazel")
-                .latinName("test_latinName")
-                .beginBloomingSeason(BloomingMonth.AUGUST)
-                .endBloomingSeason(BloomingMonth.SEPTEMBER)
-                .description("test_description")
-                .firstPicUrl("test_urlFirstPic")
-                .secondPicUrl("test_urlSecondPic")
-                .thirdPicUrl("test_urlThirdPic")
-                .germanName("test_germanName")
-                .watchedBy(List.of("Alex","test_user1", "test_user2"))
-                .build();
+        PollenItem expectedPollenItem =
+                PollenItem.builder()
+                        .englishName("hazel")
+                        .latinName("test_latinName")
+                        .beginBloomingSeason(BloomingMonth.AUGUST)
+                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                        .description("test_description")
+                        .firstPicUrl("test_urlFirstPic")
+                        .secondPicUrl("test_urlSecondPic")
+                        .thirdPicUrl("test_urlThirdPic")
+                        .germanName("test_germanName")
+                        .watchedBy(List.of("test_user1", "test_user2", "Alex"))
+                        .build();
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
         assertThat(response.getBody(), is(expectedPollenItem));
-        assertThat(pollenItemRepository.findAll(), hasItem(expectedPollenItem));
+        assertThat(pollenItemRepository.findByWatchedBy(Optional.of("Alex")), is(List.of(expectedPollenItem)));
     }
 
     private HttpHeaders getHttpHeaderWithAuthToken() {
