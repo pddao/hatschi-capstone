@@ -1,6 +1,6 @@
 FROM openjdk:16
 
-MAINTAINER Phuong Dung Dao <dung.dao@hotmail.de>
+MAINTAINER Dung Dao <dung.dao@hotmail.de>
 
 ADD backend/target/hatschi-capstone.jar app.jar
 
