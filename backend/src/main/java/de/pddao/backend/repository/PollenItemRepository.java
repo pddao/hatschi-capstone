@@ -14,6 +14,6 @@ public interface PollenItemRepository extends PagingAndSortingRepository <Pollen
 
     Optional<PollenItem> findById(String id);
 
-    List<PollenItem> findByWatchedBy(String watchedBy);
+    List<PollenItem> findByWatchedBy(Optional<String> watchedBy);
 
 }

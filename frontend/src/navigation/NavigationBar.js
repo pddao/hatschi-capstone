@@ -56,7 +56,7 @@ export default function NavigationBar() {
           icon={<HomeRounded />}
         />
         <BottomNavigationAction
-          value={'/pollencount'}
+          value={'/forecast'}
           label="Forecast"
           icon={<LocalFloristRoundedIcon />}
         />

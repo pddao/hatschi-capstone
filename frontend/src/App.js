@@ -32,7 +32,7 @@ export default function App() {
             <PrivateRoute path={'/user'} exact>
               <UserPage />
             </PrivateRoute>
-            <PrivateRoute path={'/pollencount'} exact>
+            <PrivateRoute path={'/forecast'} exact>
               <PollenForecastPage />
             </PrivateRoute>
           </Switch>

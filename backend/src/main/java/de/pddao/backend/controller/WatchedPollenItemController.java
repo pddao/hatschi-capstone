@@ -10,6 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/pollenitems/watched")
@@ -22,8 +23,8 @@ public class WatchedPollenItemController {
     }
 
     @GetMapping
-    public List<PollenItem> listPollenItemsOnWatchlist(Principal principal) {
-        return watchedPollenItemService.listWatchedPollenItems(principal.getName());
+    public List<PollenItem> listPollenItemsOnWatchlist(@RequestParam Optional<String> watchedBy) {
+        return watchedPollenItemService.listWatchedPollenItems(watchedBy);
     }
 
     @PutMapping
