@@ -80,6 +80,7 @@ export default function UserPage() {
 
   useEffect(() => {
     allPollenItemsWatchedByUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [watchedPollenItems]);
 
   const handleChange = (event) => {

@@ -14,7 +14,7 @@ export function BackButton() {
           <ArrowBackIosOutlinedIcon />
         </div>
       ) : (
-        <div style={{ color: '#8db596' }}>.....</div>
+        <div style={{ width: '36px' }}></div>
       )}
     </div>
   );
