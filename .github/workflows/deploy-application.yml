@@ -61,6 +61,6 @@ jobs:
       - name: Login to heroku
         run: heroku container:login
       - name: Push docker container
-        run: heroku container:push web -a hatschi
+        run: heroku container:push web -a hatschi-capstone
       - name: Deploy docker container
-        run: heroku container:release web -a hatschi
+        run: heroku container:release web -a hatschi-capstone
