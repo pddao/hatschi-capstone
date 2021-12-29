@@ -34,7 +34,7 @@ public class PollenItemController {
         Optional<PollenItem> optionalPollenItem = pollenItemService.getPollenItemById(id);
 
         if (optionalPollenItem.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "id doesn't exist");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "id does not exist");
         }
         return optionalPollenItem.get();
     }

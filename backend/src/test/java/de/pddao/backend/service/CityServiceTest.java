@@ -16,14 +16,14 @@ import static org.mockito.Mockito.when;
 
 class CityServiceTest {
 
-    private final CityRepository cityRepository = mock(CityRepository.class);
-    private final CityService cityService = new CityService(cityRepository);
+    private final CityRepository mockCityRepository = mock(CityRepository.class);
+    private final CityService cityService = new CityService(mockCityRepository);
 
     @Test
     @DisplayName("method should return all cities in repository")
     public void testListAllCities() {
         //Given
-        when(cityRepository.findAll()).thenReturn(List.of(
+        when(mockCityRepository.findAll()).thenReturn(List.of(
                 City.builder()
                         .name("test_name")
                         .region_id(2)
@@ -71,7 +71,7 @@ class CityServiceTest {
     @DisplayName("method should return city by name")
     public void testGetCityByName() {
         //Given
-        when(cityRepository.findByName("Hamburg")).thenReturn(Optional.of(
+        when(mockCityRepository.findByName("Hamburg")).thenReturn(Optional.of(
                 City.builder()
                         .name("Hamburg")
                         .region_id(2)

@@ -16,37 +16,37 @@ import static org.mockito.Mockito.when;
 
 class PollenItemServiceTest {
 
-    private final PollenItemRepository pollenItemRepository = mock(PollenItemRepository.class);
-    private final PollenItemService pollenItemService = new PollenItemService(pollenItemRepository);
+    private final PollenItemRepository mockPollenItemRepository = mock(PollenItemRepository.class);
+    private final PollenItemService pollenItemService = new PollenItemService(mockPollenItemRepository);
 
     @Test
     @DisplayName("method should return all pollen items in repository")
     public void testListAllPollenItems() {
         //Given
-        when(pollenItemRepository.findAll()).thenReturn(List.of(PollenItem.builder()
-                        .englishName("test_englishName")
-                        .latinName("test_latinName")
-                        .beginBloomingSeason(BloomingMonth.AUGUST)
-                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
-                        .description("test_description")
-                        .firstPicUrl("test_urlFirstPic")
-                        .secondPicUrl("test_urlSecondPic")
-                        .thirdPicUrl("test_urlThirdPic")
-                        .germanName("test_germanName")
-                        .watchedBy(List.of("test_user1", "test_user2"))
-                        .build(),
-                PollenItem.builder()
-                        .englishName("test_englishName2")
-                        .latinName("test_latinName2")
-                        .beginBloomingSeason(BloomingMonth.JULY)
-                        .endBloomingSeason(BloomingMonth.AUGUST)
-                        .description("test_description2")
-                        .firstPicUrl("test_urlFirstPic2")
-                        .secondPicUrl("test_urlSecondPic2")
-                        .thirdPicUrl("test_urlThirdPic2")
-                        .germanName("test_germanName2")
-                        .watchedBy(List.of("test_user3", "test_user4"))
-                        .build()
+        when(mockPollenItemRepository.findAll()).thenReturn(List.of(PollenItem.builder()
+                                .englishName("test_englishName")
+                                .latinName("test_latinName")
+                                .beginBloomingSeason(BloomingMonth.AUGUST)
+                                .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                                .description("test_description")
+                                .firstPicUrl("test_urlFirstPic")
+                                .secondPicUrl("test_urlSecondPic")
+                                .thirdPicUrl("test_urlThirdPic")
+                                .germanName("test_germanName")
+                                .watchedBy(List.of("test_user1", "test_user2"))
+                                .build(),
+                        PollenItem.builder()
+                                .englishName("test_englishName2")
+                                .latinName("test_latinName2")
+                                .beginBloomingSeason(BloomingMonth.JULY)
+                                .endBloomingSeason(BloomingMonth.AUGUST)
+                                .description("test_description2")
+                                .firstPicUrl("test_urlFirstPic2")
+                                .secondPicUrl("test_urlSecondPic2")
+                                .thirdPicUrl("test_urlThirdPic2")
+                                .germanName("test_germanName2")
+                                .watchedBy(List.of("test_user3", "test_user4"))
+                                .build()
                 )
         );
 
@@ -55,30 +55,30 @@ class PollenItemServiceTest {
 
         //Then
         assertThat(pollenItems, containsInAnyOrder(
-                PollenItem.builder()
-                        .englishName("test_englishName")
-                        .latinName("test_latinName")
-                        .beginBloomingSeason(BloomingMonth.AUGUST)
-                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
-                        .description("test_description")
-                        .firstPicUrl("test_urlFirstPic")
-                        .secondPicUrl("test_urlSecondPic")
-                        .thirdPicUrl("test_urlThirdPic")
-                        .germanName("test_germanName")
-                        .watchedBy(List.of("test_user1", "test_user2"))
-                        .build(),
-                PollenItem.builder()
-                        .englishName("test_englishName2")
-                        .latinName("test_latinName2")
-                        .beginBloomingSeason(BloomingMonth.JULY)
-                        .endBloomingSeason(BloomingMonth.AUGUST)
-                        .description("test_description2")
-                        .firstPicUrl("test_urlFirstPic2")
-                        .secondPicUrl("test_urlSecondPic2")
-                        .thirdPicUrl("test_urlThirdPic2")
-                        .germanName("test_germanName2")
-                        .watchedBy(List.of("test_user3", "test_user4"))
-                        .build()
+                        PollenItem.builder()
+                                .englishName("test_englishName2")
+                                .latinName("test_latinName2")
+                                .beginBloomingSeason(BloomingMonth.JULY)
+                                .endBloomingSeason(BloomingMonth.AUGUST)
+                                .description("test_description2")
+                                .firstPicUrl("test_urlFirstPic2")
+                                .secondPicUrl("test_urlSecondPic2")
+                                .thirdPicUrl("test_urlThirdPic2")
+                                .germanName("test_germanName2")
+                                .watchedBy(List.of("test_user3", "test_user4"))
+                                .build(),
+                        PollenItem.builder()
+                                .englishName("test_englishName")
+                                .latinName("test_latinName")
+                                .beginBloomingSeason(BloomingMonth.AUGUST)
+                                .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                                .description("test_description")
+                                .firstPicUrl("test_urlFirstPic")
+                                .secondPicUrl("test_urlSecondPic")
+                                .thirdPicUrl("test_urlThirdPic")
+                                .germanName("test_germanName")
+                                .watchedBy(List.of("test_user1", "test_user2"))
+                                .build()
                 )
         );
     }
@@ -87,19 +87,19 @@ class PollenItemServiceTest {
     @DisplayName("method should return pollen item by id")
     public void testGetPollenItemById() {
         //Given
-        when(pollenItemRepository.findById("test_id")).thenReturn(Optional.of(
-                PollenItem.builder()
-                        .englishName("test_englishName")
-                        .latinName("test_latinName")
-                        .beginBloomingSeason(BloomingMonth.AUGUST)
-                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
-                        .description("test_description")
-                        .firstPicUrl("test_urlFirstPic")
-                        .secondPicUrl("test_urlSecondPic")
-                        .thirdPicUrl("test_urlThirdPic")
-                        .germanName("test_germanName")
-                        .watchedBy(List.of("test_user1", "test_user2"))
-                        .build()
+        when(mockPollenItemRepository.findById("test_id")).thenReturn(Optional.of(
+                        PollenItem.builder()
+                                .englishName("test_englishName")
+                                .latinName("test_latinName")
+                                .beginBloomingSeason(BloomingMonth.AUGUST)
+                                .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                                .description("test_description")
+                                .firstPicUrl("test_urlFirstPic")
+                                .secondPicUrl("test_urlSecondPic")
+                                .thirdPicUrl("test_urlThirdPic")
+                                .germanName("test_germanName")
+                                .watchedBy(List.of("test_user1", "test_user2"))
+                                .build()
                 )
         );
 
@@ -108,18 +108,18 @@ class PollenItemServiceTest {
 
         //Then
         assertThat(optionalPollenItem, is(Optional.of(
-                PollenItem.builder()
-                        .englishName("test_englishName")
-                        .latinName("test_latinName")
-                        .beginBloomingSeason(BloomingMonth.AUGUST)
-                        .endBloomingSeason(BloomingMonth.SEPTEMBER)
-                        .description("test_description")
-                        .firstPicUrl("test_urlFirstPic")
-                        .secondPicUrl("test_urlSecondPic")
-                        .thirdPicUrl("test_urlThirdPic")
-                        .germanName("test_germanName")
-                        .watchedBy(List.of("test_user1", "test_user2"))
-                        .build()
+                        PollenItem.builder()
+                                .englishName("test_englishName")
+                                .latinName("test_latinName")
+                                .beginBloomingSeason(BloomingMonth.AUGUST)
+                                .endBloomingSeason(BloomingMonth.SEPTEMBER)
+                                .description("test_description")
+                                .firstPicUrl("test_urlFirstPic")
+                                .secondPicUrl("test_urlSecondPic")
+                                .thirdPicUrl("test_urlThirdPic")
+                                .germanName("test_germanName")
+                                .watchedBy(List.of("test_user1", "test_user2"))
+                                .build()
                 )
         ));
     }

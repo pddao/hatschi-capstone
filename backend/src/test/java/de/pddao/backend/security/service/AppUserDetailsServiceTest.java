@@ -2,6 +2,7 @@ package de.pddao.backend.security.service;
 
 import de.pddao.backend.security.model.AppUser;
 import de.pddao.backend.security.repository.AppUserRepository;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,6 +21,7 @@ class AppUserDetailsServiceTest {
     private final AppUserDetailsService appUserDetailsService = new AppUserDetailsService(appUserRepository);
 
     @Test
+    @DisplayName("method should find user by name")
     public void findUserByName() {
         //Given
         when(appUserRepository.findById("Jochen")).thenReturn(
@@ -38,6 +40,7 @@ class AppUserDetailsServiceTest {
     }
 
     @Test
+    @DisplayName("method should throw exception when username is not found")
     public void throwsWhenUsernameIsNotFound() {
         //Given
         when(appUserRepository.findById("Jochen")).thenReturn(Optional.empty());
@@ -48,6 +51,4 @@ class AppUserDetailsServiceTest {
         //Then
         assertThrows(UsernameNotFoundException.class, when);
     }
-
-
 }
